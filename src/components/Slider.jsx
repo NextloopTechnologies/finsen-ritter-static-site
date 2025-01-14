@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ProductSectionBgImg } from "../assets/images";
 
-const Slider = ({ cards }) => {
+const Slider = ({
+  cards,
+  backgroundImage,
+  backgroundColor,
+  cardClass,
+  cardContainerClass,
+  iconOnly,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const sliderRef = useRef(null);
@@ -70,30 +76,20 @@ const Slider = ({ cards }) => {
     <div
       className="relative w-full py-10"
       style={{
-        backgroundImage: `url("${ProductSectionBgImg}")`,
+        backgroundImage: backgroundImage
+          ? `url("${backgroundImage}")`
+          : undefined,
+        backgroundColor: backgroundColor || undefined,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "100% auto",
       }}
     >
-      {/* <button
-        onClick={handlePrevClick}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-r-lg shadow-md hover:bg-white"
-      >
-        ←
-      </button>
-      <button
-        onClick={handleNextClick}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-l-lg shadow-md hover:bg-white"
-      >
-        →
-      </button> */}
       <div className="p-14 flex flex-col items-center text-center">
-        <div className="text-blue-900 font-extrabold text-3xl">OUR PRODUCT</div>
-        <div className=" font-semibold text-xl">
-          Eco-friendly biogas solutions for renewable energy and waste
-          management needs.
+        <div className="text-blue-900 font-extrabold text-3xl">
+          {cards?.mainHeader}
         </div>
+        <div className="font-semibold text-xl">{cards?.mainDescription}</div>
       </div>
       <div
         className="overflow-hidden mx-8"
@@ -102,48 +98,58 @@ const Slider = ({ cards }) => {
       >
         <div
           ref={sliderRef}
-          className="flex gap-4 overflow-x-auto scroll-smooth py-10"
+          className={`flex gap-4 overflow-x-auto scroll-smooth py-10 ${cardContainerClass}`}
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             msOverflowStyle: "none",
             scrollbarWidth: "none",
-            "::-webkit-scrollbar": {
-              display: "none",
-            },
           }}
         >
-          {cards.map((card, index) => (
+          {cards?.items?.map((card, index) => (
             <div
               key={index}
-              className={`w-[20%] flex-shrink-0 rounded-lg p-4 text-center
-                transition-all duration-300 scroll-snap-align-center 
-                ${
-                  index === currentIndex
-                    ? "scale-105 shadow-xl bg-gray-300 -translate-y-2"
-                    : "bg-white shadow-md"
-                }
-                hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
+              className={`flex flex-col items-center justify-center flex-shrink-0 transition-all duration-300 scroll-snap-align-center
+              ${iconOnly ? "aspect-square p-4" : "w-[20%] p-4"}
+              ${cardClass}
+              ${
+                index === currentIndex
+                  ? "scale-105 shadow-xl bg-gray-300 -translate-y-2"
+                  : "bg-white shadow-md"
+              }
+              hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
               onClick={() => setCurrentIndex(index)}
             >
-              <img
-                src={card?.icon}
-                alt={card.heading}
-                className="mb-2 mx-auto h-auto w-[50%]"
-              />
-              <h3 className="font-bold">{card.heading}</h3>
-              <p className="text-sm">{card.description}</p>
+              <div
+                className={`flex items-center justify-center ${
+                  iconOnly ? "w-full h-full p-4" : "w-full h-full"
+                }`}
+              >
+                <img
+                  src={card?.icon}
+                  alt={card.heading || "client logo"}
+                  className={`object-contain ${
+                    iconOnly ? "w-full h-full" : "w-1/2"
+                  }`}
+                />
+              </div>
+              {!iconOnly && (
+                <>
+                  <h3 className="font-bold">{card.heading}</h3>
+                  <p className="text-sm">{card.description}</p>
+                </>
+              )}
             </div>
           ))}
         </div>
       </div>
       <div className="flex justify-center gap-2 mt-4">
-        {cards.map((_, index) => (
+        {cards?.items?.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all
-              ${index === currentIndex ? "bg-gray-800 w-4" : "bg-white"}
-            `}
+            ${index === currentIndex ? "bg-gray-800 w-4" : "bg-white"}
+          `}
             onClick={() => setCurrentIndex(index)}
           />
         ))}
