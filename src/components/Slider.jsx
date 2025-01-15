@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { StarIcon } from "../assets/svg";
 
 const Slider = ({
   cards,
@@ -7,6 +8,7 @@ const Slider = ({
   cardClass,
   cardContainerClass,
   iconOnly,
+  isTestimonial,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -110,7 +112,13 @@ const Slider = ({
             <div
               key={index}
               className={`flex flex-col items-center justify-center flex-shrink-0 transition-all duration-300 scroll-snap-align-center
-              ${iconOnly ? "aspect-square p-4" : "w-[20%] p-4"}
+              ${
+                iconOnly
+                  ? "aspect-square p-4"
+                  : isTestimonial
+                  ? ""
+                  : "w-[20%] p-4"
+              }
               ${cardClass}
               ${
                 index === currentIndex
@@ -120,23 +128,63 @@ const Slider = ({
               hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
               onClick={() => setCurrentIndex(index)}
             >
-              <div
-                className={`flex items-center justify-center ${
-                  iconOnly ? "w-full h-full p-4" : "w-full h-full"
-                }`}
-              >
-                <img
-                  src={card?.icon}
-                  alt={card.heading || "client logo"}
-                  className={`object-contain ${
-                    iconOnly ? "w-full h-full" : "w-1/2"
-                  }`}
-                />
-              </div>
-              {!iconOnly && (
+              {isTestimonial ? (
                 <>
-                  <h3 className="font-bold">{card.heading}</h3>
-                  <p className="text-sm">{card.description}</p>
+                  <div className="flex justify-between w-full">
+                    <div className="flex">
+                      {card.icon && (
+                        <img
+                          src={card.icon || "/placeholder.svg"}
+                          alt={card.name || "avatar"}
+                          className="w-12 h-12 rounded-full object-cover"
+                        />
+                      )}
+                      <div className="mx-2">
+                        <h4 className="font-semibold text-sm">{card.name}</h4>
+                        <p className="text-xs text-gray-500">
+                          {card.designation}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      {card.rating && (
+                        <div className="flex mb-4 ml-4">
+                          {[...Array(card.rating)].map((_, i) => (
+                            <StarIcon
+                              key={i}
+                              className="w-5 h-5 text-yellow-400"
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 mb-6 flex-grow text-sm my-2">
+                    {card.text}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div
+                    className={`flex items-center justify-center ${
+                      iconOnly ? "w-full h-full p-4" : "w-full h-full"
+                    }`}
+                  >
+                    <img
+                      src={card?.icon}
+                      alt={card.heading || "client logo"}
+                      className={`object-contain ${
+                        iconOnly ? "w-full h-full" : "w-1/2"
+                      }`}
+                    />
+                  </div>
+                  {!iconOnly && (
+                    <>
+                      <h3 className="font-bold">{card.heading}</h3>
+                      <p className="text-sm">{card.description}</p>
+                    </>
+                  )}
                 </>
               )}
             </div>
@@ -148,7 +196,7 @@ const Slider = ({
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all
-            ${index === currentIndex ? "bg-gray-800 w-4" : "bg-white"}
+            ${index === currentIndex ? "bg-gray-800 w-4" : "bg-gray-400"}
           `}
             onClick={() => setCurrentIndex(index)}
           />

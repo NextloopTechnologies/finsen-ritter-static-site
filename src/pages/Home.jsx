@@ -1,6 +1,5 @@
 import React from "react";
 import AboutUs from "../components/AboutUs";
-import DemoImage from "../assets/demoImage.png";
 import { LogoFRSVG } from "../assets/svg";
 import DemoVideo from "../components/DemoVideo";
 import BackgroundImg from "../assets/HomePage/Background.png";
@@ -34,9 +33,11 @@ import {
   UniqueHospitalIcon,
   MPGovIcon,
   SAIMSIcon,
+  TestimonialProfileIcon,
 } from "../assets/icons";
 import OurBiogasSection from "../components/OurBiogasSection";
 import { ProductSectionBgImg } from "../assets/images";
+import ContactSection from "../components/ContactSection";
 
 const Home = () => {
   const cards = {
@@ -173,28 +174,63 @@ const Home = () => {
         designation: "Property Manager",
         text: "Dude, your stuff is the bomb! House rent is the real deal! I STRONGLY recommend house rent to EVERYONE interested in running a successful online business!",
         rating: 5,
-        avatar: "/path/to/avatar1.jpg",
+        icon: TestimonialProfileIcon,
       },
       {
         name: "Mrs. Van Hartmann",
         designation: "Business Owner",
         text: "I like Infinity Estate more and more each day because it makes my life a lot easier. We can't understand how we've been living without Infinity Estate.",
         rating: 5,
-        avatar: "/path/to/avatar2.jpg",
+        icon: TestimonialProfileIcon,
       },
       {
         name: "Philip Decleow",
         designation: "Real Estate Agent",
         text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
         rating: 5,
-        avatar: "/path/to/avatar3.jpg",
+        icon: TestimonialProfileIcon,
       },
       {
-        name: "suyash pandey",
-        designation: "Software Engineer",
+        name: "Philip Decleow",
+        designation: "Real Estate Agent",
         text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
         rating: 5,
-        avatar: "/path/to/avatar3.jpg",
+        icon: TestimonialProfileIcon,
+      },
+      {
+        name: "Philip Decleow",
+        designation: "Real Estate Agent",
+        text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
+        rating: 5,
+        icon: TestimonialProfileIcon,
+      },
+      {
+        name: "Philip Decleow",
+        designation: "Real Estate Agent",
+        text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
+        rating: 5,
+        icon: TestimonialProfileIcon,
+      },
+      {
+        name: "Philip Decleow",
+        designation: "Real Estate Agent",
+        text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
+        rating: 5,
+        icon: TestimonialProfileIcon,
+      },
+      {
+        name: "Philip Decleow",
+        designation: "Real Estate Agent",
+        text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
+        rating: 5,
+        icon: TestimonialProfileIcon,
+      },
+      {
+        name: "Philip Decleow",
+        designation: "Real Estate Agent",
+        text: "You've saved our business! Infinity Estate has got everything I need. We were treated like royalty. It's really wonderful.",
+        rating: 5,
+        icon: TestimonialProfileIcon,
       },
     ],
   };
@@ -211,7 +247,6 @@ const Home = () => {
           backgroundSize: "100% auto",
         }}
       >
-        {/* Rest of the hero section content remains the same */}
         <div className="relative z-10 mx-10 text-left">
           <div className="text-6xl font-bold flex flex-col gap-4">
             <h2 className="">Empowering Sustainable</h2>
@@ -250,69 +285,18 @@ const Home = () => {
         backgroundColor="rgba(19, 83, 132, 0.1)"
         cardClass="rounded-full w-[15%]"
         iconOnly={true}
-        cardContainerClass="bg-gray-100"
+        cardContainerClass=""
       />
 
       <Slider
         cards={testimonials}
         isTestimonial={true}
         cardContainerClass="px-4"
-        backgroundColor="bg-white"
+        backgroundColor=""
+        cardClass="w-[30%] rounded-xl p-4"
       />
 
-      {/* get in touch */}
-      <div
-        className="relative z-20 bg-white p-5 rounded-lg mt-10 md:mx-10 mx-5 mb-[-80px]"
-        style={{ boxShadow: "0 0 10px #808080" }}
-      >
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-green-700">Get in Touch</h2>
-          <p className="mt-2 text-gray-700">
-            Have a question or need assistance? Please fill out the form below,
-            and we’ll get back to you as soon as possible.
-          </p>
-        </div>
-        <div className="flex flex-col md:flex-row mt-4">
-          <div className="md:w-1/2 pr-4 mb-4 md:mb-0">
-            <h3 className="text-xl font-semibold text-green-700">
-              Contact Information
-            </h3>
-            <p className="text-gray-800">�� info@nextlooptechnologies.com</p>
-            <p className="text-gray-800">
-              🏢 101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia,
-              Indore, Madhya Pradesh 452001
-            </p>
-            <p className="text-gray-800">�� +91-6351 673 645</p>
-          </div>
-          <div className="md:w-1/2 mt-4 md:mt-0">
-            <div className="bg-gray-200 h-40 flex items-center justify-center rounded">
-              <span className="text-gray-500">Map</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Social Media Links */}
-        <div className="flex flex-wrap space-x-4 mt-4">
-          <a href="#" className="text-gray-600">
-            Facebook
-          </a>
-          <a href="#" className="text-gray-600">
-            Google
-          </a>
-          <a href="#" className="text-gray-600">
-            Email
-          </a>
-          <a href="#" className="text-gray-600">
-            Instagram
-          </a>
-          <a href="#" className="text-gray-600">
-            LinkedIn
-          </a>
-          <a href="#" className="text-gray-600">
-            Twitter
-          </a>
-        </div>
-      </div>
+      <ContactSection />
     </div>
   );
 };

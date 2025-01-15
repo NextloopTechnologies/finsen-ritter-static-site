@@ -1,87 +1,70 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { LogoWithNameWhite } from "../assets/images";
 
 const Footer = () => {
+  const companyLinks = [
+    "Home",
+    "About Us",
+    "Products",
+    "Services",
+    "Blogs & News",
+    "Connect With Us",
+    "CBG Calculator",
+  ];
+  const blogLinks = ["FAQ", "Help Center", "Career", "Privacy"];
+  const serviceLinks = [
+    "Engineering, Procurement, and Construction (EPC)",
+    "Procurement Management",
+    "Industrial Automation 4.0",
+    "Project Feasibility Report",
+    "Detailed Project Report",
+    "Cost Management Analysis to the Project",
+    "Safety Consultancy",
+    "License & Permissions Assistance (PESO, CPCB, Fire & Safety etc.)",
+  ];
+  const FooterList = ({ title, items, bulletPoints }) => (
+    <div>
+      <h3 className="text-lg font-semibold mb-4">{title}</h3>
+      <ul className={`${bulletPoints ? "list-disc pl-5" : ""} space-y-2`}>
+        {items.map((item, index) => (
+          <li key={index}>
+            <a href="#" className="hover:underline font-semibold">
+              {item}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
   return (
-    <div className="bg-black text-white w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/" className="hover:underline">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:underline">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:underline">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="hover:underline">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/calculator" className="hover:underline">
-                  Calculator
-                </Link>
-              </li>
-            </ul>
+    <footer className="bg-[#135384] text-white py-16 pt-32">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
+          {/* Company Info */}
+          <div className="space-y-4 mr-5">
+            <img src={LogoWithNameWhite} alt="Finsen Ritter" className="h-12" />
+            <p className="text-sm leading-relaxed font-semibold">
+              Finsen Ritter Technologies specializes in turnkey industrial
+              solutions for gas plants, with expertise across various sectors
+              globally.
+            </p>
           </div>
 
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Services</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/services/categories" className="hover:underline">
-                  Categories
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/online-course" className="hover:underline">
-                  Online Course
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/video-course" className="hover:underline">
-                  Video Course
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Company Links */}
+          <FooterList title="Company" items={companyLinks} />
 
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Contact Info</h3>
-            <ul className="space-y-3">
-              <li>FAQ</li>
-              <li>Help Center</li>
-              <li>Career</li>
-              <li>Privacy</li>
-            </ul>
-          </div>
+          {/* Blog Links */}
+          <FooterList title="Blog" items={blogLinks} />
 
-          <div>
-            <ul className="space-y-3">
-              <li>+011-735-2875</li>
-              <li>student@yourportal.com</li>
-              <li>4566 Shinger Hollow Road</li>
-              <li>New Creek, OH 45426</li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-8 pt-4 text-center border-t border-white/10">
-          <p>© SiteData All Right Reserved 2023</p>
+          {/* Services */}
+          <FooterList
+            title="Services"
+            items={serviceLinks}
+            bulletPoints={true}
+          />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

@@ -26,6 +26,7 @@ import CharteredIcon from "../assets/HomePage/CharteredIcon.png";
 import MVJMedicalCollegeIcon from "../assets/HomePage/MVJMedicalCollegeIcon.png";
 import PMProjectsIcon from "../assets/HomePage/PMProjectsIcon.png";
 import UniqueHospitalIcon from "../assets/HomePage/UniqueHospitalIcon.png";
+import TestimonialProfileIcon from "../assets/HomePage/TestimonialProfileIcon.png";
 
 export {
   H2SCO2ScrubberIcon,
@@ -56,4 +57,5 @@ export {
   UniqueHospitalIcon,
   MPGovIcon,
   SAIMSIcon,
+  TestimonialProfileIcon,
 };
