@@ -1,13 +1,17 @@
+import React from "react";
+
 const DemoVideo = () => {
   return (
-    <div className="flex justify-center -mt-32">
-      <video width="70%" controls className="rounded-xl">
-        <source
-          src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
+    <div className="flex justify-center px-4 md:px-0 -mt-40 md:-mt-32">
+      <div className="w-full md:w-[70%]">
+        <video controls className="rounded-xl w-full h-auto" playsInline>
+          <source
+            src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   );
 };

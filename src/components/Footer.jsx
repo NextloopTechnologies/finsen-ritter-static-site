@@ -37,11 +37,10 @@ const Footer = () => {
     </div>
   );
   return (
-    <footer className="bg-[#135384] text-white py-16 pt-32">
+    <footer className="bg-[#135384] text-white py-16 pt-32 px-10 md:px-20">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
-          {/* Company Info */}
-          <div className="space-y-4 mr-5">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 md:gap-12">
+          <div className="space-y-4">
             <img src={LogoWithNameWhite} alt="Finsen Ritter" className="h-12" />
             <p className="text-sm leading-relaxed font-semibold">
               Finsen Ritter Technologies specializes in turnkey industrial
@@ -50,18 +49,18 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Company Links */}
-          <FooterList title="Company" items={companyLinks} />
+          <div className="grid grid-cols-2 gap-6 md:col-span-2">
+            <FooterList title="Company" items={companyLinks} />
+            <FooterList title="Blog" items={blogLinks} />
+          </div>
 
-          {/* Blog Links */}
-          <FooterList title="Blog" items={blogLinks} />
-
-          {/* Services */}
-          <FooterList
-            title="Services"
-            items={serviceLinks}
-            bulletPoints={true}
-          />
+          <div className="mt-8 md:mt-0">
+            <FooterList
+              title="Services"
+              items={serviceLinks}
+              bulletPoints={true}
+            />
+          </div>
         </div>
       </div>
     </footer>

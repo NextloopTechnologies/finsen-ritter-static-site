@@ -94,7 +94,7 @@ const Slider = ({
         <div className="font-semibold text-xl">{cards?.mainDescription}</div>
       </div>
       <div
-        className="overflow-hidden mx-8"
+        className="overflow-hidden mx-4 md:mx-8"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -117,26 +117,26 @@ const Slider = ({
                   ? "aspect-square p-4"
                   : isTestimonial
                   ? ""
-                  : "w-[20%] p-4"
+                  : "w-[80%] md:w-[20%] p-2 md:p-4"
               }
-              ${cardClass}
-              ${
-                index === currentIndex
-                  ? "scale-105 shadow-xl bg-gray-300 -translate-y-2"
-                  : "bg-white shadow-md"
-              }
-              hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
+             ${cardClass}
+             ${
+               index === currentIndex
+                 ? "scale-105 shadow-xl bg-gray-300 -translate-y-2"
+                 : "bg-white shadow-md"
+             }
+             hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
               onClick={() => setCurrentIndex(index)}
             >
               {isTestimonial ? (
                 <>
-                  <div className="flex justify-between w-full">
-                    <div className="flex">
+                  <div className="flex justify-between w-full flex-col md:flex-row gap-2 md:gap-0">
+                    <div className="flex items-center">
                       {card.icon && (
                         <img
                           src={card.icon || "/placeholder.svg"}
                           alt={card.name || "avatar"}
-                          className="w-12 h-12 rounded-full object-cover"
+                          className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
                         />
                       )}
                       <div className="mx-2">

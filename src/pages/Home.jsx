@@ -38,6 +38,7 @@ import {
 import OurBiogasSection from "../components/OurBiogasSection";
 import { ProductSectionBgImg } from "../assets/images";
 import ContactSection from "../components/ContactSection";
+import HeroSection from "../components/HeroSection";
 
 const Home = () => {
   const cards = {
@@ -237,45 +238,16 @@ const Home = () => {
 
   return (
     <div className="flex flex-col gap-28">
-      {/* Hero Section */}
-      <div
-        className="text-white py-40 px-4 flex justify-between min-h-screen"
-        style={{
-          backgroundImage: `url("${BackgroundImg}")`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "100% auto",
-        }}
-      >
-        <div className="relative z-10 mx-10 text-left">
-          <div className="text-6xl font-bold flex flex-col gap-4">
-            <h2 className="">Empowering Sustainable</h2>
-            <h2>Energy with Advanced</h2>
-            <h2 className="">Biogas Solutions</h2>
-            <p className="text-xl font-normal">
-              Transforming organic waste into clean, renewable <br /> energy for
-              a sustainable future.
-            </p>
-            <button className="bg-[#135384] hover:bg-[rgb(17,25,60)] text-white py-3 px-8 rounded-lg transition-colors duration-300 text-xl max-w-60">
-              Learn More
-            </button>
-          </div>
-        </div>
-
-        <div className="relative z-10">
-          <LogoFRSVG className="w-[30vw] h-auto -py-36" />
-        </div>
-      </div>
+      <HeroSection />
 
       <DemoVideo />
 
-      {/* About Us Section */}
       <AboutUs />
 
       <Slider
         cards={cards}
         backgroundImage={ProductSectionBgImg}
-        cardClass="rounded-lg"
+        cardClass="rounded-lg w-[80%] md-[15%]"
       />
 
       <OurBiogasSection />
@@ -283,7 +255,7 @@ const Home = () => {
       <Slider
         cards={cardsClients}
         backgroundColor="rgba(19, 83, 132, 0.1)"
-        cardClass="rounded-full w-[15%]"
+        cardClass="rounded-full w-[40%] md:w-[15%] p-2 md:p-4"
         iconOnly={true}
         cardContainerClass=""
       />
@@ -293,7 +265,7 @@ const Home = () => {
         isTestimonial={true}
         cardContainerClass="px-4"
         backgroundColor=""
-        cardClass="w-[30%] rounded-xl p-4"
+        cardClass="md:w-[30%] w-[80%] rounded-xl p-4"
       />
 
       <ContactSection />

@@ -1,14 +1,18 @@
 import React from "react";
-import { MapLocations, IndustrialSiteCircular } from "../assets/images";
+import {
+  MapLocations,
+  IndustrialSiteCircular,
+  BioCngPlantsMap,
+} from "../assets/images";
 
 const OurBiogasSection = () => {
   return (
-    <div className="flex p-5 self-center">
-      <div className="bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] rounded-bl-[4rem] my-20">
-        <div className="text-3xl font-bold text-blue-900 mb-4">
+    <div className="flex flex-col md:flex-row p-4 md:p-5 justify-center w-full">
+      <div className="bg-opacity-10 p-4 md:p-10 w-full md:max-w-[50vw] my-8 md:my-20">
+        <div className="text-2xl md:text-3xl font-bold text-blue-900 mb-4 text-center md:text-left">
           Our Biogas Solutions
         </div>
-        <div>
+        <div className="text-center md:text-left text-sm md:text-base leading-relaxed">
           With years of expertise in biogas technology, we specialize in
           designing, installing, and maintaining biogas systems that reduce
           waste and generate renewable energy. Our commitment to sustainability
@@ -19,13 +23,24 @@ const OurBiogasSection = () => {
           customer success sets us apart in the industry.
         </div>
       </div>
-      <div className="relative">
-        <img src={MapLocations} alt="Location on map" className="h-auto w-96" />
+
+      <div className="relative flex justify-center md:justify-start w-auto md:w-auto mt-4 md:mt-0">
+        <img
+          src={BioCngPlantsMap}
+          alt="Location on map"
+          className="h-auto w-[80vw] md:w-96 object-contain"
+        />
+        {/* Uncomment if needed
+        <img 
+          src={MapLocations} 
+          alt="Location on map" 
+          className="h-auto w-[80vw] md:w-96 object-contain" 
+        />
         <img
           src={IndustrialSiteCircular}
           alt="Industrial site view"
-          className="absolute h-52 -left-20 -bottom-12"
-        />
+          className="absolute h-40 md:h-52 -left-8 md:-left-20 -bottom-8 md:-bottom-12"
+        /> */}
       </div>
     </div>
   );
