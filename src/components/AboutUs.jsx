@@ -1,5 +1,6 @@
 import React from "react";
 import AboutUsLeftImg from "../assets/AboutUs/AboutUsLeftImg.png";
+import { HomeText } from "../utils/ExportText";
 
 const AboutUs = () => {
   return (
@@ -21,16 +22,7 @@ const AboutUs = () => {
           ABOUT US
         </h2>
         <p className="text-gray-700 leading-relaxed mb-6 md:mb-8 font-semibold text-center md:text-left">
-          Finsen Ritter Technologies specializes in industrial turnkey
-          solutions, offering expertise in the design, supply, installation, and
-          testing of chemical and gas plants. With a presence in Europe, Africa,
-          and India, and a design center in Amsterdam, we focus on diverse
-          sectors including oxygen, nitrogen, hydrogen, UVGI, water treatment,
-          brewing, solar, biogas, and noise monitoring. Committed to innovation
-          and Industry 4.0 standards, we deliver cutting-edge, high-quality
-          solutions. Our vision is to be the leading provider of industrial
-          gases and engineering solutions, offering eco-friendly innovations
-          that add value to our clients.
+          {HomeText.AboutUsSectionDescription}
         </p>
         <div className="flex justify-center md:justify-start">
           <button className="bg-blue-900 text-white px-6 md:px-8 py-2 rounded hover:bg-blue-800 transition-colors duration-300">

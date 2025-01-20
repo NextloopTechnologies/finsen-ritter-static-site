@@ -4,6 +4,7 @@ import {
   IndustrialSiteCircular,
   BioCngPlantsMap,
 } from "../assets/images";
+import { HomeText } from "../utils/ExportText";
 
 const OurBiogasSection = () => {
   return (
@@ -13,14 +14,7 @@ const OurBiogasSection = () => {
           Our Biogas Solutions
         </div>
         <div className="text-center md:text-left text-sm md:text-base leading-relaxed">
-          With years of expertise in biogas technology, we specialize in
-          designing, installing, and maintaining biogas systems that reduce
-          waste and generate renewable energy. Our commitment to sustainability
-          and customer success sets us apart in the industry. With years of
-          expertise in biogas technology, we specialize in designing,
-          installing, and maintaining biogas systems that reduce waste and
-          generate renewable energy. Our commitment to sustainability and
-          customer success sets us apart in the industry.
+          {HomeText.OurBiogasSolutionDescription}
         </div>
       </div>
 

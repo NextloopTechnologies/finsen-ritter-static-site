@@ -3,6 +3,10 @@ import IndustrialSiteCircular from "../assets/HomePage/IndustrialSiteCircular.pn
 import MapLocations from "../assets/HomePage/MapLocations.png";
 import BioCngPlantsMap from "../assets/HomePage/BioCngPlantsMap.png";
 import LogoWithNameWhite from "../assets/Footer/LogoWithNameWhite.png";
+import AboutSectionHeroBg from "../assets/AboutUs/AboutSectionHeroBg.png";
+import AboutUsVisionSection from "../assets/AboutUs/AboutUsVisionSection.png";
+import AboutUsMissionSection from "../assets/AboutUs/AboutUsMissionSection.png";
+import OurValuesAboutUs from "../assets/AboutUs/OurValuesAboutUs.png";
 
 export {
   ProductSectionBgImg,
@@ -10,4 +14,8 @@ export {
   MapLocations,
   LogoWithNameWhite,
   BioCngPlantsMap,
+  AboutSectionHeroBg,
+  AboutUsVisionSection,
+  AboutUsMissionSection,
+  OurValuesAboutUs,
 };

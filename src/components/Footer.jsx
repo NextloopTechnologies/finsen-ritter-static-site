@@ -1,27 +1,13 @@
 import React from "react";
 import { LogoWithNameWhite } from "../assets/images";
+import {
+  blogLinks,
+  companyLinks,
+  serviceLinks,
+} from "../utils/ExportStaticData";
+import { FooterText } from "../utils/ExportText";
 
 const Footer = () => {
-  const companyLinks = [
-    "Home",
-    "About Us",
-    "Products",
-    "Services",
-    "Blogs & News",
-    "Connect With Us",
-    "CBG Calculator",
-  ];
-  const blogLinks = ["FAQ", "Help Center", "Career", "Privacy"];
-  const serviceLinks = [
-    "Engineering, Procurement, and Construction (EPC)",
-    "Procurement Management",
-    "Industrial Automation 4.0",
-    "Project Feasibility Report",
-    "Detailed Project Report",
-    "Cost Management Analysis to the Project",
-    "Safety Consultancy",
-    "License & Permissions Assistance (PESO, CPCB, Fire & Safety etc.)",
-  ];
   const FooterList = ({ title, items, bulletPoints }) => (
     <div>
       <h3 className="text-lg font-semibold mb-4">{title}</h3>
@@ -43,9 +29,7 @@ const Footer = () => {
           <div className="space-y-4">
             <img src={LogoWithNameWhite} alt="Finsen Ritter" className="h-12" />
             <p className="text-sm leading-relaxed font-semibold">
-              Finsen Ritter Technologies specializes in turnkey industrial
-              solutions for gas plants, with expertise across various sectors
-              globally.
+              {FooterText.Description}
             </p>
           </div>
 

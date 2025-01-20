@@ -1,0 +1,69 @@
+import React from "react";
+import {
+  AboutSectionHeroBg,
+  AboutUsMissionSection,
+  AboutUsVisionSection,
+  OurValuesAboutUs,
+} from "../assets/images";
+import HeroSection from "../components/HeroSection";
+import ContactSection from "../components/ContactSection";
+import FlexContentImageSection from "../components/FlexContentImageSection";
+import Slider from "../components/Slider";
+import { cardsClients, testimonials } from "../utils/ExportStaticData";
+import { AboutUsText } from "../utils/ExportText";
+
+const AboutUsPage = () => {
+  return (
+    <div className="flex flex-col gap-28">
+      <HeroSection backgroundImage={AboutSectionHeroBg}></HeroSection>
+      <div className="m-10 px-32">
+        <h2 className=" flex text-2xl md:text-2xl font-bold text-[#135384] justify-center">
+          ABOUT THE COMPANY
+        </h2>
+        <p className="mt-4 text-gray-700 text-sm md:text-base md:px-0 ">
+          {AboutUsText.AboutTheCompanyDescription}
+        </p>
+      </div>
+
+      <FlexContentImageSection
+        image={AboutUsVisionSection}
+        title="OUR VISION"
+        description={AboutUsText.OurVisionDescription}
+      />
+
+      <FlexContentImageSection
+        image={AboutUsMissionSection}
+        title="OUR MISSION"
+        description={AboutUsText.OurMissionDescription}
+        orientation="right"
+      />
+
+      <FlexContentImageSection
+        image={OurValuesAboutUs}
+        title="Our Values"
+        description={AboutUsText.OurValuesDescription}
+        contentClassName="bg-white bg-opacity-10 p-10 max-w-[50vw] my-20"
+      />
+
+      <Slider
+        cards={cardsClients}
+        backgroundColor="rgba(19, 83, 132, 0.1)"
+        cardClass="rounded-full w-[40%] md:w-[15%] p-2 md:p-4"
+        iconOnly={true}
+        cardContainerClass=""
+      />
+
+      <Slider
+        cards={testimonials}
+        isTestimonial={true}
+        cardContainerClass="px-4"
+        backgroundColor=""
+        cardClass="md:w-[30%] w-[80%] rounded-xl p-4"
+      />
+
+      <ContactSection />
+    </div>
+  );
+};
+
+export default AboutUsPage;
