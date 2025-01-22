@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import { ErrorBoundary } from "react-error-boundary";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
+import AboutUsPage from "./pages/AboutUsPage";
 
 const AppLayout = () => (
   <>
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: <AboutUs />,
+        element: <AboutUsPage />,
       },
     ],
   },

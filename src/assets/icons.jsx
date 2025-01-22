@@ -7,6 +7,26 @@ import IndustrialNitrogenIcon from "../assets/HomePage/IndustrialNitrogenIcon.pn
 import IndustrialScreChillersIcon from "../assets/HomePage/IndustrialScreChillersIcon.png";
 import IndustrialSyngasIcon from "../assets/HomePage/IndustrialSyngasIcon.png";
 import MedicalOxygenIcon from "../assets/HomePage/MedicalOxygenIcon.png";
+import JaypeeGroupIcon from "../assets/HomePage/JaypeeGroupIcon.png";
+import ImpetusIcon from "../assets/HomePage/ImpetusIcon.png";
+import AAIIcon from "../assets/HomePage/AAIIcon.png";
+import AwfisIcon from "../assets/HomePage/AwfisIcon.png";
+import BengaluruAirportIcon from "../assets/HomePage/BengaluruAirportIcon.png";
+import PESMedicalCollegeIcon from "../assets/HomePage/PESMedicalCollegeIcon.png";
+import BharatOmanIcon from "../assets/HomePage/BharatOmanIcon.png";
+import MurugappaIcon from "../assets/HomePage/MurugappaIcon.png";
+import NavodayaIcon from "../assets/HomePage/NavodayaIcon.png";
+import AdityaBirlaIcon from "../assets/HomePage/AdityaBirlaIcon.png";
+import LogoManIcon from "../assets/HomePage/LogoManIcon.png";
+import SAIMSIcon from "../assets/HomePage/SAIMSIcon.png";
+import AjayDeepIcon from "../assets/HomePage/AjayDeepIcon.png";
+import MPGovIcon from "../assets/HomePage/MPGovIcon.png";
+import AvanthaGroupIcon from "../assets/HomePage/AvanthaGroupIcon.png";
+import CharteredIcon from "../assets/HomePage/CharteredIcon.png";
+import MVJMedicalCollegeIcon from "../assets/HomePage/MVJMedicalCollegeIcon.png";
+import PMProjectsIcon from "../assets/HomePage/PMProjectsIcon.png";
+import UniqueHospitalIcon from "../assets/HomePage/UniqueHospitalIcon.png";
+import TestimonialProfileIcon from "../assets/HomePage/TestimonialProfileIcon.png";
 
 export {
   H2SCO2ScrubberIcon,
@@ -18,4 +38,24 @@ export {
   IndustrialScreChillersIcon,
   IndustrialSyngasIcon,
   MedicalOxygenIcon,
+  JaypeeGroupIcon,
+  ImpetusIcon,
+  AAIIcon,
+  AwfisIcon,
+  BengaluruAirportIcon,
+  PESMedicalCollegeIcon,
+  BharatOmanIcon,
+  MurugappaIcon,
+  NavodayaIcon,
+  AdityaBirlaIcon,
+  LogoManIcon,
+  AjayDeepIcon,
+  PMProjectsIcon,
+  MVJMedicalCollegeIcon,
+  CharteredIcon,
+  AvanthaGroupIcon,
+  UniqueHospitalIcon,
+  MPGovIcon,
+  SAIMSIcon,
+  TestimonialProfileIcon,
 };
