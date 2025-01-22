@@ -48,3 +48,40 @@ export const AboutUsText = {
         Inclusion: We promote diversity and inclusion to attract, develop, and retain the best talent. By embracing varied perspectives, we unlock our full potential and deliver exceptional results.
         Accountability: We take responsibility for our performance, both as individuals and as a collective. We are committed to achieving our goals while ensuring that the processes we follow align with our values and organizational standards.`,
 };
+export const ProductText = {
+  ProductDescription: `Finsen Ritter Technologies' Industrial Bio-CNG (Compressed Bio-Gas) Plant is a cutting-edge solution designed to convert organic waste into clean, renewable energy. Our plant utilizes advanced anaerobic digestion using CSTR, ASBR etc. technologies and gas upgrading technologies to produce high-purity methane, commonly referred to as Bio-CNG. This sustainable alternative to fossil fuels offers significant economic and environmental benefits, making it a reliable choice for industries aiming to reduce their carbon footprint while optimizing energy use.`,
+  Advantages: [
+    {
+      title: "Environmental Benefits",
+      bullets: [
+        "Mitigates waste management challenges by recycling organic waste",
+        "Reduces reliance on fossil fuels, lowering carbon emissions significantly",
+      ],
+    },
+    {
+      title: "Cost Savings",
+      bullets: [
+        "Offers lower operating costs compared to conventional energy sources",
+        "Generates revenue through carbon credits and sale of by-products like CNO or bio-fertilizer",
+      ],
+    },
+    {
+      title: "Energy Security",
+      bullets: [
+        "Provides reliable and renewable energy source, reducing dependency on imported fuels",
+      ],
+    },
+    {
+      title: "Regulatory Compliance",
+      bullets: [
+        "Meets global environmental standards and contributes to achieving sustainability goals",
+      ],
+    },
+    {
+      title: "Ease of Integration",
+      bullets: [
+        "Seamlessly integrates with existing industrial processes and infrastructure",
+      ],
+    },
+  ],
+};

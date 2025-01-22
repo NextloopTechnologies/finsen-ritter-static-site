@@ -4,6 +4,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import AboutUsPage from "./pages/AboutUsPage";
+import Product from "./pages/Product";
 
 const AppLayout = () => (
   <>
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <AboutUsPage />,
+      },
+      {
+        path: "product",
+        element: <Product />,
       },
     ],
   },

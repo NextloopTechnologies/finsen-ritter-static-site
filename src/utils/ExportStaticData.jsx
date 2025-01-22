@@ -7,25 +7,33 @@ import {
   BengaluruAirportIcon,
   BharatOmanIcon,
   CharteredIcon,
+  CustomerServiceIcon,
+  FeedbackCapacityIcon,
+  GasStationIcon,
   H2SCO2ScrubberIcon,
   ImpetusIcon,
   IndustrialBioCngIcon,
   IndustrialBiogasPurificationIcon,
   IndustrialDesiccantIcon,
   IndustrialGasBleedingSkidIcon,
+  IndustrialIcon,
   IndustrialNitrogenIcon,
   IndustrialScreChillersIcon,
   IndustrialSyngasIcon,
   JaypeeGroupIcon,
+  LocationIcon,
   LogoManIcon,
+  MedalIcon,
   MedicalOxygenIcon,
   MPGovIcon,
   MurugappaIcon,
   MVJMedicalCollegeIcon,
   NavodayaIcon,
   PESMedicalCollegeIcon,
+  PipelineIcon,
   PMProjectsIcon,
   SAIMSIcon,
+  ShuttleIcon,
   TestimonialProfileIcon,
   UniqueHospitalIcon,
 } from "../assets/icons";
@@ -156,6 +164,30 @@ export const productCards = {
     },
   ],
 };
+export const applicationCards = {
+  mainHeader: "APPLICATIONS",
+  mainDescription: "",
+  items: [
+    {
+      icon: GasStationIcon,
+      heading: "Transportation Fuel",
+      description:
+        "Bio-CNG is a clean and cost-effective alternative to conventional fuels such as diesel and petrol, suitable for powering commercial and industrial vehicles.",
+    },
+    {
+      icon: IndustrialIcon,
+      heading: "Industrial Use",
+      description:
+        "Provides a sustainable energy source for industrial heating, electricity generation, and other processes.",
+    },
+    {
+      icon: PipelineIcon,
+      heading: "Pipeline Injection",
+      description:
+        "Injects purified Bio-CNG into natural gas pipelines for widespread distribution and use.",
+    },
+  ],
+};
 
 export const testimonials = {
   mainHeader: "What Our Clients Say",
@@ -246,4 +278,28 @@ export const serviceLinks = [
   "Cost Management Analysis to the Project",
   "Safety Consultancy",
   "License & Permissions Assistance (PESO, CPCB, Fire & Safety etc.)",
+];
+
+export const technicalSpecifications = [
+  {
+    title: "Feedstock Capacity",
+    description: ">50 tons per day",
+    icon: FeedbackCapacityIcon,
+  },
+  { title: "Methane Purity", description: ">60%", icon: LocationIcon },
+  {
+    title: "Biogas Yield",
+    description: "Depends on input raw material",
+    icon: MedalIcon,
+  },
+  {
+    title: "Power Consumption",
+    description: "Low-energy demand and high operational efficiency",
+    icon: ShuttleIcon,
+  },
+  {
+    title: "By-Product Output",
+    description: "Organic fertilizer with nutrient enrichment (carbon locking)",
+    icon: CustomerServiceIcon,
+  },
 ];
