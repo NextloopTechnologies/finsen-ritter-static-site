@@ -8,12 +8,12 @@ import {
 } from "../assets/images";
 import { ProductText } from "../utils/ExportText";
 import FlexContentImageSection from "../components/FlexContentImageSection";
-import CircularFeatures from "../components/CircularFeatures";
 import Slider from "../components/Slider";
 import { applicationCards } from "../utils/ExportStaticData";
 import ContactSection from "../components/ContactSection";
 import TechnicalSpecifications from "../components/TechnicalSpecifications";
 import { MapLocations, IndustrialSiteCircular } from "../assets/images";
+import CircularFeatures from "../components/CircularFeatures";
 
 const Product = () => {
   const features = [
@@ -57,7 +57,6 @@ const Product = () => {
     },
   ];
 
-  <CircularFeatures features={features} />;
   return (
     <div className="flex flex-col gap-28">
       <HeroSection backgroundImage={ProductHeroBg}></HeroSection>
@@ -69,7 +68,9 @@ const Product = () => {
         orientation="right"
         contentClassName="p-10 max-w-[50vw] my-20"
       />
-      {/* <CircularFeatures /> */}
+
+      <CircularFeatures />
+
       <FlexContentImageSection
         image={ProductAdvantagesRight}
         title="Advantages"
@@ -84,7 +85,9 @@ const Product = () => {
         cardClass="rounded-lg w-[80%] md-[15%]"
         visibleitems={`3`}
       />
+
       <TechnicalSpecifications />
+
       <div className="flex p-5 self-center">
         <div className="bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] rounded-bl-[4rem] my-20">
           <div className="text-3xl font-bold text-blue-900 mb-4">
