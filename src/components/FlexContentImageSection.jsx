@@ -6,9 +6,10 @@ const FlexContentImageSection = ({
   title,
   description,
   numberedSections,
-  containerClassName = "flex flex-col items-center p-5 self-center",
-  contentClassName = "bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] my-20",
+  containerClassName = "flex flex-col items-center md:p-5 self-center",
+  contentClassName = "bg-[#135384] bg-opacity-10 p-10 border max-w-full md:max-w-[50vw] md:my-20",
   orientation = "left",
+  bgColoredCover = "false",
 }) => {
   const isLeft = orientation === "left";
 
@@ -39,29 +40,55 @@ const FlexContentImageSection = ({
   return (
     <div className={containerClassName}>
       {mainHeading && (
-        <div className="flex flex-col text-3xl font-bold text-blue-900 text-center max-w-[60vw] -mb-8">
+        <div className="text-3xl font-bold text-blue-900 text-center max-w-[60vw] -mb-8">
           {mainHeading}
         </div>
       )}
-      <div className="flex flex-row items-center">
-        {isLeft && (
-          <div
-            className={`${contentClassName} ${isLeft && "rounded-bl-[4rem]"}`}
-          >
-            <div className="text-3xl font-bold text-blue-900 mb-4">{title}</div>
-            {renderContent()}
-          </div>
-        )}
-        <div className="relative">
-          <img src={image} alt="Location on map" className="h-auto w-96" />
-        </div>
-        {!isLeft && (
-          <div
-            className={`${contentClassName} ${!isLeft && "rounded-br-[4rem]"}`}
-          >
-            <div className="text-3xl font-bold text-blue-900 mb-4">{title}</div>
-            {renderContent()}
-          </div>
+      <div className="flex flex-col md:flex-row items-center">
+        {isLeft ? (
+          <>
+            <div className="w-full md:w-auto relative order-2 md:order-1">
+              <img
+                src={image}
+                alt="Location on map"
+                className={`h-auto w-full md:w-96 ${
+                  bgColoredCover === "true" ? "bg-[#135384] bg-opacity-10" : ""
+                } md:bg-transparent p-5 md:p-0`}
+              />
+            </div>
+            <div
+              className={`w-full md:w-auto order-1 md:order-2 ${contentClassName} ${
+                isLeft && "rounded-bl-md md:rounded-br-[4rem]"
+              }`}
+            >
+              <div className="text-3xl font-bold text-blue-900 mb-4">
+                {title}
+              </div>
+              {renderContent()}
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              className={`w-full md:w-auto ${contentClassName} ${
+                !isLeft && "rounded-br-md md:rounded-bl-[4rem]"
+              }`}
+            >
+              <div className="text-3xl font-bold text-blue-900 mb-4">
+                {title}
+              </div>
+              {renderContent()}
+            </div>
+            <div className="w-full md:w-auto relative">
+              <img
+                src={image}
+                alt="Location on map"
+                className={`h-auto w-full md:w-96 ${
+                  bgColoredCover === "true" ? "bg-[#135384] bg-opacity-10" : ""
+                } md:bg-transparent p-5 md:p-0`}
+              />
+            </div>
+          </>
         )}
       </div>
     </div>

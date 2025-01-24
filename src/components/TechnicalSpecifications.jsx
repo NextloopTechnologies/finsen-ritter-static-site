@@ -3,7 +3,7 @@ import { technicalSpecifications } from "../utils/ExportStaticData";
 
 const TechnicalSpecifications = () => {
   return (
-    <div className="bg-gray-50 p-6 rounded-lg mx-10">
+    <div className="p-6 rounded-lg mx-10">
       <h2 className="text-2xl font-bold text-center text-blue-600 mb-2">
         Technical Specifications
       </h2>

@@ -16,46 +16,7 @@ import { MapLocations, IndustrialSiteCircular } from "../assets/images";
 import CircularFeatures from "../components/CircularFeatures";
 
 const Product = () => {
-  const features = [
-    {
-      title: "Sustainability-Oriented Design:",
-      points: [
-        "Reduces greenhouse gas emissions by recycling waste into energy",
-        "Minimizes environmental impact with eco-friendly waste-to-value solution",
-      ],
-    },
-    {
-      title: "High-Efficiency Anaerobic Digestion (AD) System:",
-      points: [
-        "Converts organic waste into high-value products",
-        "Optimizes biogas production through efficient processing",
-        "Low energy consumption with high output efficiency",
-      ],
-    },
-    {
-      title: "Advanced Biogas Upgrading Technology:",
-      points: [
-        "Advanced filtration using membrane (HPWS) along with PSA",
-        "Ensures high-quality biomethane with purity levels exceeding CO2 98% CH4 Removal",
-        "Multiple gas processing trains of over 95% + viable for various high-grade applications",
-      ],
-    },
-    {
-      title: "Robust Automation and Control Systems:",
-      points: [
-        "Equipped with intuitive UI compatible control systems",
-        "Smart Feed management and processing controls",
-        "Automated scheduling capabilities",
-      ],
-    },
-    {
-      title: "Customizable Capacity:",
-      points: [
-        "Designed to handle flexible feed types and large-scale industrial applications",
-        "Multiple configuration allow scalability to meet future expansion needs",
-      ],
-    },
-  ];
+  const { mainHeader, items } = applicationCards;
 
   return (
     <div className="flex flex-col gap-28">
@@ -70,6 +31,31 @@ const Product = () => {
       />
 
       <CircularFeatures />
+      <div className="py-10">
+        <h2 className="text-2xl font-bold text-center text-blue-900 mb-8">
+          {mainHeader}
+        </h2>
+        <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-3 px-4">
+          {items?.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-lg p-6 text-center"
+            >
+              <div className="text-4xl mb-4 flex justify-center items-center">
+                <img
+                  src={item.icon}
+                  alt={`${item.heading} Icon`}
+                  className="h-24 w-24"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-blue-700 mb-2">
+                {item.heading}
+              </h3>
+              <p className="text-gray-600">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <FlexContentImageSection
         image={ProductAdvantagesRight}
@@ -78,12 +64,6 @@ const Product = () => {
         orientation="left"
         contentClassName="p-10 max-w-[50vw] my-20"
         containerClassName="flex flex-col items-center p-5 self-center bg-gray-200 w-full"
-      />
-      <Slider
-        cards={applicationCards}
-        backgroundColor={`bg-white`}
-        cardClass="rounded-lg w-[80%] md-[15%]"
-        visibleitems={`3`}
       />
 
       <TechnicalSpecifications />

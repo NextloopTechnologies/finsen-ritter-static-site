@@ -1,11 +1,15 @@
 import React from "react";
-import { MajorFeatures } from "../assets/svg";
+import { MajorFeatures, MultiColorLine } from "../assets/svg";
 import TextContainer from "./TextContainer";
 
 const CircularFeatures = () => {
   return (
-    <div className="flex justify-center items-center h-screen bg-[#135384] relative">
-      <div className="relative w-96 h-full">
+    <div className="flex justify-center items-center min-h-screen relative bg-[#135384]">
+      <div className="relative w-96 min-h-screen mt-10 -mb-20">
+        <div className="flex flex-col items-center">
+          <p className="my-8 text-4xl text-white font-bold">MAJOR FEATURES :</p>
+          <MultiColorLine width={400} />
+        </div>
         <div className="absolute inset-0 flex justify-center items-center">
           <MajorFeatures width={300} />
         </div>
@@ -29,7 +33,7 @@ const CircularFeatures = () => {
           }
           arrowPosition="arrow-right"
           arrowOffset="50%"
-          className="absolute -left-[90%] top-[30%]"
+          className="absolute top-52 -left-[90%]"
         />
 
         <TextContainer
@@ -40,9 +44,9 @@ const CircularFeatures = () => {
               </div>
               <ul className="list-disc space-y-1 text-sm mt-2 pl-5">
                 <li>
-                  Uses Vaccum Pressure Swing Adsorption (VPSA) along with the
-                  water scrubbing technologies to remove impurities such as CO2,
-                  H2S, and moisture.
+                  Uses Vacuum Pressure Swing Adsorption (VPSA) along with water
+                  scrubbing technologies to remove impurities such as CO2, H2S,
+                  and moisture.
                 </li>
                 <li>
                   Delivers methane purity levels of over 96%, suitable for
@@ -53,7 +57,7 @@ const CircularFeatures = () => {
           }
           arrowPosition="arrow-right"
           arrowOffset="10%"
-          className="absolute -left-[85%] top-[35%]"
+          className="absolute -left-[80%] top-60"
         />
 
         <TextContainer
@@ -63,17 +67,17 @@ const CircularFeatures = () => {
               <ul className="list-disc space-y-1 text-sm mt-2 pl-5">
                 <li>
                   Designed to cater to medium and large-scale industrial
-                  requirements
+                  requirements.
                 </li>
                 <li>
-                  Modular configurations allow scalability to meet future needs
+                  Modular configurations allow scalability to meet future needs.
                 </li>
               </ul>
             </>
           }
           arrowPosition="arrow-left"
           arrowOffset="10%"
-          className="absolute left-[85%] top-[8%]"
+          className="absolute left-[80%] top-20"
         />
 
         <TextContainer
@@ -94,8 +98,8 @@ const CircularFeatures = () => {
             </>
           }
           arrowPosition="arrow-left"
-          arrowOffset="70%"
-          className="absolute left-[90%] -top-[50%]"
+          arrowOffset="40%"
+          className="absolute left-[90%] -top-60"
         />
 
         <TextContainer
@@ -118,7 +122,7 @@ const CircularFeatures = () => {
           }
           arrowPosition="arrow-bottom"
           arrowOffset="50%"
-          className="absolute left-[0%] -top-[103%]"
+          className="absolute left-0 -top-[37rem]"
         />
       </div>
     </div>
