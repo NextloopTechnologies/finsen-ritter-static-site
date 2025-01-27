@@ -6,6 +6,7 @@ const FlexContentImageSection = ({
   title,
   description,
   numberedSections,
+  bulletPoints,
   containerClassName = "flex flex-col items-center md:p-5 self-center",
   contentClassName = "bg-[#135384] bg-opacity-10 p-10 border max-w-full md:max-w-[50vw] md:my-20",
   orientation = "left",
@@ -33,6 +34,36 @@ const FlexContentImageSection = ({
           ))}
         </ol>
       );
+    } else if (bulletPoints) {
+      return (
+        <ul className="list-disc pl-5 space-y-2">
+          {bulletPoints.map((bullet, index) => (
+            <li key={index} className="text-gray-700">
+              {typeof bullet === "object" ? (
+                <>
+                  <span className="font-semibold text-gray-900">
+                    {bullet.title}
+                  </span>
+                  {bullet.description && (
+                    <span className="ml-1">{bullet.description}</span>
+                  )}
+                  {bullet.subBullets && (
+                    <ul className="list-disc pl-5 space-y-1 mt-1">
+                      {bullet.subBullets.map((subBullet, subIndex) => (
+                        <li key={subIndex} className="text-gray-700">
+                          {subBullet}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              ) : (
+                bullet
+              )}
+            </li>
+          ))}
+        </ul>
+      );
     }
     return <div>{description}</div>;
   };
@@ -40,7 +71,7 @@ const FlexContentImageSection = ({
   return (
     <div className={containerClassName}>
       {mainHeading && (
-        <div className="text-3xl font-bold text-blue-900 text-center max-w-[60vw] -mb-8">
+        <div className="text-2xl font-bold text-blue-900 text-center md:max-w-[50vw] max-w-[85vw] -mb-8">
           {mainHeading}
         </div>
       )}
@@ -61,7 +92,7 @@ const FlexContentImageSection = ({
                 isLeft && "rounded-bl-md md:rounded-br-[4rem]"
               }`}
             >
-              <div className="text-3xl font-bold text-blue-900 mb-4">
+              <div className="text-2xl font-bold text-blue-900 mb-4">
                 {title}
               </div>
               {renderContent()}
@@ -74,7 +105,7 @@ const FlexContentImageSection = ({
                 !isLeft && "rounded-br-md md:rounded-bl-[4rem]"
               }`}
             >
-              <div className="text-3xl font-bold text-blue-900 mb-4">
+              <div className="text-2xl font-bold text-blue-900 mb-4">
                 {title}
               </div>
               {renderContent()}

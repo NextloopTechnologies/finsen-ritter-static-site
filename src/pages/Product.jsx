@@ -4,19 +4,20 @@ import {
   ProductAdvantagesRight,
   ProductDescriptionLeft,
   ProductHeroBg,
-  ProductWhyChooseRight,
+  ProductWhyChooseFR,
 } from "../assets/images";
 import { ProductText } from "../utils/ExportText";
 import FlexContentImageSection from "../components/FlexContentImageSection";
-import Slider from "../components/Slider";
 import { applicationCards } from "../utils/ExportStaticData";
 import ContactSection from "../components/ContactSection";
 import TechnicalSpecifications from "../components/TechnicalSpecifications";
-import { MapLocations, IndustrialSiteCircular } from "../assets/images";
+import { IndustrialSiteCircular } from "../assets/images";
 import CircularFeatures from "../components/CircularFeatures";
+import useIsMobile from "../hooks/useIsMobile";
 
 const Product = () => {
   const { mainHeader, items } = applicationCards;
+  const isMobile = useIsMobile();
 
   return (
     <div className="flex flex-col gap-28">
@@ -27,7 +28,7 @@ const Product = () => {
         title=""
         description={ProductText.ProductDescription}
         orientation="right"
-        contentClassName="p-10 max-w-[50vw] my-20"
+        contentClassName="bg-white bg-opacity-10 p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
       />
 
       <CircularFeatures />
@@ -59,55 +60,72 @@ const Product = () => {
 
       <FlexContentImageSection
         image={ProductAdvantagesRight}
-        title="Advantages"
+        title="ADVANTAGES"
         numberedSections={ProductText.Advantages}
-        orientation="left"
-        contentClassName="p-10 max-w-[50vw] my-20"
+        orientation="right"
+        contentClassName="p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
         containerClassName="flex flex-col items-center p-5 self-center bg-gray-200 w-full"
       />
 
       <TechnicalSpecifications />
 
-      <div className="flex p-5 self-center">
-        <div className="bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] rounded-bl-[4rem] my-20">
-          <div className="text-3xl font-bold text-blue-900 mb-4">
-            Why Choose Finsen Ritter Technologies?
+      {isMobile ? (
+        <div>
+          <FlexContentImageSection
+            image={ProductWhyChooseFR}
+            title="WHY CHOOSE FINSEN RITTER TECHNOLOGIES?"
+            bulletPoints={ProductText.WhyChooseFR}
+            orientation="right"
+            contentClassName="p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
+            containerClassName="flex flex-col items-center p-5 self-center bg-gray-200 w-full"
+          />
+        </div>
+      ) : (
+        <div className="flex p-5 self-center">
+          <div className="bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] rounded-bl-[4rem] my-12">
+            <div className="text-3xl font-bold text-blue-900 mb-4">
+              Why Choose Finsen Ritter Technologies?
+            </div>
+            <ul className="list-disc pl-5">
+              <li>
+                <span className="font-semibold">Proven Expertise: </span>
+                Years of experience in industrial gas and chemical plant
+                development.
+              </li>
+              <li>
+                <span className="font-semibold">Comprehensive Support: </span>
+                From feasibility studies to commissioning and after-sales
+                service.
+              </li>
+              <li>
+                <span className="font-semibold"> Innovative Solutions: </span>
+                Leveraging state-of-the-art technology to deliver exceptional
+                efficiency and reliability.
+              </li>
+              <li>
+                <span className="font-semibold">
+                  Sustainability Commitment:
+                </span>
+                Dedicated to creating environmentally friendly solutions for a
+                better tomorrow.
+              </li>
+            </ul>
           </div>
-          <ul className="list-disc pl-5">
-            <li>
-              <span className="font-semibold">Proven Expertise: </span>
-              Years of experience in industrial gas and chemical plant
-              development.
-            </li>
-            <li>
-              <span className="font-semibold">Comprehensive Support: </span>
-              From feasibility studies to commissioning and after-sales service.
-            </li>
-            <li>
-              <span className="font-semibold"> Innovative Solutions: </span>
-              Leveraging state-of-the-art technology to deliver exceptional
-              efficiency and reliability.
-            </li>
-            <li>
-              <span className="font-semibold">Sustainability Commitment: </span>
-              Dedicated to creating environmentally friendly solutions for a
-              better tomorrow.
-            </li>
-          </ul>
+          <div className="relative">
+            <img
+              src={ProductWhyChooseFR}
+              alt="Location on map"
+              className="h-auto w-96"
+            />
+            <img
+              src={IndustrialSiteCircular}
+              alt="Industrial site view"
+              className="absolute h-52 -left-20 -bottom-5"
+            />
+          </div>
         </div>
-        <div className="relative">
-          <img
-            src={ProductWhyChooseRight}
-            alt="Location on map"
-            className="h-auto w-96"
-          />
-          <img
-            src={IndustrialSiteCircular}
-            alt="Industrial site view"
-            className="absolute h-52 -left-20 -bottom-12"
-          />
-        </div>
-      </div>
+      )}
+
       <ContactSection />
     </div>
   );
