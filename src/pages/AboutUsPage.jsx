@@ -16,11 +16,11 @@ const AboutUsPage = () => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection backgroundImage={AboutSectionHeroBg}></HeroSection>
-      <div className="m-10 px-32">
-        <h2 className=" flex text-2xl md:text-2xl font-bold text-[#135384] justify-center">
+      <div className="mt-4 mx-4 -mb-4 md:m-10 px-4 md:px-32">
+        <h2 className="flex text-xl md:text-2xl font-bold text-[#135384] justify-center">
           ABOUT THE COMPANY
         </h2>
-        <p className="mt-4 text-gray-700 text-sm md:text-base md:px-0 ">
+        <p className="mt-4 text-gray-700 text-sm md:text-base">
           {AboutUsText.AboutTheCompanyDescription}
         </p>
       </div>
@@ -29,6 +29,7 @@ const AboutUsPage = () => {
         image={AboutUsVisionSection}
         title="OUR VISION"
         description={AboutUsText.OurVisionDescription}
+        bgColoredCover={"true"}
       />
 
       <FlexContentImageSection
@@ -36,13 +37,15 @@ const AboutUsPage = () => {
         title="OUR MISSION"
         description={AboutUsText.OurMissionDescription}
         orientation="right"
+        bgColoredCover={"true"}
       />
 
       <FlexContentImageSection
         image={OurValuesAboutUs}
         title="Our Values"
         description={AboutUsText.OurValuesDescription}
-        contentClassName="bg-white bg-opacity-10 p-10 max-w-[50vw] my-20"
+        contentClassName="bg-white bg-opacity-10 p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
+        orientation="right"
       />
 
       <Slider

@@ -7,6 +7,10 @@ import AboutSectionHeroBg from "../assets/AboutUs/AboutSectionHeroBg.png";
 import AboutUsVisionSection from "../assets/AboutUs/AboutUsVisionSection.png";
 import AboutUsMissionSection from "../assets/AboutUs/AboutUsMissionSection.png";
 import OurValuesAboutUs from "../assets/AboutUs/OurValuesAboutUs.png";
+import ProductHeroBg from "../assets/Product/ProductHeroBg.png";
+import ProductDescriptionLeft from "../assets/Product/ProductDescriptionLeft.png";
+import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png";
+import ProductWhyChooseRight from "../assets/Product/ProductWhyChooseRight.png";
 
 export {
   ProductSectionBgImg,
@@ -18,4 +22,8 @@ export {
   AboutUsVisionSection,
   AboutUsMissionSection,
   OurValuesAboutUs,
+  ProductHeroBg,
+  ProductDescriptionLeft,
+  ProductAdvantagesRight,
+  ProductWhyChooseRight,
 };
