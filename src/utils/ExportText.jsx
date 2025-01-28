@@ -84,4 +84,26 @@ export const ProductText = {
       ],
     },
   ],
+  WhyChooseFR: [
+    {
+      title: "Proven Expertise: ",
+      description:
+        "Years of experience in industrial gas and chemical plant development.",
+    },
+    {
+      title: "Comprehensive Support: ",
+      description:
+        "From feasibility studies to commissioning and after-sales service.",
+    },
+    {
+      title: "Innovative Solutions: ",
+      description:
+        "Leveraging state-of-the-art technology to deliver exceptional efficiency and reliability.",
+    },
+    {
+      title: "Sustainability Commitment: ",
+      description:
+        "Dedicated to creating environmentally friendly solutions for a better tomorrow.",
+    },
+  ],
 };
