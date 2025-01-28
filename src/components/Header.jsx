@@ -7,7 +7,7 @@ const navItems = [
   { path: "/about", label: "About us" },
   { path: "/product", label: "Product" },
   { path: "/services", label: "Services" },
-  { path: "/blog-news", label: "Blog & News" },
+  { path: "/blogs", label: "Blog & News" },
   { path: "/connect", label: "Connect With Us" },
   { path: "/calculator", label: "CBG Calculator" },
 ];

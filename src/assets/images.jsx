@@ -11,6 +11,8 @@ import ProductHeroBg from "../assets/Product/ProductHeroBg.png";
 import ProductDescriptionLeft from "../assets/Product/ProductDescriptionLeft.png";
 import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png";
 import ProductWhyChooseRight from "../assets/Product/ProductWhyChooseRight.png";
+import BlogsLeft from "../assets/Blogs/BlogsLeft.png";
+import BlogsHeroBg from "../assets/Blogs/BlogsHeroBg.png";
 
 export {
   ProductSectionBgImg,
@@ -26,4 +28,6 @@ export {
   ProductDescriptionLeft,
   ProductAdvantagesRight,
   ProductWhyChooseRight,
+  BlogsLeft,
+  BlogsHeroBg,
 };
