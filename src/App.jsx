@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import AboutUsPage from "./pages/AboutUsPage";
 import Product from "./pages/Product";
+import Services from "./pages/Services";
 
 const AppLayout = () => (
   <>
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "product",
         element: <Product />,
+      },
+      {
+        path: "services",
+        element: <Services />,
       },
     ],
   },
