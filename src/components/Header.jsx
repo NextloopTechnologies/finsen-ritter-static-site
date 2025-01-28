@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LogoFR from "../assets/Header/LogoFR.png";
 
 const navItems = [
@@ -15,8 +15,14 @@ const navItems = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
+
+  const handleQuoteClick = () => {
+    navigate("getyourquote");
+    setIsMenuOpen(false);
+  };
 
   const NavLink = ({ path, label }) => (
     <Link
@@ -47,7 +53,10 @@ const Header = () => {
             {navItems.map((item) => (
               <NavLink key={item.path} {...item} />
             ))}
-            <button className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm">
+            <button
+              onClick={handleQuoteClick}
+              className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm"
+            >
               Get Your Quote
             </button>
           </nav>
@@ -86,7 +95,10 @@ const Header = () => {
               {navItems.map((item) => (
                 <NavLink key={item.path} {...item} />
               ))}
-              <button className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm self-start ml-4 mt-2">
+              <button
+                onClick={handleQuoteClick}
+                className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm self-start ml-4 mt-2"
+              >
                 Get Your Quote
               </button>
             </div>

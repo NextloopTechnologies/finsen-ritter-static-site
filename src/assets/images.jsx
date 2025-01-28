@@ -11,6 +11,8 @@ import ProductHeroBg from "../assets/Product/ProductHeroBg.png";
 import ProductDescriptionLeft from "../assets/Product/ProductDescriptionLeft.png";
 import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png";
 import ProductWhyChooseRight from "../assets/Product/ProductWhyChooseRight.png";
+import GetYourQuoteFormLeft from "../assets/GetYourQuote/GetYourQuoteFormLeft.png";
+import GetYourQuoteHeroBg from "../assets/GetYourQuote/GetYourQuoteHeroBg.png";
 
 export {
   ProductSectionBgImg,
@@ -26,4 +28,6 @@ export {
   ProductDescriptionLeft,
   ProductAdvantagesRight,
   ProductWhyChooseRight,
+  GetYourQuoteFormLeft,
+  GetYourQuoteHeroBg,
 };
