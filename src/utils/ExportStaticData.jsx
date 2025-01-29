@@ -36,8 +36,24 @@ import {
   ShuttleIcon,
   TestimonialProfileIcon,
   UniqueHospitalIcon,
+  ServicesFoodBeveragesIcon,
+  ServicesIndustrialGasesIcon,
+  ServicesPetrochemicalIcon,
+  ServicesPowerAndUtilityInfrastructureIcon,
+  ServicesRenewableEnergy,
+  ServicesWaterTreatmentIcon,
 } from "../assets/icons";
-import { BlogsLeft } from "../assets/images";
+import {
+  BlogsLeft,
+  ServicesCostMgmtAnalysis,
+  ServicesECP,
+  ServicesIndustrialAutomation,
+  ServicesLicenseAndPermission,
+  ServicesProcurementMgmt,
+  ServicesProjectDetailedReport,
+  ServicesProjectFeasibility,
+  ServicesSafetyConsultancy,
+} from "../assets/images";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -347,5 +363,75 @@ export const blogCards = [
     content:
       "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
     image: BlogsLeft,
+  },
+];
+
+export const ServicesIndustryCards = [
+  {
+    icon: ServicesPowerAndUtilityInfrastructureIcon,
+    text: "Industrial Gases and Chemical Plants",
+  },
+  {
+    icon: ServicesPetrochemicalIcon,
+    text: "Water Treatment and Wastewater Solutions",
+  },
+  {
+    icon: ServicesRenewableEnergy,
+    text: "Food and Beverage Processing Plants",
+  },
+  {
+    icon: ServicesFoodBeveragesIcon,
+    text: "Renewable Energy and Biogas Projects",
+  },
+  {
+    icon: ServicesWaterTreatmentIcon,
+    text: "Petrochemical and Refining Facilities",
+  },
+  {
+    icon: ServicesIndustrialGasesIcon,
+    text: "Power and Utility Infrastructure",
+  },
+];
+
+export const ServicesCards = [
+  {
+    title: "Engineering Procurement & Construction (EPC)",
+    image: ServicesECP,
+    link: "services/epc",
+  },
+  {
+    title: "Procurement Management",
+    image: ServicesProcurementMgmt,
+    link: "#",
+  },
+  {
+    title: "Industrial Automation",
+    image: ServicesIndustrialAutomation,
+    link: "#",
+  },
+  {
+    title: "Project Feasibility Report",
+    image: ServicesProjectFeasibility,
+    link: "#",
+  },
+  {
+    title: "Detailed Project Report",
+    image: ServicesProjectDetailedReport,
+    link: "#",
+  },
+  {
+    title: "Cost Management Analysis & High Tech",
+    image: ServicesCostMgmtAnalysis,
+    link: "#",
+  },
+  {
+    title: "Safety Consultancy",
+    image: ServicesSafetyConsultancy,
+    link: "#",
+  },
+  {
+    title: "Health & Environmental Safety & Risk Assessment",
+    image: ServicesLicenseAndPermission,
+    link: "#",
   },
 ];

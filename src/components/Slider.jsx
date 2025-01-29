@@ -112,12 +112,12 @@ const Slider = ({
           {cards?.items?.map((card, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center justify-center flex-shrink-0 transition-all duration-300 scroll-snap-align-center
+              className={`flex flex-col mx-1 items-center justify-center flex-shrink-0 transition-all duration-300 scroll-snap-align-center
               ${
                 iconOnly
                   ? "aspect-square p-4"
                   : isTestimonial
-                  ? ""
+                  ? "mx-2"
                   : "w-[80%] md:w-[20%] p-2 md:p-4"
               }
              ${cardClass}

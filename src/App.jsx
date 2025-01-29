@@ -8,7 +8,8 @@ import Product from "./pages/Product";
 import GetYourQuote from "./pages/GetYourQuote";
 import Blogs from "./pages/Blogs";
 import ConnectUs from "./pages/ConnectUs";
-import Services from "./pages/Services";
+import Services from "./pages/Services/Services";
+import ServicesEpc from "./pages/Services/ServicesEpc";
 
 const AppLayout = () => (
   <>
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: "services",
-        element: <Services />,
+        element: <Outlet />,
+        children: [
+          { index: true, element: <Services /> },
+          { path: "epc", element: <ServicesEpc /> },
+        ],
       },
     ],
   },
