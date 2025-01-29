@@ -9,11 +9,12 @@ const Slider = ({
   cardContainerClass,
   iconOnly,
   isTestimonial,
+  visibleitems = 4,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const sliderRef = useRef(null);
-  const visibleCards = 4;
+  const visibleCards = visibleitems;
   const scrollInterval = 3000;
 
   const calculateWidths = () => {
