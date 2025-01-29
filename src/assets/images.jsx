@@ -11,6 +11,8 @@ import ProductHeroBg from "../assets/Product/ProductHeroBg.png";
 import ProductDescriptionLeft from "../assets/Product/ProductDescriptionLeft.png";
 import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png";
 import ProductWhyChooseRight from "../assets/Product/ProductWhyChooseRight.png";
+import ConnectUsHandshake from "../assets/ConnectUs/ConnectUsHandshake.png";
+import ConnectUsHeroBg from "../assets/ConnectUs/ConnectUsHeroBg.png";
 import ProductWhyChooseFR from "../assets/Product/ProductWhyChooseFR.png";
 import ServicesHeroBg from "../assets/Services/ServicesHeroBg.png";
 import ServicesECP from "../assets/Services/ServicesECP.png";
@@ -36,6 +38,8 @@ export {
   ProductDescriptionLeft,
   ProductAdvantagesRight,
   ProductWhyChooseRight,
+  ConnectUsHandshake,
+  ConnectUsHeroBg,
   ProductWhyChooseFR,
   ServicesHeroBg,
   ServicesECP,
