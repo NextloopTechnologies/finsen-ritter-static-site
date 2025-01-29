@@ -31,7 +31,7 @@ import GasStationIcon from "../assets/Product/GasStationIcon.png";
 import PipelineIcon from "../assets/Product/PipelineIcon.png";
 import IndustrialIcon from "../assets/Product/IndustrialIcon.png";
 import CustomerServiceIcon from "../assets/Product/CustomerServiceIcon.png";
-import ShuttleIcon from "../assets/Product/shuttleIcon.png";
+import ShuttleIcon from "../assets/Product/ShuttleIcon.png";
 import MedalIcon from "../assets/Product/MedalIcon.png";
 import LocationIcon from "../assets/Product/LocationIcon.png";
 import FeedbackCapacityIcon from "../assets/Product/FeedbackCapacityIcon.png";
