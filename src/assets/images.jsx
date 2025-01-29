@@ -13,6 +13,16 @@ import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png
 import ProductWhyChooseRight from "../assets/Product/ProductWhyChooseRight.png";
 import ConnectUsHandshake from "../assets/ConnectUs/ConnectUsHandshake.png";
 import ConnectUsHeroBg from "../assets/ConnectUs/ConnectUsHeroBg.png";
+import ProductWhyChooseFR from "../assets/Product/ProductWhyChooseFR.png";
+import ServicesHeroBg from "../assets/Services/ServicesHeroBg.png";
+import ServicesECP from "../assets/Services/ServicesECP.png";
+import ServicesIndustrialAutomation from "../assets/Services/ServicesIndustrialAutomation.png";
+import ServicesLicenseAndPermission from "../assets/Services/ServicesLicenseAndPermission.png";
+import ServicesProcurementMgmt from "../assets/Services/ServicesProcurementMgmt.png";
+import ServicesProjectDetailedReport from "../assets/Services/ServicesProjectDetailedReport.png";
+import ServicesProjectFeasibility from "../assets/Services/ServicesProjectFeasibility.png";
+import ServicesSafetyConsultancy from "../assets/Services/ServicesSafetyConsultancy.png";
+import ServicesCostMgmtAnalysis from "../assets/Services/ServicesCostMgmtAnalysis.png";
 
 export {
   ProductSectionBgImg,
@@ -30,4 +40,14 @@ export {
   ProductWhyChooseRight,
   ConnectUsHandshake,
   ConnectUsHeroBg,
+  ProductWhyChooseFR,
+  ServicesHeroBg,
+  ServicesECP,
+  ServicesIndustrialAutomation,
+  ServicesLicenseAndPermission,
+  ServicesProcurementMgmt,
+  ServicesProjectDetailedReport,
+  ServicesProjectFeasibility,
+  ServicesSafetyConsultancy,
+  ServicesCostMgmtAnalysis,
 };
