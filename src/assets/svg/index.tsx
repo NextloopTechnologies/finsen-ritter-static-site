@@ -306,3 +306,144 @@ export const MultiColorLine = ({ width = 584 }) => {
     </svg>
   );
 };
+
+const NumberCircle = ({
+  x,
+  y,
+  number,
+  fillColor,
+  borderColor,
+  numberColor,
+}) => (
+  <>
+    {/* Main circle background */}
+    <path
+      d={`M${x + 24.1573} ${y + 73.1924}
+          C${x + 37.6252} ${y + 59.7181} ${x + 37.6252} ${y + 37.8718} ${
+        x + 24.1573
+      } ${y + 24.3974}
+          C${x + 10.6894} ${y + 10.9231} ${x - 11.1463} ${y + 10.923} ${
+        x - 24.6142
+      } ${y + 24.3974}
+          C${x - 38.08212} ${y + 37.8718} ${x - 38.08212} ${y + 59.7181} ${
+        x - 24.6142
+      } ${y + 73.1924}
+          C${x - 11.1463} ${y + 86.6668} ${x + 10.6894} ${y + 86.6668} ${
+        x + 24.1573
+      } ${y + 73.1924}Z`}
+      fill={fillColor}
+    />
+    {/* Border circle */}
+    <path
+      d={`M${x} ${y + 23.2964}
+          C${x + 14.0527} ${y + 23.2964} ${x + 25.4853} ${y + 34.7344} ${
+        x + 25.4853
+      } ${y + 48.7939}
+          C${x + 25.4853} ${y + 62.8533} ${x + 14.0527} ${y + 74.2913} ${x} ${
+        y + 74.2913
+      }
+          C${x - 14.0526} ${y + 74.2913} ${x - 25.4852} ${y + 62.8533} ${
+        x - 25.4852
+      } ${y + 48.7939}
+          C${x - 25.4852} ${y + 34.7344} ${x - 14.0526} ${y + 23.2964} ${x} ${
+        y + 23.2964
+      }Z
+          M${x} ${y + 20.5586}
+          C${x - 15.5863} ${y + 20.5586} ${x - 28.2214} ${y + 33.1998} ${
+        x - 28.2214
+      } ${y + 48.7939}
+          C${x - 28.2214} ${y + 64.3876} ${x - 15.5863} ${y + 77.0289} ${x} ${
+        y + 77.0289
+      }
+          C${x + 15.5863} ${y + 77.0289} ${x + 28.2218} ${y + 64.3876} ${
+        x + 28.2218
+      } ${y + 48.7939}
+          C${x + 28.2215} ${y + 33.2001} ${x + 15.5863} ${y + 20.5586} ${x} ${
+        y + 20.5586
+      }Z`}
+      fill={borderColor}
+    />
+    {/* Number text */}
+    <text
+      x={x}
+      y={y + 55}
+      fill={numberColor}
+      fontSize="24"
+      fontWeight="bold"
+      textAnchor="middle"
+      dominantBaseline="middle"
+    >
+      {number}
+    </text>
+  </>
+);
+
+export const DynamicAscendingNumbers = ({
+  className,
+  height = 751,
+  width = 97,
+  numbers = 5,
+  spacings = [],
+  defaultSpacing = 140,
+  lineColor = "white",
+  lineWidth = 10,
+  colors = [
+    { fill: "#4FA7BD", border: "white", number: "white" },
+    { fill: "#298648", border: "white", number: "white" },
+    { fill: "#D03724", border: "white", number: "white" },
+    { fill: "#229C88", border: "white", number: "white" },
+    { fill: "#F1AB08", border: "white", number: "white" },
+  ],
+}) => {
+  const centerX = width / 2;
+  const startY = 73;
+
+  const positions = Array.from({ length: numbers }, (_, index) => {
+    if (index === 0) return startY;
+
+    // Sum up all the spacings before this number
+    const previousSpacings = spacings.slice(0, index);
+    const totalSpacing = previousSpacings.reduce(
+      (sum, spacing) => sum + (spacing || defaultSpacing),
+      0
+    );
+
+    return startY + totalSpacing;
+  });
+
+  // Calculate total height for the line
+  const lastPosition = positions[positions.length - 1];
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      className={className}
+    >
+      {/* Vertical line */}
+      <line
+        x1={centerX}
+        y1={startY}
+        x2={centerX}
+        y2={lastPosition}
+        stroke={lineColor}
+        strokeWidth={lineWidth}
+      />
+
+      {/* Number circles */}
+      {positions.map((yPosition, i) => (
+        <NumberCircle
+          key={i}
+          x={centerX}
+          y={yPosition - startY}
+          number={i + 1}
+          fillColor={colors[i % colors.length].fill}
+          borderColor={colors[i % colors.length].border}
+          numberColor={colors[i % colors.length].number}
+        />
+      ))}
+    </svg>
+  );
+};
