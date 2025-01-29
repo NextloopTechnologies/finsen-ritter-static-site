@@ -6,6 +6,9 @@ import Footer from "./components/Footer";
 import AboutUsPage from "./pages/AboutUsPage";
 import Product from "./pages/Product";
 import GetYourQuote from "./pages/GetYourQuote";
+import Blogs from "./pages/Blogs";
+import ConnectUs from "./pages/ConnectUs";
+import Services from "./pages/Services";
 
 const AppLayout = () => (
   <>
@@ -36,6 +39,18 @@ const router = createBrowserRouter([
       {
         path: "getyourquote",
         element: <GetYourQuote />,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "connectus",
+        element: <ConnectUs />,
+      },
+      {
+        path: "services",
+        element: <Services />,
       },
     ],
   },

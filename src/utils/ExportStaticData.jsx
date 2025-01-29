@@ -37,6 +37,7 @@ import {
   TestimonialProfileIcon,
   UniqueHospitalIcon,
 } from "../assets/icons";
+import { BlogsLeft } from "../assets/images";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -301,5 +302,50 @@ export const technicalSpecifications = [
     title: "By-Product Output",
     description: "Organic fertilizer with nutrient enrichment (carbon locking)",
     icon: CustomerServiceIcon,
+  },
+];
+
+export const blogCards = [
+  {
+    id: 1,
+    title: "Finsen Ritter Technologies specializes",
+    content:
+      "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
+    image: BlogsLeft,
+  },
+  {
+    id: 2,
+    title: "Finsen Ritter Technologies specializes",
+    content:
+      "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
+    image: BlogsLeft,
+  },
+  {
+    id: 3,
+    title: "Finsen Ritter Technologies specializes",
+    content:
+      "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
+    image: BlogsLeft,
+  },
+  {
+    id: 4,
+    title: "Finsen Ritter Technologies specializes",
+    content:
+      "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
+    image: BlogsLeft,
+  },
+  {
+    id: 5,
+    title: "Finsen Ritter Technologies specializes",
+    content:
+      "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
+    image: BlogsLeft,
+  },
+  {
+    id: 6,
+    title: "Finsen Ritter Technologies specializes",
+    content:
+      "Finsen Ritter Technologies specializes in industrial turnkey solutions. We have developed in-house expertise in the design, supply, installation, and testing of chemical and gas plants. Our presence spans Europe, Africa, and India, with a state-of-the-art design center located in Amsterdam.",
+    image: BlogsLeft,
   },
 ];
