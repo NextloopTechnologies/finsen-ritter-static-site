@@ -42,7 +42,7 @@ const AboutUsPage = () => {
 
       <FlexContentImageSection
         image={OurValuesAboutUs}
-        title="Our Values"
+        title="OUR VALUES"
         description={AboutUsText.OurValuesDescription}
         contentClassName="bg-white bg-opacity-10 p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
         orientation="right"
