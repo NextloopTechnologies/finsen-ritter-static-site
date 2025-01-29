@@ -11,6 +11,8 @@ import ProductHeroBg from "../assets/Product/ProductHeroBg.png";
 import ProductDescriptionLeft from "../assets/Product/ProductDescriptionLeft.png";
 import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png";
 import ProductWhyChooseRight from "../assets/Product/ProductWhyChooseRight.png";
+import GetYourQuoteFormLeft from "../assets/GetYourQuote/GetYourQuoteFormLeft.png";
+import GetYourQuoteHeroBg from "../assets/GetYourQuote/GetYourQuoteHeroBg.png";
 import BlogsLeft from "../assets/Blogs/BlogsLeft.png";
 import BlogsHeroBg from "../assets/Blogs/BlogsHeroBg.png";
 import ConnectUsHandshake from "../assets/ConnectUs/ConnectUsHandshake.png";
@@ -40,6 +42,8 @@ export {
   ProductDescriptionLeft,
   ProductAdvantagesRight,
   ProductWhyChooseRight,
+  GetYourQuoteFormLeft,
+  GetYourQuoteHeroBg,
   BlogsLeft,
   BlogsHeroBg,
   ConnectUsHandshake,
