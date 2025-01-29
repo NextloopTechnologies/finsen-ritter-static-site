@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import AboutUsPage from "./pages/AboutUsPage";
 import Product from "./pages/Product";
+import Blogs from "./pages/Blogs";
 import ConnectUs from "./pages/ConnectUs";
 import Services from "./pages/Services";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "product",
         element: <Product />,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
       },
       {
         path: "connectus",
