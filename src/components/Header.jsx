@@ -8,7 +8,7 @@ const navItems = [
   { path: "/product", label: "Product" },
   { path: "/services", label: "Services" },
   { path: "/blogs", label: "Blog & News" },
-  { path: "/connect", label: "Connect With Us" },
+  { path: "/connectus", label: "Connect With Us" },
   { path: "/calculator", label: "CBG Calculator" },
 ];
 
