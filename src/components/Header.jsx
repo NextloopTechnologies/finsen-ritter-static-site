@@ -53,7 +53,7 @@ const Header = () => {
   );
 
   return (
-    <header className="absolute bg-white rounded-3xl md:rounded-full my-5 mx-4 md:mx-8 z-10 w-[calc(100%-2rem)] md:w-[90%] text-gray-700 font-medium">
+    <header className="absolute left-1/2 -translate-x-1/2 bg-white rounded-3xl md:rounded-full my-5 z-10 w-[calc(100%-2rem)]  text-gray-700 font-medium">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
