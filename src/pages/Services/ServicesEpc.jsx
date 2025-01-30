@@ -10,13 +10,14 @@ import { ServicesText } from "../../utils/ExportText";
 import MultiImageSection from "../../components/MultiImageSection";
 import ContactSection from "../../components/ContactSection";
 import IconTextCards from "../../components/IconTextCard";
+import { IconTextCardContent } from "../../utils/ExportStaticData";
 
 const ServicesEpc = () => {
   return (
     <div>
       <HeroSection backgroundImage={ServiceSubPageEcpHeroBg} />
 
-      <section className="text-center px-5 md:px-10 py-10">
+      <section className="text-center px-5 md:px-10 py-20">
         <h2 className="text-xl md:text-2xl font-bold text-blue-900">
           ENGINEERING, PROCUREMENT, AND CONSTRUCTION (EPC)
         </h2>
@@ -47,10 +48,18 @@ const ServicesEpc = () => {
         contentSections={ServicesText.OurEcpServices}
         orientation="left"
       />
-
-      <IconTextCards />
-      <div className="text-left px-5 md:px-10 py-10 my-16">
-        <h3 className="text-xl font-bold">What Sets Us Apart?</h3>
+      <IconTextCards
+        title={
+          <p
+            className={`text-[#135384] uppercase font-bold text-center max-w-[1306px]`}
+          >
+            Key Industries We Serve:
+          </p>
+        }
+        data={IconTextCardContent}
+      />
+      <div className="text-left px-10 md:px-20 py-10 my-16">
+        <h3 className="text-xl font-semibold">What Sets Us Apart?</h3>
         <p className="text-normal font-normal mt-2">
           At Finsen Ritter Technologies, we go beyond traditional EPC services
           by offering a collaborative approach that ensures transparency,
@@ -58,7 +67,7 @@ const ServicesEpc = () => {
           to excellence drives us to deliver projects that exceed expectations,
           creating long-lasting value for our clients.
         </p>
-        <h3 className="text-xl font-bold mt-6">
+        <h3 className="text-xl font-semibold mt-6">
           Transform Your Vision into Reality
         </h3>
         <p className="text-normal font-normal mt-2">

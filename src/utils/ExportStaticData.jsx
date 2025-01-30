@@ -435,3 +435,30 @@ export const ServicesCards = [
     link: "#",
   },
 ];
+
+export const IconTextCardContent = [
+  {
+    icon: ServicesPowerAndUtilityInfrastructureIcon,
+    descp: "Industrial Gases and Chemical Plants",
+  },
+  {
+    icon: ServicesPetrochemicalIcon,
+    descp: "Water Treatment and Wastewater Solutions",
+  },
+  {
+    icon: ServicesRenewableEnergy,
+    descp: "Food and Beverage Processing Plants",
+  },
+  {
+    icon: ServicesFoodBeveragesIcon,
+    descp: "Renewable Energy and Biogas Projects",
+  },
+  {
+    icon: ServicesWaterTreatmentIcon,
+    descp: "Petrochemical and Refining Facilities",
+  },
+  {
+    icon: ServicesIndustrialGasesIcon,
+    descp: "Power and Utility Infrastructure",
+  },
+];
