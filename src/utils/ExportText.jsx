@@ -107,3 +107,68 @@ export const ProductText = {
     },
   ],
 };
+
+export const ServicesText = {
+  OurEcpServices: [
+    {
+      title: "1. Engineering Excellence",
+      bulletPoints: [
+        {
+          title: "Conceptual and Detailed Design: ",
+          description:
+            "Our team of experienced  engineers creates innovative and customized designs that  align with your project objectives.",
+        },
+        {
+          title: "Feasibility Studies: ",
+          description:
+            "We conduct thorough  assessments to determine the most efficient, cost-effective,  and sustainable solutions.",
+        },
+        {
+          title: "Compliance Assurance: ",
+          description:
+            "Designs adhere to international  standards and local regulations, ensuring safety and  operational reliability. ",
+        },
+      ],
+    },
+    {
+      title: "2. Strategic Procurement:",
+      bulletPoints: [
+        {
+          title: " Global Supply Chain Management: ",
+          description:
+            "Leveraging our global  network, we source high-quality materials, equipment, and  technology at competitive costs.",
+        },
+        {
+          title: "Vendor Prequalification and Selection: ",
+          description:
+            "We carefully evaluate  and partner with trusted suppliers to ensure timely delivery  and compliance with project specifications.",
+        },
+        {
+          title: "Logistics and Supply Chain Coordination: ",
+          description:
+            "Efficient planning  and tracking of all resources to maintain project timelines  and minimize disruptions.",
+        },
+      ],
+    },
+    {
+      title: "3. Seamless Construction",
+      bulletPoints: [
+        {
+          title: "On-Site Execution: ",
+          description:
+            " Our skilled teams oversee every aspect of  construction with precision and adherence to safety  protocols.",
+        },
+        {
+          title: "Quality Assurance: ",
+          description:
+            "Comprehensive testing and inspection at  each stage to ensure durability, efficiency, and compliance  with project standards.",
+        },
+        {
+          title: "Timely Completion: ",
+          description:
+            " Proactive project management practices  to ensure on-time delivery, even for complex and large-scale  undertakings.",
+        },
+      ],
+    },
+  ],
+};

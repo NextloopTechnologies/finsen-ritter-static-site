@@ -27,18 +27,33 @@ const Header = () => {
   const NavLink = ({ path, label }) => (
     <Link
       to={path}
-      className={`text-gray-700 hover:text-secondary font-medium px-4 ${
+      className={`relative hover:text-secondary font-medium px-4 py-2 transition-colors ${
         isActive(path)
-          ? 'text-secondary after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-secondary'
-          : ""
+          ? "text-secondary after:absolute after:left-2 after:right-2 after:bottom-1 after:h-[2px] after:bg-secondary text-gray-400"
+          : "text-gray-700"
       }`}
     >
       {label}
+      {isActive(path) && (
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] hidden md:flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="5"
+            viewBox="0 0 40 5"
+            fill="none"
+            className="w-full"
+          >
+            <rect x="0.774414" width="31" height="5" rx="2.5" fill="#07355E" />
+            <rect x="34.7744" width="5" height="5" rx="2.5" fill="#07355E" />
+          </svg>
+        </div>
+      )}
     </Link>
   );
 
   return (
-    <header className="absolute bg-white rounded-3xl md:rounded-full my-5 mx-4 md:mx-8 z-10 w-[calc(100%-2rem)] md:w-[90%] text-gray-700 font-medium">
+    <header className="absolute left-1/2 -translate-x-1/2 bg-white rounded-3xl md:rounded-full my-5 z-10 w-[calc(100%-2rem)]  text-gray-700 font-medium">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
@@ -91,13 +106,13 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <NavLink key={item.path} {...item} />
               ))}
               <button
                 onClick={handleQuoteClick}
-                className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm self-start ml-4 mt-2"
+                className="bg-[#00477E] px-4 py-2 rounded-md text-white text-sm mt-2"
               >
                 Get Your Quote
               </button>

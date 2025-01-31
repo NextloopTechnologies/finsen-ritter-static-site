@@ -27,6 +27,10 @@ import ServicesProjectDetailedReport from "../assets/Services/ServicesProjectDet
 import ServicesProjectFeasibility from "../assets/Services/ServicesProjectFeasibility.png";
 import ServicesSafetyConsultancy from "../assets/Services/ServicesSafetyConsultancy.png";
 import ServicesCostMgmtAnalysis from "../assets/Services/ServicesCostMgmtAnalysis.png";
+import ServiceSubPageEcpHeroBg from "../assets/Services/ServiceSubPageEcpHeroBg.png";
+import ServicesEcpEnggExcellence from "../assets/Services/ServicesEcpEnggExcellence.png";
+import ServicesEcpStrategicProcurement from "../assets/Services/ServicesEcpStrategicProcurement.png";
+import ServicesEcpSeamlessConstruction from "../assets/Services/ServicesEcpSeamlessConstruction.png";
 
 export {
   ProductSectionBgImg,
@@ -58,4 +62,8 @@ export {
   ServicesProjectFeasibility,
   ServicesSafetyConsultancy,
   ServicesCostMgmtAnalysis,
+  ServiceSubPageEcpHeroBg,
+  ServicesEcpSeamlessConstruction,
+  ServicesEcpStrategicProcurement,
+  ServicesEcpEnggExcellence,
 };

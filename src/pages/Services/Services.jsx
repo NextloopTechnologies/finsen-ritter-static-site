@@ -1,61 +1,10 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
-import { ServicesHeroBg } from "../assets/images";
-import {
-  ServicesCostMgmtAnalysis,
-  ServicesECP,
-  ServicesIndustrialAutomation,
-  ServicesLicenseAndPermission,
-  ServicesProcurementMgmt,
-  ServicesProjectDetailedReport,
-  ServicesProjectFeasibility,
-  ServicesSafetyConsultancy,
-} from "../assets/images";
-import ContactSection from "../components/ContactSection";
+import HeroSection from "../../components/HeroSection";
+import { ServicesHeroBg } from "../../assets/images";
+import ContactSection from "../../components/ContactSection";
+import { ServicesCards } from "../../utils/ExportStaticData";
 
 const Services = () => {
-  const services = [
-    {
-      title: "Engineering Procurement & Construction (EPC)",
-      image: ServicesECP,
-      link: "#",
-    },
-    {
-      title: "Procurement Management",
-      image: ServicesProcurementMgmt,
-      link: "#",
-    },
-    {
-      title: "Industrial Automation",
-      image: ServicesIndustrialAutomation,
-      link: "#",
-    },
-    {
-      title: "Project Feasibility Report",
-      image: ServicesProjectFeasibility,
-      link: "#",
-    },
-    {
-      title: "Detailed Project Report",
-      image: ServicesProjectDetailedReport,
-      link: "#",
-    },
-    {
-      title: "Cost Management Analysis & High Tech",
-      image: ServicesCostMgmtAnalysis,
-      link: "#",
-    },
-    {
-      title: "Safety Consultancy",
-      image: ServicesSafetyConsultancy,
-      link: "#",
-    },
-    {
-      title: "Health & Environmental Safety & Risk Assessment",
-      image: ServicesLicenseAndPermission,
-      link: "#",
-    },
-  ];
   return (
     <div>
       <HeroSection backgroundImage={ServicesHeroBg}></HeroSection>
@@ -68,7 +17,7 @@ const Services = () => {
           management needs.
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-          {services.map((service, index) => (
+          {ServicesCards.map((service, index) => (
             <a
               key={index}
               href={service.link}
