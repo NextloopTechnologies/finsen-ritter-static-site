@@ -13,16 +13,18 @@ const ConnectUs = () => {
     address: "",
     vendorType: "",
   });
+  const [isLoading, setIsLoading] = useState();
+  const [submitError, setSubmitError] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setSubmitError("");
 
-    const { data, error } = await supabase.from("vendors").insert([formData]);
-
-    if (error) {
-      console.error("Error submitting form:", error.message);
-    } else {
-      console.log("Form submitted successfully:", data);
+    try {
+      const { data, error } = await supabase.from("vendors").insert([formData]);
+      if (error) throw error;
       setFormData({
         vendorName: "",
         companyName: "",
@@ -31,6 +33,12 @@ const ConnectUs = () => {
         address: "",
         vendorType: "",
       });
+    } catch (error) {
+      setSubmitError(
+        error.message || "Failed to submit form. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -40,6 +48,9 @@ const ConnectUs = () => {
       ...prevState,
       [name]: value,
     }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   return (
@@ -158,9 +169,40 @@ const ConnectUs = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors duration-300"
+                  disabled={isLoading}
+                  className={`w-full py-2 px-4 rounded-md transition-colors duration-300 ${
+                    isLoading
+                      ? "bg-blue-300 cursor-not-allowed"
+                      : "bg-blue-900 hover:bg-blue-800"
+                  } text-white flex items-center justify-center`}
                 >
-                  Submit
+                  {isLoading ? (
+                    <>
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                      Submitting...
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
                 </button>
               </form>
             </div>

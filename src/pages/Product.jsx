@@ -8,7 +8,7 @@ import {
 } from "../assets/images";
 import { ProductText } from "../utils/ExportText";
 import FlexContentImageSection from "../components/FlexContentImageSection";
-import { applicationCards } from "../utils/ExportStaticData";
+import { applicationCards, ProductStageData } from "../utils/ExportStaticData";
 import ContactSection from "../components/ContactSection";
 import TechnicalSpecifications from "../components/TechnicalSpecifications";
 import { IndustrialSiteCircular } from "../assets/images";
@@ -31,7 +31,7 @@ const Product = () => {
         contentClassName="bg-white bg-opacity-10 p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
       />
 
-      <MajorFeatures data={stageData} />
+      <MajorFeatures data={ProductStageData} />
 
       <div className="py-10">
         <h2 className="text-2xl font-bold text-center text-blue-900 mb-8">
