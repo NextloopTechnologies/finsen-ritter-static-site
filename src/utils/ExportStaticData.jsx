@@ -54,6 +54,7 @@ import {
   ServicesProjectFeasibility,
   ServicesSafetyConsultancy,
 } from "../assets/images";
+import { RoundedNumbers } from "../assets/svg";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -460,5 +461,54 @@ export const IconTextCardContent = [
   {
     icon: ServicesIndustrialGasesIcon,
     descp: "Power and Utility Infrastructure",
+  },
+];
+
+export const ProductStageData = [
+  {
+    title: "High-efficiency Anaerobic Digestion (AD) System",
+    color: "bg-blue-500",
+    icon: RoundedNumbers.Number1,
+    points: [
+      "Converts organic waste (e.g. agricultural residues, municipal solid waste and food waste) into biogas;",
+      "Operates with optimal conditions to maximize biogas yield;",
+      "Low energy consumption and high output efficiency;",
+    ],
+  },
+  {
+    title: "Advanced Biogas Upgrading Technology",
+    color: "bg-green-500",
+    icon: RoundedNumbers.Number2,
+    points: [
+      "Uses Vaccum Pressure Swing Adsorption (VPSA) along with the water scrubbing technologies to remove impurities such as CO2, H2S, and moisture.",
+      "Delivers methane purity levels of over 96%, suitable for vehicle fuel or pipeline injection.",
+    ],
+  },
+  {
+    title: "Customizable Capacity",
+    color: "bg-red-500",
+    icon: RoundedNumbers.Number3,
+    points: [
+      "Designed to cater to medium, and large-scale industrial requirements.",
+      "Modular configurations allow scalability to meet future needs.",
+    ],
+  },
+  {
+    title: "Robust Automation and Control Systems",
+    color: "bg-cyan-500",
+    icon: RoundedNumbers.Number4,
+    points: [
+      "Equipped with industry 4.0-compatible control systems for real-time monitoring and data analytics.",
+      "Ensures seamless operation with minimal manual intervention.",
+    ],
+  },
+  {
+    title: "Sustainability-Oriented Design",
+    color: "bg-yellow-500",
+    icon: RoundedNumbers.Number5,
+    points: [
+      "Reduces greenhouse gas emissions by converting waste into energy.",
+      "Produces nutrient-rich organic slurry as a by-product, ideal for use as bio-fertilizer.",
+    ],
   },
 ];

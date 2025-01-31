@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ConnectUsHandshake, ConnectUsHeroBg } from "../assets/images";
 import ContactSection from "../components/ContactSection";
 import HeroSection from "../components/HeroSection";
+import { supabase } from "../supabaseClient";
 
 const ConnectUs = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +14,24 @@ const ConnectUs = () => {
     vendorType: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    const { data, error } = await supabase.from("vendors").insert([formData]);
+
+    if (error) {
+      console.error("Error submitting form:", error.message);
+    } else {
+      console.log("Form submitted successfully:", data);
+      setFormData({
+        vendorName: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        address: "",
+        vendorType: "",
+      });
+    }
   };
 
   const handleChange = (e) => {

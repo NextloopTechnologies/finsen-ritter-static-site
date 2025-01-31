@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GetYourQuoteFormLeft, GetYourQuoteHeroBg } from "../assets/images";
 import HeroSection from "../components/HeroSection";
 import ContactSection from "../components/ContactSection";
+import { supabase } from "../supabaseClient";
 
 const GetYourQuote = () => {
   const [formData, setFormData] = useState({
@@ -29,9 +30,27 @@ const GetYourQuote = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    const { data, error } = await supabase.from("quotes").insert([formData]);
+
+    if (error) {
+      console.error("Error submitting form:", error.message);
+    } else {
+      console.log("Quote request submitted:", data);
+      setFormData({
+        clientName: "",
+        companyName: "",
+        contactInfo: "",
+        plantLocation: "",
+        gstin: "",
+        landAvailability: "",
+        registeredAddress: "",
+        plannedCapacity: "",
+        rawMaterial: "",
+      });
+    }
   };
 
   return (

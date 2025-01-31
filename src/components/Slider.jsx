@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { StarIcon } from "../assets/svg";
 
 const Slider = ({
@@ -11,68 +11,103 @@ const Slider = ({
   isTestimonial,
   visibleitems = 4,
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [virtualIndex, setVirtualIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const sliderRef = useRef(null);
-  const visibleCards = visibleitems;
   const scrollInterval = 3000;
+  const originalLength = cards.items.length;
+  const isTransitioning = useRef(false);
 
-  const calculateWidths = () => {
+  const extendedItems =
+    originalLength > visibleitems
+      ? [...cards.items, ...cards.items, ...cards.items]
+      : cards.items;
+
+  const calculateWidths = useCallback(() => {
     if (!sliderRef.current) return { cardWidth: 0, totalWidth: 0 };
     const totalWidth = sliderRef.current.offsetWidth;
-    const cardWidth = totalWidth / visibleCards;
-    return { cardWidth, totalWidth };
-  };
+    return { cardWidth: totalWidth / visibleitems, totalWidth };
+  }, [visibleitems]);
 
-  const centerActiveCard = () => {
-    if (!sliderRef.current) return;
+  const centerVirtualIndex = useCallback(
+    (targetIndex, behavior = "smooth") => {
+      if (!sliderRef.current || isTransitioning.current) return;
+      isTransitioning.current = true;
 
-    const { cardWidth, totalWidth } = calculateWidths();
-    const centerOffset = (totalWidth - cardWidth) / 2;
-    const scrollPosition =
-      currentIndex * cardWidth - centerOffset + cardWidth / 2;
+      const { cardWidth } = calculateWidths();
+      const basePosition = targetIndex * cardWidth;
+      const middleSectionStart = originalLength;
+      const middleSectionEnd = originalLength * 2;
 
-    sliderRef.current.scrollTo({
-      left: scrollPosition,
-      behavior: "smooth",
-    });
-  };
+      let finalPosition = basePosition;
+
+      if (basePosition < middleSectionStart * cardWidth) {
+        finalPosition += originalLength * cardWidth;
+      } else if (basePosition >= middleSectionEnd * cardWidth) {
+        finalPosition -= originalLength * cardWidth;
+      }
+
+      sliderRef.current.scrollTo({
+        left: finalPosition,
+        behavior: behavior === "auto" ? "auto" : "smooth",
+      });
+
+      setTimeout(() => {
+        isTransitioning.current = false;
+      }, 500);
+    },
+    [calculateWidths, originalLength]
+  );
 
   useEffect(() => {
     if (isHovered) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex + 1 >= cards.length ? 0 : prevIndex + 1
-      );
+      setVirtualIndex((prev) => (prev + 1) % originalLength);
     }, scrollInterval);
 
     return () => clearInterval(interval);
-  }, [cards.length, isHovered]);
+  }, [isHovered, originalLength]);
 
   useEffect(() => {
-    centerActiveCard();
-  }, [currentIndex]);
+    centerVirtualIndex(virtualIndex);
+  }, [virtualIndex, centerVirtualIndex]);
 
   useEffect(() => {
-    const handleResize = () => {
-      centerActiveCard();
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const handleScroll = () => {
+      if (isTransitioning.current) return;
+
+      const { cardWidth } = calculateWidths();
+      const middleSectionStart = originalLength * cardWidth;
+      const middleSectionEnd = originalLength * 2 * cardWidth;
+      const currentPos = slider.scrollLeft;
+
+      if (currentPos < middleSectionStart) {
+        slider.scrollTo({
+          left: currentPos + originalLength * cardWidth,
+          behavior: "auto",
+        });
+      } else if (currentPos >= middleSectionEnd) {
+        slider.scrollTo({
+          left: currentPos - originalLength * cardWidth,
+          behavior: "auto",
+        });
+      }
+
+      const middlePos = currentPos - middleSectionStart;
+      const newIndex = Math.round(middlePos / cardWidth) % originalLength;
+      setVirtualIndex(newIndex);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [currentIndex]);
+    slider.addEventListener("scroll", handleScroll);
+    return () => slider.removeEventListener("scroll", handleScroll);
+  }, [calculateWidths, originalLength]);
 
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex - 1 < 0 ? cards.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 1 >= cards.length ? 0 : prevIndex + 1
-    );
+  const handleDotClick = (index) => {
+    setVirtualIndex(index);
   };
 
   return (
@@ -85,7 +120,7 @@ const Slider = ({
         backgroundColor: backgroundColor || undefined,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "100% auto",
+        backgroundSize: "cover",
       }}
     >
       <div className="p-14 flex flex-col items-center text-center">
@@ -104,30 +139,30 @@ const Slider = ({
           className={`flex gap-4 overflow-x-auto scroll-smooth py-10 ${cardContainerClass}`}
           style={{
             scrollSnapType: "x mandatory",
+            overflowX: "hidden",
             WebkitOverflowScrolling: "touch",
             msOverflowStyle: "none",
             scrollbarWidth: "none",
           }}
         >
-          {cards?.items?.map((card, index) => (
+          {extendedItems.map((card, index) => (
             <div
               key={index}
               className={`flex flex-col mx-1 items-center justify-center flex-shrink-0 transition-all duration-300 scroll-snap-align-center
-              ${
-                iconOnly
-                  ? "aspect-square p-4"
-                  : isTestimonial
-                  ? "mx-2"
-                  : "w-[80%] md:w-[20%] p-2 md:p-4"
-              }
-             ${cardClass}
-             ${
-               index === currentIndex
-                 ? "scale-105 shadow-xl bg-gray-300 -translate-y-2"
-                 : "bg-white shadow-md"
-             }
-             hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
-              onClick={() => setCurrentIndex(index)}
+                ${
+                  iconOnly
+                    ? "aspect-square p-4"
+                    : isTestimonial
+                    ? "mx-2"
+                    : "w-[80%] md:w-[20%] p-2 md:p-4"
+                }
+                ${cardClass}
+                ${
+                  index % originalLength === virtualIndex
+                    ? "scale-105 shadow-xl bg-gray-300 -translate-y-2"
+                    : "bg-white shadow-md"
+                }
+                hover:scale-110 hover:shadow-2xl hover:-translate-y-3`}
             >
               {isTestimonial ? (
                 <>
@@ -193,13 +228,12 @@ const Slider = ({
         </div>
       </div>
       <div className="flex justify-center gap-2 mt-4">
-        {cards?.items?.map((_, index) => (
+        {cards.items?.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all
-            ${index === currentIndex ? "bg-gray-800 w-4" : "bg-gray-400"}
-          `}
-            onClick={() => setCurrentIndex(index)}
+              ${index === virtualIndex ? "bg-gray-800 w-4" : "bg-gray-400"}`}
+            onClick={() => handleDotClick(index)}
           />
         ))}
       </div>

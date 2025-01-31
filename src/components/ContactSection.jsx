@@ -72,7 +72,7 @@ const ContactSection = () => {
           <div className="my-4 md:my-5">
             <HorizontalLine
               className=""
-              color="blue"
+              color="#135384"
               thickness="2"
               width="100%"
             />
