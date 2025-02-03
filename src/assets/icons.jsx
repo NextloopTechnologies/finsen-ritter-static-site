@@ -41,6 +41,7 @@ import ServicesRenewableEnergy from "../assets/Services/ServicesRenewableEnergy.
 import ServicesFoodBeveragesIcon from "../assets/Services/ServicesFoodBeveragesIcon.png";
 import ServicesWaterTreatmentIcon from "../assets/Services/ServicesWaterTreatmentIcon.png";
 import ServicesIndustrialGasesIcon from "../assets/Services/ServicesIndustrialGasesIcon.png";
+import LogoFR from "../assets/Header/LogoFR.png";
 
 export {
   H2SCO2ScrubberIcon,
@@ -86,4 +87,5 @@ export {
   ServicesFoodBeveragesIcon,
   ServicesWaterTreatmentIcon,
   ServicesIndustrialGasesIcon,
+  LogoFR,
 };

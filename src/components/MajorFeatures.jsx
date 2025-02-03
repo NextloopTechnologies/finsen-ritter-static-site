@@ -1,9 +1,9 @@
 import React from "react";
 import { MultiColorLine } from "../assets/svg";
 
-const MajorFeatures = ({ data }) => {
+const MajorFeatures = ({ data, bgColorDiff = "bg-blue-900" }) => {
   return (
-    <div className="bg-blue-900 p-8 min-h-screen">
+    <div className={`${bgColorDiff || "bg-blue-900"} p-8 min-h-screen`}>
       <div className="flex flex-col items-center mb-16">
         <p className="my-8 text-2xl text-white font-bold">MAJOR FEATURES :</p>
         <MultiColorLine width={200} />

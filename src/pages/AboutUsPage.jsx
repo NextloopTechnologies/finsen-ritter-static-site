@@ -12,10 +12,22 @@ import Slider from "../components/Slider";
 import { cardsClients, testimonials } from "../utils/ExportStaticData";
 import { AboutUsText } from "../utils/ExportText";
 
-const AboutUsPage = () => {
+const AboutUsPage = ({ opacity = "opacity-40" }) => {
   return (
     <div className="flex flex-col gap-28">
-      <HeroSection backgroundImage={AboutSectionHeroBg}></HeroSection>
+      <HeroSection
+        backgroundImage={AboutSectionHeroBg}
+        backgroundOpacity="opacity-50"
+      >
+        <div className="flex flex-col text-center w-full">
+          <h2 className="text-3xl font-bold">ABOUT US</h2>
+          <p className="text-lg">
+            Finsen Ritter Technologies specializes in industrial turnkey
+            solutions, offering expertise in the design, supply, installation,
+            and testing of chemical and gas plants.
+          </p>
+        </div>
+      </HeroSection>
       <div className="mt-4 mx-4 -mb-4 md:m-10 px-4 md:px-32">
         <h2 className="flex text-xl md:text-2xl font-bold text-[#135384] justify-center">
           ABOUT THE COMPANY
