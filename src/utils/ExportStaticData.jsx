@@ -45,6 +45,10 @@ import {
 } from "../assets/icons";
 import {
   BlogsLeft,
+  ProductAdvantagesRight,
+  ProductDescriptionLeft,
+  ProductHeroBg,
+  ProductWhyChooseFR,
   ServicesCostMgmtAnalysis,
   ServicesECP,
   ServicesIndustrialAutomation,
@@ -55,6 +59,7 @@ import {
   ServicesSafetyConsultancy,
 } from "../assets/images";
 import { RoundedNumbers } from "../assets/svg";
+import { ProductText } from "./ExportText";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -512,3 +517,22 @@ export const ProductStageData = [
     ],
   },
 ];
+
+export const bioCNGData = {
+  heroBackgroundImage: ProductHeroBg,
+  heroTitle: "INDUSTRIAL BIO-CNG PLANT",
+  heroDescription:
+    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+  productDescription: ProductText.ProductDescription,
+  productDescriptionImage: ProductDescriptionLeft,
+  stageData: ProductStageData,
+  applicationCards: {
+    mainHeader: "Applications",
+    items: applicationCards.items,
+  },
+  advantagesImage: ProductAdvantagesRight,
+  advantages: ProductText.Advantages,
+  technicalSpecs: {},
+  whyChooseImage: ProductWhyChooseFR,
+  bgColorDiff: "bg-[#004C3F]",
+};

@@ -55,7 +55,18 @@ const ConnectUs = () => {
 
   return (
     <>
-      <HeroSection backgroundImage={ConnectUsHeroBg}></HeroSection>
+      <HeroSection
+        backgroundImage={ConnectUsHeroBg}
+        backgroundOpacity="opacity-50"
+      >
+        <div className="flex flex-col text-center w-full">
+          <h2 className="text-3xl font-bold">CONNECT WITH US</h2>
+          <p className="text-lg">
+            Looking for innovative solutions? Connect with us on our website and
+            let's make it happen!
+          </p>
+        </div>
+      </HeroSection>
       <div className="w-full max-w-6xl mx-auto px-5 py-20 mb-20">
         <div className="text-center p-6 mb-10">
           <h1 className="text-2xl font-bold text-blue-900">CONNECT US</h1>
