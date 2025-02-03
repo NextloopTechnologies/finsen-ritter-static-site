@@ -7,7 +7,18 @@ import { ServicesCards } from "../../utils/ExportStaticData";
 const Services = () => {
   return (
     <div>
-      <HeroSection backgroundImage={ServicesHeroBg}></HeroSection>
+      <HeroSection
+        backgroundImage={ServicesHeroBg}
+        backgroundOpacity="opacity-50"
+      >
+        <div className="flex flex-col text-center w-full">
+          <h2 className="text-3xl font-bold">OUR Services</h2>
+          <p className="text-lg">
+            Eco-friendly biogas solutions for renewable energy and waste
+            management needs.
+          </p>
+        </div>
+      </HeroSection>
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-2xl font-bold mb-4 text-center text-[#135384]">
           OUR SERVICES
