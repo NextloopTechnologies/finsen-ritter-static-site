@@ -4,11 +4,13 @@ import { ErrorBoundary } from "react-error-boundary";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import AboutUsPage from "./pages/AboutUsPage";
-import Product from "./pages/Product";
+import Product from "./pages/Products/Product";
 import GetYourQuote from "./pages/GetYourQuote";
 import Blogs from "./pages/Blogs";
 import ConnectUs from "./pages/ConnectUs";
-import Services from "./pages/Services";
+import Services from "./pages/Services/Services";
+import ServicesEpc from "./pages/Services/ServicesEpc";
+import { BioCNGPage } from "./pages/Products/BioCng";
 
 const AppLayout = () => (
   <>
@@ -34,7 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "product",
-        element: <Product />,
+        element: <Outlet />,
+        children: [
+          { index: true, element: <Product /> },
+          { path: "bio-cng", element: <BioCNGPage /> },
+        ],
       },
       {
         path: "getyourquote",
@@ -50,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path: "services",
-        element: <Services />,
+        element: <Outlet />,
+        children: [
+          { index: true, element: <Services /> },
+          { path: "epc", element: <ServicesEpc /> },
+        ],
       },
     ],
   },

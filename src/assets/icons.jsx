@@ -35,6 +35,13 @@ import ShuttleIcon from "../assets/Product/ShuttleIcon.png";
 import MedalIcon from "../assets/Product/MedalIcon.png";
 import LocationIcon from "../assets/Product/LocationIcon.png";
 import FeedbackCapacityIcon from "../assets/Product/FeedbackCapacityIcon.png";
+import ServicesPowerAndUtilityInfrastructureIcon from "../assets/Services/ServicesPowerAndUtilityInfrastructureIcon.png";
+import ServicesPetrochemicalIcon from "../assets/Services/ServicesPetrochemicalIcon.png";
+import ServicesRenewableEnergy from "../assets/Services/ServicesRenewableEnergy.png";
+import ServicesFoodBeveragesIcon from "../assets/Services/ServicesFoodBeveragesIcon.png";
+import ServicesWaterTreatmentIcon from "../assets/Services/ServicesWaterTreatmentIcon.png";
+import ServicesIndustrialGasesIcon from "../assets/Services/ServicesIndustrialGasesIcon.png";
+import LogoFR from "../assets/Header/LogoFR.png";
 
 export {
   H2SCO2ScrubberIcon,
@@ -74,4 +81,11 @@ export {
   MedalIcon,
   LocationIcon,
   FeedbackCapacityIcon,
+  ServicesPowerAndUtilityInfrastructureIcon,
+  ServicesPetrochemicalIcon,
+  ServicesRenewableEnergy,
+  ServicesFoodBeveragesIcon,
+  ServicesWaterTreatmentIcon,
+  ServicesIndustrialGasesIcon,
+  LogoFR,
 };

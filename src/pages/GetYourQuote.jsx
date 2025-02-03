@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GetYourQuoteFormLeft, GetYourQuoteHeroBg } from "../assets/images";
 import HeroSection from "../components/HeroSection";
 import ContactSection from "../components/ContactSection";
+import { supabase } from "../supabaseClient";
 
 const GetYourQuote = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,8 @@ const GetYourQuote = () => {
     plannedCapacity: "",
     rawMaterial: "",
   });
-
+  const [isLoading, setIsLoading] = useState();
+  const [submitError, setSubmitError] = useState("");
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -29,14 +31,47 @@ const GetYourQuote = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsLoading(true);
+    setSubmitError("");
+    try {
+      const { data, error } = await supabase.from("quotes").insert([formData]);
+      if (error) throw error;
+      setFormData({
+        clientName: "",
+        companyName: "",
+        contactInfo: "",
+        plantLocation: "",
+        gstin: "",
+        landAvailability: "",
+        registeredAddress: "",
+        plannedCapacity: "",
+        rawMaterial: "",
+      });
+    } catch (error) {
+      setSubmitError(
+        error.message || "Failed to submit form. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <>
-      <HeroSection backgroundImage={GetYourQuoteHeroBg}></HeroSection>
+      <HeroSection
+        backgroundImage={GetYourQuoteHeroBg}
+        backgroundOpacity="opacity-50"
+      >
+        <div className="flex flex-col text-center w-full">
+          <h2 className="text-3xl font-bold">GET YOUR QUOTE</h2>
+          <p className="text-lg">
+            Looking for innovative solutions? Connect with us on our website and
+            let's make it happen!
+          </p>
+        </div>
+      </HeroSection>
       <div className="min-h-screen  my-20">
         <div className="max-w-6xl mx-auto p-4 md:p-8">
           <div className=" rounded-xl shadow-lg overflow-hidden">
@@ -101,7 +136,7 @@ const GetYourQuote = () => {
                       />
                       {errors.contactInfo && (
                         <p className="text-red-500 text-xs mt-1">
-                          This is an ERROR message
+                          {errors.contactInfo}
                         </p>
                       )}
                     </div>
@@ -114,9 +149,18 @@ const GetYourQuote = () => {
                         name="plantLocation"
                         value={formData.plantLocation}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         required
+                        className={`w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          errors.plantLocation
+                            ? "border-red-500"
+                            : "border-gray-300"
+                        }`}
                       />
+                      {errors.plantLocation && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.plantLocation}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -136,7 +180,7 @@ const GetYourQuote = () => {
                       />
                       {errors.gstin && (
                         <p className="text-red-500 text-xs mt-1">
-                          This is an ERROR message
+                          {errors.gstin}
                         </p>
                       )}
                     </div>
@@ -149,9 +193,18 @@ const GetYourQuote = () => {
                         name="landAvailability"
                         value={formData.landAvailability}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         required
+                        className={`w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          errors.landAvailability
+                            ? "border-red-500"
+                            : "border-gray-300"
+                        }`}
                       />
+                      {errors.landAvailability && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.landAvailability}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -165,9 +218,18 @@ const GetYourQuote = () => {
                         value={formData.registeredAddress}
                         onChange={handleChange}
                         rows="2"
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         required
+                        className={`w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          errors.registeredAddress
+                            ? "border-red-500"
+                            : "border-gray-300"
+                        }`}
                       />
+                      {errors.registeredAddress && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.registeredAddress}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -179,9 +241,18 @@ const GetYourQuote = () => {
                         name="plannedCapacity"
                         value={formData.plannedCapacity}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         required
+                        className={`w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          errors.plannedCapacity
+                            ? "border-red-500"
+                            : "border-gray-300"
+                        }`}
                       />
+                      {errors.plannedCapacity && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.plannedCapacity}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -193,17 +264,57 @@ const GetYourQuote = () => {
                         name="rawMaterial"
                         value={formData.rawMaterial}
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         required
+                        className={`w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          errors.rawMaterial
+                            ? "border-red-500"
+                            : "border-gray-300"
+                        }`}
                       />
+                      {errors.rawMaterial && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.rawMaterial}
+                        </p>
+                      )}
                     </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition-colors duration-300"
+                    disabled={isLoading}
+                    className={`w-full py-2 px-4 rounded-md transition-colors duration-300 ${
+                      isLoading
+                        ? "bg-blue-300 cursor-not-allowed"
+                        : "bg-blue-900 hover:bg-blue-800"
+                    } text-white flex items-center justify-center`}
                   >
-                    Submit
+                    {isLoading ? (
+                      <>
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                 </form>
               </div>

@@ -1,27 +1,41 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../../components/HeroSection";
 import {
   ProductAdvantagesRight,
   ProductDescriptionLeft,
   ProductHeroBg,
   ProductWhyChooseFR,
-} from "../assets/images";
-import { ProductText } from "../utils/ExportText";
-import FlexContentImageSection from "../components/FlexContentImageSection";
-import { applicationCards } from "../utils/ExportStaticData";
-import ContactSection from "../components/ContactSection";
-import TechnicalSpecifications from "../components/TechnicalSpecifications";
-import { IndustrialSiteCircular } from "../assets/images";
-import CircularFeatures from "../components/CircularFeatures";
-import useIsMobile from "../hooks/useIsMobile";
+} from "../../assets/images";
+import { ProductText } from "../../utils/ExportText";
+import FlexContentImageSection from "../../components/FlexContentImageSection";
+import {
+  applicationCards,
+  ProductStageData,
+} from "../../utils/ExportStaticData";
+import ContactSection from "../../components/ContactSection";
+import TechnicalSpecifications from "../../components/TechnicalSpecifications";
+import { IndustrialSiteCircular } from "../../assets/images";
+import MajorFeatures from "../../components/MajorFeatures";
+import useIsMobile from "../../hooks/useIsMobile";
 
-const Product = () => {
+const Product = ({ bgColorDiff = "bg-blue-900" }) => {
   const { mainHeader, items } = applicationCards;
   const isMobile = useIsMobile();
 
   return (
     <div className="flex flex-col gap-28">
-      <HeroSection backgroundImage={ProductHeroBg}></HeroSection>
+      <HeroSection
+        backgroundImage={ProductHeroBg}
+        backgroundOpacity="opacity-50"
+      >
+        <div className="flex flex-col text-center w-full">
+          <h2 className="text-3xl font-bold">PRODUCT</h2>
+          <p className="text-lg">
+            Eco-friendly biogas solutions for renewable energy and waste
+            management needs.
+          </p>
+        </div>
+      </HeroSection>
       <FlexContentImageSection
         image={ProductDescriptionLeft}
         mainHeading="INDUSTRIAL BIO-CNG (COMPRESSED BIO-GAS) PLANT: PRODUCT DESCRIPTION"
@@ -31,7 +45,8 @@ const Product = () => {
         contentClassName="bg-white bg-opacity-10 p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
       />
 
-      <CircularFeatures />
+      <MajorFeatures data={ProductStageData} bgColorDiff={bgColorDiff} />
+
       <div className="py-10">
         <h2 className="text-2xl font-bold text-center text-blue-900 mb-8">
           {mainHeader}

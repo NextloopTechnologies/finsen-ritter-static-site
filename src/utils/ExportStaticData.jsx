@@ -36,8 +36,30 @@ import {
   ShuttleIcon,
   TestimonialProfileIcon,
   UniqueHospitalIcon,
+  ServicesFoodBeveragesIcon,
+  ServicesIndustrialGasesIcon,
+  ServicesPetrochemicalIcon,
+  ServicesPowerAndUtilityInfrastructureIcon,
+  ServicesRenewableEnergy,
+  ServicesWaterTreatmentIcon,
 } from "../assets/icons";
-import { BlogsLeft } from "../assets/images";
+import {
+  BlogsLeft,
+  ProductAdvantagesRight,
+  ProductDescriptionLeft,
+  ProductHeroBg,
+  ProductWhyChooseFR,
+  ServicesCostMgmtAnalysis,
+  ServicesECP,
+  ServicesIndustrialAutomation,
+  ServicesLicenseAndPermission,
+  ServicesProcurementMgmt,
+  ServicesProjectDetailedReport,
+  ServicesProjectFeasibility,
+  ServicesSafetyConsultancy,
+} from "../assets/images";
+import { RoundedNumbers } from "../assets/svg";
+import { ProductText } from "./ExportText";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -349,3 +371,168 @@ export const blogCards = [
     image: BlogsLeft,
   },
 ];
+
+export const ServicesIndustryCards = [
+  {
+    icon: ServicesPowerAndUtilityInfrastructureIcon,
+    text: "Industrial Gases and Chemical Plants",
+  },
+  {
+    icon: ServicesPetrochemicalIcon,
+    text: "Water Treatment and Wastewater Solutions",
+  },
+  {
+    icon: ServicesRenewableEnergy,
+    text: "Food and Beverage Processing Plants",
+  },
+  {
+    icon: ServicesFoodBeveragesIcon,
+    text: "Renewable Energy and Biogas Projects",
+  },
+  {
+    icon: ServicesWaterTreatmentIcon,
+    text: "Petrochemical and Refining Facilities",
+  },
+  {
+    icon: ServicesIndustrialGasesIcon,
+    text: "Power and Utility Infrastructure",
+  },
+];
+
+export const ServicesCards = [
+  {
+    title: "Engineering Procurement & Construction (EPC)",
+    image: ServicesECP,
+    link: "services/epc",
+  },
+  {
+    title: "Procurement Management",
+    image: ServicesProcurementMgmt,
+    link: "#",
+  },
+  {
+    title: "Industrial Automation",
+    image: ServicesIndustrialAutomation,
+    link: "#",
+  },
+  {
+    title: "Project Feasibility Report",
+    image: ServicesProjectFeasibility,
+    link: "#",
+  },
+  {
+    title: "Detailed Project Report",
+    image: ServicesProjectDetailedReport,
+    link: "#",
+  },
+  {
+    title: "Cost Management Analysis & High Tech",
+    image: ServicesCostMgmtAnalysis,
+    link: "#",
+  },
+  {
+    title: "Safety Consultancy",
+    image: ServicesSafetyConsultancy,
+    link: "#",
+  },
+  {
+    title: "Health & Environmental Safety & Risk Assessment",
+    image: ServicesLicenseAndPermission,
+    link: "#",
+  },
+];
+
+export const IconTextCardContent = [
+  {
+    icon: ServicesPowerAndUtilityInfrastructureIcon,
+    descp: "Industrial Gases and Chemical Plants",
+  },
+  {
+    icon: ServicesPetrochemicalIcon,
+    descp: "Water Treatment and Wastewater Solutions",
+  },
+  {
+    icon: ServicesRenewableEnergy,
+    descp: "Food and Beverage Processing Plants",
+  },
+  {
+    icon: ServicesFoodBeveragesIcon,
+    descp: "Renewable Energy and Biogas Projects",
+  },
+  {
+    icon: ServicesWaterTreatmentIcon,
+    descp: "Petrochemical and Refining Facilities",
+  },
+  {
+    icon: ServicesIndustrialGasesIcon,
+    descp: "Power and Utility Infrastructure",
+  },
+];
+
+export const ProductStageData = [
+  {
+    title: "High-efficiency Anaerobic Digestion (AD) System",
+    color: "bg-blue-500",
+    icon: RoundedNumbers.Number1,
+    points: [
+      "Converts organic waste (e.g. agricultural residues, municipal solid waste and food waste) into biogas;",
+      "Operates with optimal conditions to maximize biogas yield;",
+      "Low energy consumption and high output efficiency;",
+    ],
+  },
+  {
+    title: "Advanced Biogas Upgrading Technology",
+    color: "bg-green-500",
+    icon: RoundedNumbers.Number2,
+    points: [
+      "Uses Vaccum Pressure Swing Adsorption (VPSA) along with the water scrubbing technologies to remove impurities such as CO2, H2S, and moisture.",
+      "Delivers methane purity levels of over 96%, suitable for vehicle fuel or pipeline injection.",
+    ],
+  },
+  {
+    title: "Customizable Capacity",
+    color: "bg-red-500",
+    icon: RoundedNumbers.Number3,
+    points: [
+      "Designed to cater to medium, and large-scale industrial requirements.",
+      "Modular configurations allow scalability to meet future needs.",
+    ],
+  },
+  {
+    title: "Robust Automation and Control Systems",
+    color: "bg-cyan-500",
+    icon: RoundedNumbers.Number4,
+    points: [
+      "Equipped with industry 4.0-compatible control systems for real-time monitoring and data analytics.",
+      "Ensures seamless operation with minimal manual intervention.",
+    ],
+  },
+  {
+    title: "Sustainability-Oriented Design",
+    color: "bg-yellow-500",
+    icon: RoundedNumbers.Number5,
+    points: [
+      "Reduces greenhouse gas emissions by converting waste into energy.",
+      "Produces nutrient-rich organic slurry as a by-product, ideal for use as bio-fertilizer.",
+    ],
+  },
+];
+
+export const bioCNGData = {
+  heroBackgroundImage: ProductHeroBg,
+  heroTitle: "INDUSTRIAL BIO-CNG PLANT",
+  heroDescription:
+    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+  productDescription: ProductText.ProductDescription,
+  productDescriptionImage: ProductDescriptionLeft,
+  stageData: ProductStageData,
+  applicationCards: {
+    mainHeader: "Applications",
+    items: applicationCards.items,
+  },
+  advantagesImage: ProductAdvantagesRight,
+  advantages: ProductText.Advantages,
+  technicalSpecs: {},
+  whyChooseImage: ProductWhyChooseFR,
+  bgColorDiff: "bg-[#004C3F]",
+};

@@ -1,11 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import LogoFR from "../assets/Header/LogoFR.png";
+import { LogoFR } from "../assets/icons";
 
 const navItems = [
   { path: "/", label: "Home" },
+  {
+    path: "/product",
+    label: "Product",
+    dropdownItems: [
+      {
+        label: "Industrial Bio-CNG (Compressed Bio-Gas) Plant",
+        path: "/product/bio-cng",
+      },
+      {
+        label: "Medical Oxygen Plants (PSA & VPSA)",
+        path: "/product/medical-oxygen",
+      },
+      {
+        label: "Industrial Nitrogen Plant (PSA & VPSA)",
+        path: "/product/nitrogen",
+      },
+      {
+        label: "Industrial Desiccant Dryers",
+        path: "/product/desiccant-dryers",
+      },
+      {
+        label: "Industrial Biogas Purification and Refining Plants",
+        path: "/product/biogas",
+      },
+      { label: "Industrial Syngas Refining Plants", path: "/product/syngas" },
+      {
+        label: "Industrial Screw Chillers & Heat Pumps",
+        path: "/product/chillers",
+      },
+      { label: "H2S & CO2 Scrubber", path: "/product/scrubber" },
+      {
+        label: "Industrial Gas Blending Skid (CH4, H2, and O2)",
+        path: "/product/gas-blending",
+      },
+    ],
+  },
   { path: "/about", label: "About us" },
-  { path: "/product", label: "Product" },
   { path: "/services", label: "Services" },
   { path: "/blogs", label: "Blog & News" },
   { path: "/connectus", label: "Connect With Us" },
@@ -14,8 +49,11 @@ const navItems = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const dropdownRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const timeoutRef = useRef(null);
 
   const isActive = (path) => location.pathname === path;
 
@@ -24,29 +62,113 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const NavLink = ({ path, label }) => (
-    <Link
-      to={path}
-      className={`text-gray-700 hover:text-secondary font-medium px-4 ${
-        isActive(path)
-          ? 'text-secondary after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-secondary'
-          : ""
-      }`}
-    >
-      {label}
-    </Link>
-  );
+  const handleMouseEnter = (label) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const NavLink = ({ path, label, dropdownItems }) => {
+    const hasDropdown = dropdownItems && dropdownItems.length > 0;
+    const isDropdownOpen = activeDropdown === label;
+
+    return (
+      <div
+        className="relative"
+        onMouseEnter={() => hasDropdown && handleMouseEnter(label)}
+        onMouseLeave={handleMouseLeave}
+        ref={dropdownRef}
+      >
+        <Link
+          to={path}
+          className={`relative hover:text-secondary font-medium px-4 py-2 transition-colors ${
+            isActive(path)
+              ? "text-secondary after:absolute after:left-2 after:right-2 after:bottom-1 after:h-[2px] after:bg-secondary"
+              : "text-gray-700"
+          }`}
+        >
+          {label}
+          {hasDropdown && (
+            <span
+              className={`ml-1 inline-block transition-transform duration-200 ${
+                isDropdownOpen ? "rotate-180" : ""
+              }`}
+            >
+              ▼
+            </span>
+          )}
+          {isActive(path) && (
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] hidden md:flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="5"
+                viewBox="0 0 40 5"
+                fill="none"
+                className="w-full"
+              >
+                <rect
+                  x="0.774414"
+                  width="31"
+                  height="5"
+                  rx="2.5"
+                  fill="#07355E"
+                />
+                <rect
+                  x="34.7744"
+                  width="5"
+                  height="5"
+                  rx="2.5"
+                  fill="#07355E"
+                />
+              </svg>
+            </div>
+          )}
+        </Link>
+
+        {hasDropdown && isDropdownOpen && (
+          <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-80 bg-white rounded-lg shadow-lg py-2 z-50">
+            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-white border-t border-l border-gray-200"></div>
+
+            <div className="relative bg-white rounded-lg z-10">
+              {dropdownItems.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.path}
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#07355E] hover:text-white transition-colors duration-150"
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
-    <header className="absolute bg-white rounded-3xl md:rounded-full my-5 mx-4 md:mx-8 z-10 w-[calc(100%-2rem)] md:w-[90%] text-gray-700 font-medium">
+    <header className="absolute left-1/2 -translate-x-1/2 bg-white rounded-3xl md:rounded-full my-5 z-10 w-[calc(100%-2rem)] text-gray-700 font-medium">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <img
-              src={LogoFR || "/placeholder.svg"}
-              alt="Company Logo"
-              className="h-8 md:h-10"
-            />
+            <img src={LogoFR} alt="Company Logo" className="h-8 md:h-10" />
           </Link>
 
           <nav className="hidden md:flex gap-2 lg:gap-2 items-center">
@@ -61,7 +183,6 @@ const Header = () => {
             </button>
           </nav>
 
-          {/* Mobile menu button */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -88,16 +209,15 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <NavLink key={item.path} {...item} />
               ))}
               <button
                 onClick={handleQuoteClick}
-                className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm self-start ml-4 mt-2"
+                className="bg-[#00477E] px-4 py-2 rounded-md text-white text-sm mt-2"
               >
                 Get Your Quote
               </button>
