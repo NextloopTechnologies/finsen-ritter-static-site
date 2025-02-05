@@ -23,9 +23,26 @@ const MajorFeatures = ({ data, bgColorDiff = "bg-blue-900" }) => {
               {feature.title}
             </h3>
             <ul className="text-gray-700 list-disc pl-5 text-sm">
-              {feature.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
+              {feature.points.map((point, i) => {
+                const pointText =
+                  typeof point === "object" ? point.text : point;
+                const subpoints =
+                  typeof point === "object" && point.subpoints
+                    ? point.subpoints
+                    : [];
+                return (
+                  <li key={i}>
+                    {pointText}
+                    {subpoints.length > 0 && (
+                      <ul className="list-disc ml-5 mt-1">
+                        {subpoints.map((subpoint, j) => (
+                          <li key={j}>{subpoint}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

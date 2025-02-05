@@ -12,6 +12,13 @@ import Services from "./pages/Services/Services";
 import ServicesEpc from "./pages/Services/ServicesEpc";
 import { BioCNGPage } from "./pages/Products/BioCng";
 import { ProductMedicalOxygen } from "./pages/Products/ProductMedicalOxygen";
+import ProductIndustrialNirtogen from "./pages/Products/ProductIndustrialNirtogen";
+import ProductDesiccantDryers from "./pages/Products/ProductDesiccantDryers";
+import ProductBiogas from "./pages/Products/ProductBiogas";
+import ProductSyngas from "./pages/Products/ProductSyngas";
+import ProductChillers from "./pages/Products/ProductChillers";
+import ProductScrubber from "./pages/Products/ProductScrubber";
+import ProductGasBlending from "./pages/Products/ProductGasBlending";
 
 const AppLayout = () => (
   <>
@@ -43,6 +50,34 @@ const router = createBrowserRouter([
           {
             path: "medical-oxygen",
             element: <ProductMedicalOxygen />,
+          },
+          {
+            path: "nitrogen",
+            element: <ProductIndustrialNirtogen />,
+          },
+          {
+            path: "desiccant-dryers",
+            element: <ProductDesiccantDryers />,
+          },
+          {
+            path: "biogas",
+            element: <ProductBiogas />,
+          },
+          {
+            path: "syngas",
+            element: <ProductSyngas />,
+          },
+          {
+            path: "chillers",
+            element: <ProductChillers />,
+          },
+          {
+            path: "scrubber",
+            element: <ProductScrubber />,
+          },
+          {
+            path: "gas-blending",
+            element: <ProductGasBlending />,
           },
         ],
       },

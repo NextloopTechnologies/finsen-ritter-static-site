@@ -6,7 +6,7 @@ export const ProductMedicalOxygen = () => {
   return (
     <Product
       productData={ProductMedicalOxygenData}
-      bgColorDiff="bg-[#004C3F]"
+      bgColorDiff="bg-[#00457B]"
     />
   );
 };
