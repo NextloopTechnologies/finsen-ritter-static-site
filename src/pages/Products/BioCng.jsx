@@ -1,6 +1,6 @@
-import { bioCNGData } from "../../utils/ExportStaticData";
+import { ProductBioCNGData } from "../../utils/ExportStaticData";
 import Product from "./Product";
 
 export const BioCNGPage = () => {
-  return <Product productData={bioCNGData} bgColorDiff="bg-[#004C3F]" />;
+  return <Product productData={ProductBioCNGData} bgColorDiff="bg-[#004C3F]" />;
 };

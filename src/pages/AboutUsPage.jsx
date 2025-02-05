@@ -11,8 +11,10 @@ import FlexContentImageSection from "../components/FlexContentImageSection";
 import Slider from "../components/Slider";
 import { cardsClients, testimonials } from "../utils/ExportStaticData";
 import { AboutUsText } from "../utils/ExportText";
+import { TestimonialCard } from "../components/TestimonialCard";
+import { IconCard } from "../components/IconCard";
 
-const AboutUsPage = ({ opacity = "opacity-40" }) => {
+const AboutUsPage = () => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
@@ -61,19 +63,43 @@ const AboutUsPage = ({ opacity = "opacity-40" }) => {
       />
 
       <Slider
-        cards={cardsClients}
-        backgroundColor="rgba(19, 83, 132, 0.1)"
-        cardClass="rounded-full w-[40%] md:w-[15%] p-2 md:p-4"
-        iconOnly={true}
-        cardContainerClass=""
+        visibleItems={6}
+        autoPlay={true}
+        showDots={true}
+        className="py-12 bg-gray-50"
+        header={
+          <div className="p-14 flex flex-col items-center text-center">
+            <div className="text-blue-900 font-extrabold text-3xl">
+              {cardsClients?.mainHeader}
+            </div>
+            <div className="font-semibold text-xl">
+              {cardsClients?.mainDescription}
+            </div>
+          </div>
+        }
+        slides={cardsClients?.items?.map((client) => (
+          <IconCard icon={client.icon} altText={client.name} />
+        ))}
       />
 
       <Slider
-        cards={testimonials}
-        isTestimonial={true}
-        cardContainerClass="px-4"
-        backgroundColor=""
-        cardClass="md:w-[30%] w-[80%] rounded-xl p-4"
+        visibleItems={3}
+        showArrows={true}
+        showDots={true}
+        swiperParams={{ spaceBetween: 40 }}
+        header={
+          <div className="p-14 flex flex-col items-center text-center">
+            <div className="text-blue-900 font-extrabold text-3xl">
+              {testimonials?.mainHeader}
+            </div>
+            <div className="font-semibold text-xl">
+              {testimonials?.mainDescription}
+            </div>
+          </div>
+        }
+        slides={testimonials?.items?.map((testimonial) => (
+          <TestimonialCard {...testimonial} className="custom-testimonial" />
+        ))}
       />
 
       <ContactSection />
