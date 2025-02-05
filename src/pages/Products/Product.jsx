@@ -1,58 +1,46 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
-import {
-  ProductAdvantagesRight,
-  ProductDescriptionLeft,
-  ProductHeroBg,
-  ProductWhyChooseFR,
-} from "../../assets/images";
-import { ProductText } from "../../utils/ExportText";
 import FlexContentImageSection from "../../components/FlexContentImageSection";
-import {
-  applicationCards,
-  ProductStageData,
-} from "../../utils/ExportStaticData";
+import MajorFeatures from "../../components/MajorFeatures";
 import ContactSection from "../../components/ContactSection";
 import TechnicalSpecifications from "../../components/TechnicalSpecifications";
-import { IndustrialSiteCircular } from "../../assets/images";
-import MajorFeatures from "../../components/MajorFeatures";
 import useIsMobile from "../../hooks/useIsMobile";
 
-const Product = ({ bgColorDiff = "bg-blue-900" }) => {
-  const { mainHeader, items } = applicationCards;
+const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
   const isMobile = useIsMobile();
 
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
-        backgroundImage={ProductHeroBg}
+        backgroundImage={productData.heroBackgroundImage}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
-          <h2 className="text-3xl font-bold">PRODUCT</h2>
-          <p className="text-lg">
-            Eco-friendly biogas solutions for renewable energy and waste
-            management needs.
-          </p>
+          <h2 className="text-3xl font-bold">{productData.heroTitle}</h2>
+          <p className="text-lg">{productData.heroSubtitle}</p>
         </div>
       </HeroSection>
+
       <FlexContentImageSection
-        image={ProductDescriptionLeft}
-        mainHeading="INDUSTRIAL BIO-CNG (COMPRESSED BIO-GAS) PLANT: PRODUCT DESCRIPTION"
+        image={productData.descriptionImage}
+        mainHeading={productData.descriptionMainHeading}
         title=""
-        description={ProductText.ProductDescription}
+        description={productData.descriptionText}
         orientation="right"
         contentClassName="bg-white bg-opacity-10 p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
       />
 
-      <MajorFeatures data={ProductStageData} bgColorDiff={bgColorDiff} />
+      <MajorFeatures
+        data={productData.majorFeatures}
+        bgColorDiff={bgColorDiff}
+      />
 
       <div className="py-10">
         <h2 className="text-2xl font-bold text-center text-blue-900 mb-8">
-          {mainHeader}
+          {productData.applicationCards.mainHeader}
         </h2>
         <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-3 px-4">
-          {items?.map((item, index) => (
+          {productData?.applicationCards?.items?.map((item, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-lg p-6 text-center"
@@ -74,27 +62,27 @@ const Product = ({ bgColorDiff = "bg-blue-900" }) => {
       </div>
 
       <FlexContentImageSection
-        image={ProductAdvantagesRight}
+        image={productData.advantagesImage}
         title="ADVANTAGES"
-        numberedSections={ProductText.Advantages}
+        numberedSections={productData.advantagesText}
         orientation="right"
         contentClassName="p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
         containerClassName="flex flex-col items-center p-5 self-center bg-gray-200 w-full"
       />
 
-      <TechnicalSpecifications />
+      <TechnicalSpecifications
+        specifications={productData.technicalSpecifications}
+      />
 
       {isMobile ? (
-        <div>
-          <FlexContentImageSection
-            image={ProductWhyChooseFR}
-            title="WHY CHOOSE FINSEN RITTER TECHNOLOGIES?"
-            bulletPoints={ProductText.WhyChooseFR}
-            orientation="right"
-            contentClassName="p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
-            containerClassName="flex flex-col items-center p-5 self-center bg-gray-200 w-full"
-          />
-        </div>
+        <FlexContentImageSection
+          image={productData.whyChooseImage}
+          title="WHY CHOOSE FINSEN RITTER TECHNOLOGIES?"
+          bulletPoints={productData.whyChooseText}
+          orientation="right"
+          contentClassName="p-5 md:p-10 max-w-full md:max-w-[50vw] my-10 md:my-20"
+          containerClassName="flex flex-col items-center p-5 self-center bg-gray-200 w-full"
+        />
       ) : (
         <div className="flex p-5 self-center">
           <div className="bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] rounded-bl-[4rem] my-12">
@@ -102,38 +90,22 @@ const Product = ({ bgColorDiff = "bg-blue-900" }) => {
               Why Choose Finsen Ritter Technologies?
             </div>
             <ul className="list-disc pl-5">
-              <li>
-                <span className="font-semibold">Proven Expertise: </span>
-                Years of experience in industrial gas and chemical plant
-                development.
-              </li>
-              <li>
-                <span className="font-semibold">Comprehensive Support: </span>
-                From feasibility studies to commissioning and after-sales
-                service.
-              </li>
-              <li>
-                <span className="font-semibold"> Innovative Solutions: </span>
-                Leveraging state-of-the-art technology to deliver exceptional
-                efficiency and reliability.
-              </li>
-              <li>
-                <span className="font-semibold">
-                  Sustainability Commitment:
-                </span>
-                Dedicated to creating environmentally friendly solutions for a
-                better tomorrow.
-              </li>
+              {productData.whyChooseText.map((point, index) => (
+                <li key={index}>
+                  <span className="font-semibold">{point.split(":")[0]}: </span>
+                  {point.split(":")[1]}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="relative">
             <img
-              src={ProductWhyChooseFR}
+              src={productData.whyChooseImage}
               alt="Location on map"
               className="h-auto w-96"
             />
             <img
-              src={IndustrialSiteCircular}
+              src={productData.whyChooseCircularImage}
               alt="Industrial site view"
               className="absolute h-52 -left-20 -bottom-5"
             />

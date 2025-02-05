@@ -11,6 +11,7 @@ import ConnectUs from "./pages/ConnectUs";
 import Services from "./pages/Services/Services";
 import ServicesEpc from "./pages/Services/ServicesEpc";
 import { BioCNGPage } from "./pages/Products/BioCng";
+import { ProductMedicalOxygen } from "./pages/Products/ProductMedicalOxygen";
 
 const AppLayout = () => (
   <>
@@ -38,8 +39,11 @@ const router = createBrowserRouter([
         path: "product",
         element: <Outlet />,
         children: [
-          { index: true, element: <Product /> },
-          { path: "bio-cng", element: <BioCNGPage /> },
+          { index: true, path: "bio-cng", element: <BioCNGPage /> },
+          {
+            path: "medical-oxygen",
+            element: <ProductMedicalOxygen />,
+          },
         ],
       },
       {
