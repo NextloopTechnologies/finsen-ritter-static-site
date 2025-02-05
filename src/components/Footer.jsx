@@ -6,8 +6,11 @@ import {
   serviceLinks,
 } from "../utils/ExportStaticData";
 import { FooterText } from "../utils/ExportText";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  const isBioCNGPage = location.pathname === "/product/bio-cng";
   const FooterList = ({ title, items, bulletPoints }) => (
     <div>
       <h3 className="text-lg font-semibold mb-4">{title}</h3>
@@ -23,7 +26,11 @@ const Footer = () => {
     </div>
   );
   return (
-    <footer className="bg-blue-900 text-white py-16 pt-32 px-10 md:px-20">
+    <footer
+      className={`bg-${
+        isBioCNGPage ? "[#004C3F]" : "[#00457B]"
+      } text-white py-16 pt-32 px-10 md:px-20`}
+    >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 md:gap-12">
           <div className="space-y-4">
