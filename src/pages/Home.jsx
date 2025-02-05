@@ -1,6 +1,6 @@
 import React from "react";
 import AboutUs from "../components/AboutUs";
-import { LogoFRSVG } from "../assets/svg";
+import { LogoFRSVG, StarIcon } from "../assets/svg";
 import DemoVideo from "../components/DemoVideo";
 import BackgroundImg from "../assets/HomePage/Background.png";
 import Slider from "../components/Slider";
@@ -13,6 +13,9 @@ import {
   productCards,
   testimonials,
 } from "../utils/ExportStaticData";
+import { TestimonialCard } from "../components/TestimonialCard";
+import { ProductCard } from "../components/ProductCard";
+import { IconCard } from "../components/IconCard";
 
 const Home = () => {
   return (
@@ -50,29 +53,74 @@ const Home = () => {
       <DemoVideo />
 
       <AboutUs />
-
-      <Slider
-        cards={productCards}
-        backgroundImage={ProductSectionBgImg}
-        cardClass="rounded-lg w-[80%] md-[15%]"
-      />
-
+      <div
+        className="relative w-full py-10"
+        style={{
+          backgroundImage: `url("${ProductSectionBgImg}")`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <Slider
+          visibleItems={4}
+          showArrows={true}
+          swiperParams={{ spaceBetween: 40 }}
+          header={
+            <div className="p-14 flex flex-col items-center text-center">
+              <div className="text-blue-900 font-extrabold text-3xl">
+                {productCards?.mainHeader}
+              </div>
+              <div className="font-semibold text-xl">
+                {productCards?.mainDescription}
+              </div>
+            </div>
+          }
+          slides={productCards?.items?.map((productCards) => (
+            <ProductCard {...productCards} className="custom-testimonial" />
+          ))}
+        />
+      </div>
       <OurBiogasSection />
 
       <Slider
-        cards={cardsClients}
-        backgroundColor="rgba(19, 83, 132, 0.1)"
-        cardClass="rounded-full w-[40%] md:w-[15%] p-2 md:p-4"
-        iconOnly={true}
-        cardContainerClass=""
+        visibleItems={6}
+        autoPlay={true}
+        showDots={true}
+        className="py-12 bg-gray-50"
+        header={
+          <div className="p-14 flex flex-col items-center text-center">
+            <div className="text-blue-900 font-extrabold text-3xl">
+              {cardsClients?.mainHeader}
+            </div>
+            <div className="font-semibold text-xl">
+              {cardsClients?.mainDescription}
+            </div>
+          </div>
+        }
+        slides={cardsClients?.items?.map((client) => (
+          <IconCard icon={client.icon} altText={client.name} />
+        ))}
       />
 
       <Slider
-        cards={testimonials}
-        isTestimonial={true}
-        cardContainerClass="px-4"
-        backgroundColor=""
-        cardClass="md:w-[30%] w-[80%] rounded-xl p-4"
+        visibleItems={3}
+        showArrows={true}
+        showDots={true}
+        swiperParams={{ spaceBetween: 40 }}
+        header={
+          <div className="p-14 flex flex-col items-center text-center">
+            <div className="text-blue-900 font-extrabold text-3xl">
+              {testimonials?.mainHeader}
+            </div>
+            <div className="font-semibold text-xl">
+              {testimonials?.mainDescription}
+            </div>
+          </div>
+        }
+        slides={testimonials?.items?.map((testimonial) => (
+          <TestimonialCard {...testimonial} className="custom-testimonial" />
+        ))}
       />
 
       <ContactSection />

@@ -98,7 +98,7 @@ const Header = () => {
           to={path}
           className={`relative hover:text-secondary font-medium px-4 py-2 transition-colors ${
             isActive(path)
-              ? "text-secondary after:absolute after:left-2 after:right-2 after:bottom-1 after:h-[2px] after:bg-secondary"
+              ? "text-blue-900 after:absolute after:left-2 after:right-2 after:bottom-1 after:h-[2px] after:bg-secondary"
               : "text-gray-700"
           }`}
         >
