@@ -59,7 +59,15 @@ import {
   ServicesProjectFeasibility,
   ServicesSafetyConsultancy,
 } from "../assets/images";
-import { RoundedNumbers } from "../assets/svg";
+import {
+  FacebookIcon,
+  GoogleIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  MailRoundedIcon,
+  RoundedNumbers,
+  TwitterIcon,
+} from "../assets/svg";
 import { ProductText } from "./ExportText";
 
 export const cardsClients = {
@@ -1820,3 +1828,12 @@ export const ProductGasBlendingData = {
     "Standards Compliance": "ISO 9001, ASME, ATEX, and PED certifications",
   },
 };
+
+export const socialLinks = [
+  { href: "#", icon: FacebookIcon },
+  { href: "#", icon: GoogleIcon },
+  { href: "#", icon: MailRoundedIcon },
+  { href: "#", icon: InstagramIcon },
+  { href: "#", icon: LinkedinIcon },
+  { href: "#", icon: TwitterIcon },
+];

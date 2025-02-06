@@ -68,7 +68,7 @@ const Home = () => {
           swiperParams={{ spaceBetween: 40 }}
           header={
             <div className="p-14 flex flex-col items-center text-center">
-              <div className="text-blue-900 font-extrabold text-3xl">
+              <div className="text-blue-900 font-bold text-2xl md:text-3xl">
                 {productCards?.mainHeader}
               </div>
               <div className="font-semibold text-xl">
@@ -90,7 +90,7 @@ const Home = () => {
         className="py-12 bg-gray-50"
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-extrabold text-3xl">
+            <div className="text-blue-900 font-bold  text-2xl md:text-3xl">
               {cardsClients?.mainHeader}
             </div>
             <div className="font-semibold text-xl">
@@ -110,7 +110,7 @@ const Home = () => {
         swiperParams={{ spaceBetween: 40 }}
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-extrabold text-3xl">
+            <div className="text-blue-900 font-bold text-2xl md:text-3xl">
               {testimonials?.mainHeader}
             </div>
             <div className="font-semibold text-xl">

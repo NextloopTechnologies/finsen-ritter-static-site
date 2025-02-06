@@ -20,7 +20,7 @@ const Services = () => {
         </div>
       </HeroSection>
       <div className="container mx-auto px-4 py-20">
-        <h2 className="text-2xl font-bold mb-4 text-center text-[#135384]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-blue-900">
           OUR SERVICES
         </h2>
         <h3 className="text-center text-[#363636] font-semibold mx-5">

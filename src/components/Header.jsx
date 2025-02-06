@@ -55,7 +55,13 @@ const Header = () => {
   const navigate = useNavigate();
   const timeoutRef = useRef(null);
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => {
+    if (location.pathname === path) return true;
+    if (path === "/product" && location.pathname.startsWith("/product/")) {
+      return true;
+    }
+    return false;
+  };
 
   const handleQuoteClick = () => {
     navigate("getyourquote");
@@ -112,6 +118,7 @@ const Header = () => {
               ▼
             </span>
           )}
+
           {isActive(path) && (
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] hidden md:flex">
               <svg
@@ -146,16 +153,23 @@ const Header = () => {
             <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-white border-t border-l border-gray-200"></div>
 
             <div className="relative bg-white rounded-lg z-10">
-              {dropdownItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.path}
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#07355E] hover:text-white transition-colors duration-150"
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {dropdownItems.map((item, index) => {
+                const isItemActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={index}
+                    to={item.path}
+                    className={`block px-4 py-2 text-sm transition-colors duration-150 ${
+                      isItemActive
+                        ? "bg-[#07355E] text-white"
+                        : "text-gray-700 hover:bg-[#07355E] hover:text-white"
+                    }`}
+                    onClick={() => setActiveDropdown(null)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}
