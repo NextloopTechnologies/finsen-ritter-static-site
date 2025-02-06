@@ -5,8 +5,10 @@ const MajorFeatures = ({ data, bgColorDiff = "bg-blue-900" }) => {
   return (
     <div className={`${bgColorDiff || "bg-blue-900"} p-8 min-h-screen`}>
       <div className="flex flex-col items-center mb-16">
-        <p className="my-8 text-2xl text-white font-bold">MAJOR FEATURES :</p>
-        <MultiColorLine width={200} />
+        <p className="my-8 text-2xl md:text-3xl text-white font-bold">
+          MAJOR FEATURES :
+        </p>
+        <MultiColorLine width={300} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         {data?.map((feature, index) => (
