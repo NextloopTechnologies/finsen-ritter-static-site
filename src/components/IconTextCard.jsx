@@ -28,7 +28,7 @@ const IconTextCards = ({ title, data }) => {
     <section className="py-16 md:py-24 px-4 sm:px-6 bg-opacity-20 bg-[#135384]">
       <div className="max-w-7xl mx-auto md:px-40 px-12 ml-2">
         {title && (
-          <h2 className="text-3xl md:text-3xl font-bold text-[#135384] text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 md:mb-16">
             {title}
           </h2>
         )}

@@ -52,12 +52,16 @@ import {
   ProductWhyChooseFR,
   ServicesCostMgmtAnalysis,
   ServicesECP,
+  ServicesEcpEnggExcellence,
+  ServicesEcpSeamlessConstruction,
+  ServicesEcpStrategicProcurement,
   ServicesIndustrialAutomation,
   ServicesLicenseAndPermission,
   ServicesProcurementMgmt,
   ServicesProjectDetailedReport,
   ServicesProjectFeasibility,
   ServicesSafetyConsultancy,
+  ServiceSubPageEcpHeroBg,
 } from "../assets/images";
 import {
   FacebookIcon,
@@ -68,7 +72,7 @@ import {
   RoundedNumbers,
   TwitterIcon,
 } from "../assets/svg";
-import { ProductText } from "./ExportText";
+import { ProductText, ServicesText } from "./ExportText";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -393,37 +397,37 @@ export const ServicesCards = [
   {
     title: "Procurement Management",
     image: ServicesProcurementMgmt,
-    link: "#",
+    link: "services/procurement",
   },
   {
     title: "Industrial Automation",
     image: ServicesIndustrialAutomation,
-    link: "#",
+    link: "services/industrial-automation",
   },
   {
     title: "Project Feasibility Report",
     image: ServicesProjectFeasibility,
-    link: "#",
+    link: "services/feasibility",
   },
   {
     title: "Detailed Project Report",
     image: ServicesProjectDetailedReport,
-    link: "#",
+    link: "services/detailed-report",
   },
   {
     title: "Cost Management Analysis & High Tech",
     image: ServicesCostMgmtAnalysis,
-    link: "#",
+    link: "services/cost-management",
   },
   {
     title: "Safety Consultancy",
     image: ServicesSafetyConsultancy,
-    link: "#",
+    link: "services/safety",
   },
   {
     title: "Health & Environmental Safety & Risk Assessment",
     image: ServicesLicenseAndPermission,
-    link: "#",
+    link: "services/license",
   },
 ];
 
@@ -1826,6 +1830,305 @@ export const ProductGasBlendingData = {
     "Safety Features":
       "Integrated pressure relief valves, gas detectors, and alarms",
     "Standards Compliance": "ISO 9001, ASME, ATEX, and PED certifications",
+  },
+};
+
+export const ServicesEpcData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "PROCUREMENT MANAGEMENT",
+  heroDescription:
+    "Engineering, Procurement, and Construction (EPC) Services At Finsen Ritter Technologies, we provide comprehensive EPC (Engineering, Procurement, and Construction) services tailored to meet the unique requirements of industrial projects across diverse sectors. Our end-to-end solutions ensure seamless project execution, from concept to commissioning, with an unwavering focus on quality, safety, and efficiency.",
+  multiImageData: {
+    heading: "Our EPC Services Include:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "ADVANTAGES",
+    sections: ServicesText.OurEcpServices,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: IconTextCardContent,
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we go beyond traditional EPC services by offering a collaborative approach that ensures transparency, flexibility, and alignment with your strategic goals. Our commitment to excellence drives us to deliver projects that exceed expectations, creating long-lasting value for our clients.",
+  },
+  transformVision: {
+    title: "Transform Your Vision into Reality",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and innovative EPC solutions. Contact us today to discuss your project requirements and explore how we can bring your ideas to life.",
+  },
+};
+
+export const ServicesProcurementManagementData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "PROCUREMENT MANAGEMENT",
+  heroDescription:
+    "Procurement Management Services At Finsen Ritter Technologies, our Procurement Management Services are designed to streamline the acquisition of high-quality materials, equipment, and resources essential for your industrial projects. With a focus on efficiency, cost optimization, and supplier reliability, we ensure your project requirements are met on time and within budget.",
+  multiImageData: {
+    heading: "Our Procurement Management Capabilities:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "",
+    sections: ServicesText.ProcurementManagement,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: [
+      {
+        icon: ServicesPowerAndUtilityInfrastructureIcon,
+        descp: "Chemical and Gas Plants",
+      },
+      {
+        icon: ServicesPetrochemicalIcon,
+        descp: "Renewable Energy Projects",
+      },
+      {
+        icon: ServicesRenewableEnergy,
+        descp: "Water Treatment Systems",
+      },
+      {
+        icon: ServicesFoodBeveragesIcon,
+        descp: "Food and Beverage Processing",
+      },
+      {
+        icon: ServicesWaterTreatmentIcon,
+        descp: "Petrochemical and Refining Sectors",
+      },
+      {
+        icon: ServicesIndustrialGasesIcon,
+        descp: "Manufacturing and Heavy Industries",
+      },
+    ],
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we take a proactive, transparent, and customer-centric approach to procurement management. Our commitment to delivering value drives us to exceed client expectations at every stage of the process.",
+  },
+  transformVision: {
+    title: "Procurement Done Right",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and efficient procurement management. Let us help you secure the resources you need to achieve project success. Contact us today to learn more!",
+  },
+};
+
+export const ServicesIndustrialAutomationData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "Industrial Automation 4.0 / SCADA Services",
+  heroDescription:
+    "At Finsen Ritter Technologies, we empower industries to achieve next-level operational efficiency with our cutting-edge Industrial Automation 4.0 and SCADA (Supervisory Control and Data Acquisition) solutions. By integrating advanced technologies, real-time monitoring, and intelligent control systems, we help businesses streamline processes, enhance productivity, and stay ahead in the digital age.",
+  multiImageData: {
+    heading: "Our Industrial Automation 4.0 / SCADA Capabilities:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "",
+    sections: ServicesText.IndustrialAutomation,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: [
+      {
+        icon: ServicesPowerAndUtilityInfrastructureIcon,
+        descp: "Manufacturing and Assembly Lines",
+      },
+      {
+        icon: ServicesPetrochemicalIcon,
+        descp: "Chemical and Gas Plants",
+      },
+      {
+        icon: ServicesRenewableEnergy,
+        descp: "Water and Wastewater Treatment",
+      },
+      {
+        icon: ServicesFoodBeveragesIcon,
+        descp: "Renewable Energy Projects",
+      },
+      {
+        icon: ServicesWaterTreatmentIcon,
+        descp: "Food and Beverage Processing",
+      },
+      {
+        icon: ServicesIndustrialGasesIcon,
+        descp: "Power and Utility Sectors",
+      },
+    ],
+  },
+  whatSetsUsApart: {
+    title: "Stay Ahead with Smart Solutions",
+    description:
+      "With Finsen Ritter Technologies' Industrial Automation 4.0 and SCADA Services, your operations become smarter, safer, and more sustainable. Let us help you embrace the future of industry with innovative automation solutions tailored to your needs.",
+  },
+  transformVision: {
+    title: "Contact Us",
+    description:
+      "Contact us today to discuss how we can revolutionize your processes and drive success.",
+  },
+};
+
+export const ServicesCostManagementData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "COST MANAGEMENT ANALYSIS TO THE PROJECT",
+  heroDescription:
+    "At Finsen Ritter Technologies, we offer expert Cost Management Analysis services to ensure your projects remain on budget without compromising quality or timelines. Our team employs advanced financial modeling, resource optimization strategies, and real-time cost monitoring to identify potential savings, control expenditures, and maximize return on investment. Whether at the planning, execution, or completion stage, we deliver actionable insights and tailored solutions to enhance financial efficiency and project success.",
+  multiImageData: {
+    heading: "Our EPC Services Include:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "ADVANTAGES",
+    sections: ServicesText.OurEcpServices,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: IconTextCardContent,
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we go beyond traditional EPC services by offering a collaborative approach that ensures transparency, flexibility, and alignment with your strategic goals. Our commitment to excellence drives us to deliver projects that exceed expectations, creating long-lasting value for our clients.",
+  },
+  transformVision: {
+    title: "Transform Your Vision into Reality",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and innovative EPC solutions. Contact us today to discuss your project requirements and explore how we can bring your ideas to life.",
+  },
+};
+
+export const ServicesSafetyConsultancyData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "SAFETY CONSULTANCY",
+  heroDescription:
+    "At Finsen Ritter Technologies, our Safety Consultancy Services are designed to ensure the highest standards of safety across all industrial operations. We provide expert guidance in risk assessment, hazard identification, and the implementation of comprehensive safety management systems. Our team of certified safety professionals works closely with your organization to create customized safety protocols, conduct safety audits, and ensure compliance with local and international regulations. With a strong focus on proactive measures and continuous improvement, we help you safeguard your employees, assets, and environment, fostering a culture of safety and operational excellence.",
+  multiImageData: {
+    heading: "Our EPC Services Include:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "ADVANTAGES",
+    sections: ServicesText.OurEcpServices,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: IconTextCardContent,
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we go beyond traditional EPC services by offering a collaborative approach that ensures transparency, flexibility, and alignment with your strategic goals. Our commitment to excellence drives us to deliver projects that exceed expectations, creating long-lasting value for our clients.",
+  },
+  transformVision: {
+    title: "Transform Your Vision into Reality",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and innovative EPC solutions. Contact us today to discuss your project requirements and explore how we can bring your ideas to life.",
+  },
+};
+
+export const ServicesLicensePermissionData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading:
+    "LICENSE & PERMISSIONS ASSISTANCE (PESO, CPCB, FIRE & SAFETY ETC.)",
+  heroDescription:
+    "At Finsen Ritter Technologies, we offer expert License & Permissions Assistance to ensure your operations meet all regulatory requirements. Our team provides seamless support for obtaining crucial certifications such as PESO (Petroleum and Explosives Safety Organization), CPCB (Central Pollution Control Board), and Fire & Safety Compliance, helping you navigate the complexities of legal frameworks with ease. Whether it's securing environmental clearances or ensuring adherence to safety standards, we guide you through the entire process, ensuring your business remains compliant and operational without delays. Let us handle the paperwork, so you can focus on growing your business.",
+  multiImageData: {
+    heading: "Our EPC Services Include:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "ADVANTAGES",
+    sections: ServicesText.OurEcpServices,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: IconTextCardContent,
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we go beyond traditional EPC services by offering a collaborative approach that ensures transparency, flexibility, and alignment with your strategic goals. Our commitment to excellence drives us to deliver projects that exceed expectations, creating long-lasting value for our clients.",
+  },
+  transformVision: {
+    title: "Transform Your Vision into Reality",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and innovative EPC solutions. Contact us today to discuss your project requirements and explore how we can bring your ideas to life.",
+  },
+};
+
+export const ServicesProjectFeasibilityData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "PROJECT FEASIBILITY REPORT",
+  heroDescription:
+    "At Finsen Ritter Technologies, we deliver comprehensive and data-driven Project Feasibility Reports to empower informed decision-making for your industrial ventures. Our reports provide a meticulous analysis of technical, financial, and operational aspects, ensuring your project's viability and success. From evaluating market potential and resource requirements to identifying risks and recommending optimal strategies, we deliver actionable insights tailored to your objectives. Partner with us for precise, reliable, and impactful feasibility assessments that lay the foundation for your project's sustainable growth.",
+  multiImageData: {
+    heading: "Our EPC Services Include:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "ADVANTAGES",
+    sections: ServicesText.OurEcpServices,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: IconTextCardContent,
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we go beyond traditional EPC services by offering a collaborative approach that ensures transparency, flexibility, and alignment with your strategic goals. Our commitment to excellence drives us to deliver projects that exceed expectations, creating long-lasting value for our clients.",
+  },
+  transformVision: {
+    title: "Transform Your Vision into Reality",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and innovative EPC solutions. Contact us today to discuss your project requirements and explore how we can bring your ideas to life.",
+  },
+};
+
+export const ServicesDetailedProjectReportData = {
+  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroHeading: "DETAILED PROJECT REPORT",
+  heroDescription:
+    "At Finsen Ritter Technologies, we deliver meticulously crafted Detailed Project Reports (DPRs) that serve as the cornerstone for successful project execution. Our DPRs provide in-depth insights, including feasibility studies, technical specifications, financial projections, risk assessments, and compliance requirements, tailored to your industry and project scope. By combining expert analysis with precision planning, we empower stakeholders to make informed decisions, ensuring projects are executed efficiently, on time, and within budget. Trust us to transform your vision into actionable blueprints for success.",
+  multiImageData: {
+    heading: "Our EPC Services Include:",
+    images: [
+      ServicesEcpEnggExcellence,
+      ServicesEcpSeamlessConstruction,
+      ServicesEcpStrategicProcurement,
+    ],
+    title: "ADVANTAGES",
+    sections: ServicesText.OurEcpServices,
+  },
+  iconCardsData: {
+    title: "Key Industries We Serve:",
+    content: IconTextCardContent,
+  },
+  whatSetsUsApart: {
+    title: "What Sets Us Apart?",
+    description:
+      "At Finsen Ritter Technologies, we go beyond traditional EPC services by offering a collaborative approach that ensures transparency, flexibility, and alignment with your strategic goals. Our commitment to excellence drives us to deliver projects that exceed expectations, creating long-lasting value for our clients.",
+  },
+  transformVision: {
+    title: "Transform Your Vision into Reality",
+    description:
+      "Partner with Finsen Ritter Technologies for reliable and innovative EPC solutions. Contact us today to discuss your project requirements and explore how we can bring your ideas to life.",
   },
 };
 

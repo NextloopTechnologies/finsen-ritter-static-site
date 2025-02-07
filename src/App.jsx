@@ -19,6 +19,13 @@ import ProductSyngas from "./pages/Products/ProductSyngas";
 import ProductChillers from "./pages/Products/ProductChillers";
 import ProductScrubber from "./pages/Products/ProductScrubber";
 import ProductGasBlending from "./pages/Products/ProductGasBlending";
+import ServicesProcurementManagement from "./pages/Services/ServicesProcurementManagement";
+import ServicesIndustrialAutomation from "./pages/Services/ServicesIndustrialAutomation";
+import ServicesCostManagement from "./pages/Services/ServicesCostManagement";
+import ServicesSafetyConsultancy from "./pages/Services/ServicesSafetyConsultancy";
+import ServicesLicensePermission from "./pages/Services/ServicesLicensePermission";
+import ServicesProjectFeasibility from "./pages/Services/ServicesProjectFeasibility";
+import ServicesDetailedProjectReport from "./pages/Services/ServicesDetailedProjectReport";
 
 const AppLayout = () => (
   <>
@@ -99,6 +106,31 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Services /> },
           { path: "epc", element: <ServicesEpc /> },
+          { path: "procurement", element: <ServicesProcurementManagement /> },
+          {
+            path: "industrial-automation",
+            element: <ServicesIndustrialAutomation />,
+          },
+          {
+            path: "cost-management",
+            element: <ServicesCostManagement />,
+          },
+          {
+            path: "safety",
+            element: <ServicesSafetyConsultancy />,
+          },
+          {
+            path: "license",
+            element: <ServicesLicensePermission />,
+          },
+          {
+            path: "feasibility",
+            element: <ServicesProjectFeasibility />,
+          },
+          {
+            path: "detailed-report",
+            element: <ServicesDetailedProjectReport />,
+          },
         ],
       },
     ],
