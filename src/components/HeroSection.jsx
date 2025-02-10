@@ -1,19 +1,27 @@
-import React from "react";
-import BackgroundImg from "../assets/HomePage/Background.png";
+import React, { useState, useEffect } from "react";
 
 const HeroSection = ({
   children,
   backgroundImage,
   backgroundOpacity = "opacity-0",
 }) => {
+  const [bgImage, setBgImage] = useState(null);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onload = () => setBgImage(backgroundImage);
+  }, [backgroundImage]);
+
   return (
     <div
-      className="text-white md:py-20 px-4 min-h-screen flex flex-col justify-center"
+      className="text-white md:py-20 px-4 min-h-screen flex flex-col justify-center relative"
       style={{
-        backgroundImage: `url("${backgroundImage || BackgroundImg}")`,
+        backgroundImage: bgImage ? `url("${bgImage}")` : "none",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
+        transition: "opacity 0.5s ease-in-out",
       }}
     >
       <div className={`absolute inset-0 bg-black ${backgroundOpacity}`}></div>

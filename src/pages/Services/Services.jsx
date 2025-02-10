@@ -1,14 +1,14 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
-import { ServicesHeroBg } from "../../assets/images";
 import ContactSection from "../../components/ContactSection";
 import { ServicesCards } from "../../utils/ExportStaticData";
+import { getImageUrl } from "../../utils/supabaseStorageHelper";
 
 const Services = () => {
   return (
     <div>
       <HeroSection
-        backgroundImage={ServicesHeroBg}
+        backgroundImage={getImageUrl("ServicesHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">

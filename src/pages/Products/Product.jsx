@@ -5,6 +5,7 @@ import MajorFeatures from "../../components/MajorFeatures";
 import ContactSection from "../../components/ContactSection";
 import TechnicalSpecifications from "../../components/TechnicalSpecifications";
 import useIsMobile from "../../hooks/useIsMobile";
+import { getImageUrl } from "../../utils/supabaseStorageHelper";
 
 const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
   const isMobile = useIsMobile();
@@ -12,7 +13,7 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
-        backgroundImage={productData.heroBackgroundImage}
+        backgroundImage={getImageUrl("ProductHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">

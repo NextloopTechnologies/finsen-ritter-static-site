@@ -48,7 +48,6 @@ import {
   IndustrialSiteCircular,
   ProductAdvantagesRight,
   ProductDescriptionLeft,
-  ProductHeroBg,
   ProductWhyChooseFR,
   ServicesCostMgmtAnalysis,
   ServicesECP,
@@ -61,7 +60,6 @@ import {
   ServicesProjectDetailedReport,
   ServicesProjectFeasibility,
   ServicesSafetyConsultancy,
-  ServiceSubPageEcpHeroBg,
 } from "../assets/images";
 import {
   FacebookIcon,
@@ -73,6 +71,7 @@ import {
   TwitterIcon,
 } from "../assets/svg";
 import { ProductText, ServicesText } from "./ExportText";
+import { getImageUrl } from "./supabaseStorageHelper";
 
 export const cardsClients = {
   mainHeader: "OUR CORPORATE CLIENTS",
@@ -459,7 +458,7 @@ export const IconTextCardContent = [
 ];
 
 export const ProductBioCNGData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -562,7 +561,7 @@ export const ProductBioCNGData = {
 };
 
 export const ProductMedicalOxygenData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -708,7 +707,7 @@ export const ProductMedicalOxygenData = {
 };
 
 export const ProductIndustrialNitrogenData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -873,7 +872,7 @@ export const ProductIndustrialNitrogenData = {
   whyChooseCircularImage: IndustrialSiteCircular,
 };
 export const ProductDesiccantDryersData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -1030,7 +1029,7 @@ export const ProductDesiccantDryersData = {
 };
 
 export const ProductBiogasData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -1182,7 +1181,7 @@ export const ProductBiogasData = {
   },
 };
 export const ProductIndustrialSynGasData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -1340,7 +1339,7 @@ export const ProductIndustrialSynGasData = {
   },
 };
 export const ProductChillersData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -1499,7 +1498,7 @@ export const ProductChillersData = {
   },
 };
 export const ProductScrubberData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -1662,7 +1661,7 @@ export const ProductScrubberData = {
   },
 };
 export const ProductGasBlendingData = {
-  heroBackgroundImage: ProductHeroBg,
+  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Eco-friendly biogas solutions for renewable energy and waste management needs.",
@@ -1834,7 +1833,7 @@ export const ProductGasBlendingData = {
 };
 
 export const ServicesEpcData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "PROCUREMENT MANAGEMENT",
   heroDescription:
     "Engineering, Procurement, and Construction (EPC) Services At Finsen Ritter Technologies, we provide comprehensive EPC (Engineering, Procurement, and Construction) services tailored to meet the unique requirements of industrial projects across diverse sectors. Our end-to-end solutions ensure seamless project execution, from concept to commissioning, with an unwavering focus on quality, safety, and efficiency.",
@@ -1865,7 +1864,7 @@ export const ServicesEpcData = {
 };
 
 export const ServicesProcurementManagementData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "PROCUREMENT MANAGEMENT",
   heroDescription:
     "Procurement Management Services At Finsen Ritter Technologies, our Procurement Management Services are designed to streamline the acquisition of high-quality materials, equipment, and resources essential for your industrial projects. With a focus on efficiency, cost optimization, and supplier reliability, we ensure your project requirements are met on time and within budget.",
@@ -1921,7 +1920,7 @@ export const ServicesProcurementManagementData = {
 };
 
 export const ServicesIndustrialAutomationData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "Industrial Automation 4.0 / SCADA Services",
   heroDescription:
     "At Finsen Ritter Technologies, we empower industries to achieve next-level operational efficiency with our cutting-edge Industrial Automation 4.0 and SCADA (Supervisory Control and Data Acquisition) solutions. By integrating advanced technologies, real-time monitoring, and intelligent control systems, we help businesses streamline processes, enhance productivity, and stay ahead in the digital age.",
@@ -1977,7 +1976,7 @@ export const ServicesIndustrialAutomationData = {
 };
 
 export const ServicesCostManagementData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "COST MANAGEMENT ANALYSIS TO THE PROJECT",
   heroDescription:
     "At Finsen Ritter Technologies, we offer expert Cost Management Analysis services to ensure your projects remain on budget without compromising quality or timelines. Our team employs advanced financial modeling, resource optimization strategies, and real-time cost monitoring to identify potential savings, control expenditures, and maximize return on investment. Whether at the planning, execution, or completion stage, we deliver actionable insights and tailored solutions to enhance financial efficiency and project success.",
@@ -2008,7 +2007,7 @@ export const ServicesCostManagementData = {
 };
 
 export const ServicesSafetyConsultancyData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "SAFETY CONSULTANCY",
   heroDescription:
     "At Finsen Ritter Technologies, our Safety Consultancy Services are designed to ensure the highest standards of safety across all industrial operations. We provide expert guidance in risk assessment, hazard identification, and the implementation of comprehensive safety management systems. Our team of certified safety professionals works closely with your organization to create customized safety protocols, conduct safety audits, and ensure compliance with local and international regulations. With a strong focus on proactive measures and continuous improvement, we help you safeguard your employees, assets, and environment, fostering a culture of safety and operational excellence.",
@@ -2039,7 +2038,7 @@ export const ServicesSafetyConsultancyData = {
 };
 
 export const ServicesLicensePermissionData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading:
     "LICENSE & PERMISSIONS ASSISTANCE (PESO, CPCB, FIRE & SAFETY ETC.)",
   heroDescription:
@@ -2071,7 +2070,7 @@ export const ServicesLicensePermissionData = {
 };
 
 export const ServicesProjectFeasibilityData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "PROJECT FEASIBILITY REPORT",
   heroDescription:
     "At Finsen Ritter Technologies, we deliver comprehensive and data-driven Project Feasibility Reports to empower informed decision-making for your industrial ventures. Our reports provide a meticulous analysis of technical, financial, and operational aspects, ensuring your project's viability and success. From evaluating market potential and resource requirements to identifying risks and recommending optimal strategies, we deliver actionable insights tailored to your objectives. Partner with us for precise, reliable, and impactful feasibility assessments that lay the foundation for your project's sustainable growth.",
@@ -2102,7 +2101,7 @@ export const ServicesProjectFeasibilityData = {
 };
 
 export const ServicesDetailedProjectReportData = {
-  heroBackgroundImage: ServiceSubPageEcpHeroBg,
+  heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
   heroHeading: "DETAILED PROJECT REPORT",
   heroDescription:
     "At Finsen Ritter Technologies, we deliver meticulously crafted Detailed Project Reports (DPRs) that serve as the cornerstone for successful project execution. Our DPRs provide in-depth insights, including feasibility studies, technical specifications, financial projections, risk assessments, and compliance requirements, tailored to your industry and project scope. By combining expert analysis with precision planning, we empower stakeholders to make informed decisions, ensuring projects are executed efficiently, on time, and within budget. Trust us to transform your vision into actionable blueprints for success.",

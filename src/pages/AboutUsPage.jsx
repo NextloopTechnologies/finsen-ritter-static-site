@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AboutSectionHeroBg,
   AboutUsMissionSection,
   AboutUsVisionSection,
   OurValuesAboutUs,
@@ -13,12 +12,13 @@ import { cardsClients, testimonials } from "../utils/ExportStaticData";
 import { AboutUsText } from "../utils/ExportText";
 import { TestimonialCard } from "../components/TestimonialCard";
 import { IconCard } from "../components/IconCard";
+import { getImageUrl } from "../utils/supabaseStorageHelper";
 
 const AboutUsPage = () => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
-        backgroundImage={AboutSectionHeroBg}
+        backgroundImage={getImageUrl("AboutSectionHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">

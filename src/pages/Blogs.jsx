@@ -1,13 +1,16 @@
 import React from "react";
-import { BlogsHeroBg } from "../assets/images";
 import HeroSection from "../components/HeroSection";
 import { blogCards } from "../utils/ExportStaticData";
 import ContactSection from "../components/ContactSection";
+import { getImageUrl } from "../utils/supabaseStorageHelper";
 
 const Blogs = () => {
   return (
     <>
-      <HeroSection backgroundImage={BlogsHeroBg} backgroundOpacity="opacity-50">
+      <HeroSection
+        backgroundImage={getImageUrl("BlogsHeroBg.png")}
+        backgroundOpacity="opacity-50"
+      >
         <div className="flex flex-col text-center w-full">
           <h2 className="text-3xl font-bold">BLOGS</h2>
           <p className="text-lg">
