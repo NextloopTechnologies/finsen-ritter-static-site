@@ -171,4 +171,163 @@ export const ServicesText = {
       ],
     },
   ],
+  ProcurementManagement: [
+    {
+      title: "1. Strategic Sourcing",
+      bulletPoints: [
+        {
+          title: "Global Vendor Network: ",
+          description:
+            "We leverage a robust network of trusted suppliers across the globe to source premium-quality materials and equipment.",
+        },
+        {
+          title: "Supplier Prequalification: ",
+          description:
+            "Comprehensive evaluation of vendors to ensure compliance with quality standards, timelines, and regulatory requirements.",
+        },
+        {
+          title: "Competitive Pricing: ",
+          description:
+            "We negotiate the best possible rates without compromising quality.",
+        },
+      ],
+    },
+    {
+      title: "2. Supply Chain Optimization",
+      bulletPoints: [
+        {
+          title: "End-to-End Coordination: ",
+          description:
+            "From purchase orders to final delivery, we oversee every step to ensure a seamless procurement process.",
+        },
+        {
+          title: "Inventory Management: ",
+          description:
+            "Efficient planning and tracking to avoid shortages or delays.",
+        },
+        {
+          title: "Logistics Excellence: ",
+          description:
+            "Optimized transportation and distribution strategies to minimize costs and delivery times.",
+        },
+      ],
+    },
+    {
+      title: "3. Compliance and Quality Assurance",
+      bulletPoints: [
+        {
+          title: "Standard Adherence: ",
+          description:
+            "All procurements align with international standards and industry best practices.",
+        },
+        {
+          title: "Inspection and Testing: ",
+          description:
+            "Rigorous quality checks at every stage to guarantee reliability and durability of procured items.",
+        },
+        {
+          title: "Document Management: ",
+          description:
+            "Comprehensive tracking and documentation for full transparency and traceability.",
+        },
+      ],
+    },
+    {
+      title: "4. Technology-Driven Efficiency",
+      bulletPoints: [
+        {
+          title: "Digital Tools:",
+          description:
+            "Utilization of advanced procurement platforms to enhance tracking, reporting, and communication.",
+        },
+        {
+          title: "Real-Time Monitoring: ",
+          description:
+            "Ensuring up-to-date status of every procurement order for proactive issue resolution.",
+        },
+      ],
+    },
+  ],
+  IndustrialAutomation: [
+    {
+      title: "1. Smart Automation Solutions",
+      bulletPoints: [
+        {
+          title: "Custom Control Systems: ",
+          description:
+            "Tailored automation systems designed to meet the specific needs of your industrial processes.",
+        },
+        {
+          title: "Real-Time Process Optimization: ",
+          description:
+            "Automated adjustments to maximize performance and minimize resource consumption.",
+        },
+        {
+          title: "Predictive Maintenance: ",
+          description:
+            "Advanced analytics and AI integration to predict and prevent equipment failures.",
+        },
+      ],
+    },
+    {
+      title: "2. SCADA Integration and Support",
+      bulletPoints: [
+        {
+          title: "Centralized Monitoring: ",
+          description:
+            "Secure, anytime-anywhere access to system controls and monitoring dashboards.",
+        },
+        {
+          title: "Remote Access and Control: ",
+          description:
+            "Efficient planning and tracking to avoid shortages or delays.",
+        },
+        {
+          title: "Data Logging and Reporting:",
+          description:
+            "Comprehensive data storage and analysis to track performance trends and compliance metrics.",
+        },
+      ],
+    },
+    {
+      title: "3. Industry 4.0 Implementation",
+      bulletPoints: [
+        {
+          title: "IoT-Enabled Systems: ",
+          description:
+            "Seamless connectivity between devices, machines, and processes for efficient operations.",
+        },
+        {
+          title: "AI and Machine Learning Integration: ",
+          description:
+            "Advanced algorithms to optimize workflows and improve system intelligence.",
+        },
+        {
+          title: "Cybersecurity:",
+          description:
+            "Robust measures to protect industrial networks and data from cyber threats.",
+        },
+      ],
+    },
+    {
+      title: "4. Customization and Scalability",
+      bulletPoints: [
+        {
+          title: "Modular Designs:",
+          description:
+            "Flexible solutions that grow with your business and adapt to changing needs.",
+        },
+        {
+          title: "Multi-Industry Applications: ",
+          description:
+            "Expertise across sectors such as manufacturing, energy, food processing, and more.",
+        },
+        {
+          title: "Legacy System Upgrades: ",
+          description:
+            "Smooth transitions from traditional systems to modern automation platforms.",
+        },
+      ],
+    },
+  ],
 };

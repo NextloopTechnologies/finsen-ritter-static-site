@@ -71,7 +71,7 @@ const FlexContentImageSection = ({
   return (
     <div className={containerClassName}>
       {mainHeading && (
-        <div className="text-2xl font-bold text-blue-900 text-center md:max-w-[50vw] max-w-[85vw] -mb-8">
+        <div className="text-2xl md:text-3xl font-bold text-blue-900 text-center md:max-w-[50vw] max-w-[85vw] -mb-8">
           {mainHeading}
         </div>
       )}

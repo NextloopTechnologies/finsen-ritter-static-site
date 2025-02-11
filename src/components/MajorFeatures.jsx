@@ -5,8 +5,10 @@ const MajorFeatures = ({ data, bgColorDiff = "bg-blue-900" }) => {
   return (
     <div className={`${bgColorDiff || "bg-blue-900"} p-8 min-h-screen`}>
       <div className="flex flex-col items-center mb-16">
-        <p className="my-8 text-2xl text-white font-bold">MAJOR FEATURES :</p>
-        <MultiColorLine width={200} />
+        <p className="my-8 text-2xl md:text-3xl text-white font-bold">
+          MAJOR FEATURES :
+        </p>
+        <MultiColorLine width={300} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         {data?.map((feature, index) => (
@@ -23,9 +25,26 @@ const MajorFeatures = ({ data, bgColorDiff = "bg-blue-900" }) => {
               {feature.title}
             </h3>
             <ul className="text-gray-700 list-disc pl-5 text-sm">
-              {feature.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
+              {feature.points.map((point, i) => {
+                const pointText =
+                  typeof point === "object" ? point.text : point;
+                const subpoints =
+                  typeof point === "object" && point.subpoints
+                    ? point.subpoints
+                    : [];
+                return (
+                  <li key={i}>
+                    {pointText}
+                    {subpoints.length > 0 && (
+                      <ul className="list-disc ml-5 mt-1">
+                        {subpoints.map((subpoint, j) => (
+                          <li key={j}>{subpoint}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

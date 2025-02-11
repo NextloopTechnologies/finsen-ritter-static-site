@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { ConnectUsHandshake, ConnectUsHeroBg } from "../assets/images";
+import { ConnectUsHandshake } from "../assets/images";
 import ContactSection from "../components/ContactSection";
 import HeroSection from "../components/HeroSection";
 import { supabase } from "../supabaseClient";
+import { getImageUrl } from "../utils/supabaseStorageHelper";
 
 const ConnectUs = () => {
   const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ const ConnectUs = () => {
   return (
     <>
       <HeroSection
-        backgroundImage={ConnectUsHeroBg}
+        backgroundImage={getImageUrl("ConnectUsHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
@@ -69,8 +70,10 @@ const ConnectUs = () => {
       </HeroSection>
       <div className="w-full max-w-6xl mx-auto px-5 py-20 mb-20">
         <div className="text-center p-6 mb-10">
-          <h1 className="text-2xl font-bold text-blue-900">CONNECT US</h1>
-          <p className="text-gray-600 ">
+          <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
+            CONNECT US
+          </h1>
+          <p className="text-gray-600 font-semibold">
             Looking for innovative solutions? Connect with us on our website and
             let's make it happen!
           </p>

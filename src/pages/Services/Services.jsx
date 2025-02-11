@@ -1,14 +1,14 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
-import { ServicesHeroBg } from "../../assets/images";
 import ContactSection from "../../components/ContactSection";
 import { ServicesCards } from "../../utils/ExportStaticData";
+import { getImageUrl } from "../../utils/supabaseStorageHelper";
 
 const Services = () => {
   return (
     <div>
       <HeroSection
-        backgroundImage={ServicesHeroBg}
+        backgroundImage={getImageUrl("ServicesHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
@@ -20,7 +20,7 @@ const Services = () => {
         </div>
       </HeroSection>
       <div className="container mx-auto px-4 py-20">
-        <h2 className="text-2xl font-bold mb-4 text-center text-[#135384]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-blue-900">
           OUR SERVICES
         </h2>
         <h3 className="text-center text-[#363636] font-semibold mx-5">
