@@ -10,11 +10,11 @@ const MajorFeatures = ({ data, bgColorDiff = "bg-blue-900" }) => {
         </p>
         <MultiColorLine width={300} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-16 gap-8">
         {data?.map((feature, index) => (
           <div
             key={index}
-            className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center my-5"
+            className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center my-5 md:min-h-64"
           >
             <div className="-mt-[4.5rem]">
               <div className="rounded-full w-24 h-24 flex items-center justify-center">

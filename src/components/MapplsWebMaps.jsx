@@ -19,7 +19,7 @@ const MapComponent = () => {
       new window.mappls.Marker({
         map: mapRef.current,
         position: { lat: 22.77254051913992, lng: 75.89826534424395 },
-        title: "NextLoop Technologies",
+        title: "Finsen Ritter Technologies Private Limited",
       });
     }
   }, [scriptLoaded]);
