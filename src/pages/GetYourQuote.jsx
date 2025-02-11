@@ -3,6 +3,7 @@ import { GetYourQuoteFormLeft, GetYourQuoteHeroBg } from "../assets/images";
 import HeroSection from "../components/HeroSection";
 import ContactSection from "../components/ContactSection";
 import { supabase } from "../supabaseClient";
+import { getImageUrl } from "../utils/supabaseStorageHelper";
 
 const GetYourQuote = () => {
   const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ const GetYourQuote = () => {
   return (
     <>
       <HeroSection
-        backgroundImage={GetYourQuoteHeroBg}
+        backgroundImage={getImageUrl("GetYourQuoteHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">

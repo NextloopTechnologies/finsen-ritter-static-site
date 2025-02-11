@@ -5,6 +5,7 @@ import MajorFeatures from "../../components/MajorFeatures";
 import ContactSection from "../../components/ContactSection";
 import TechnicalSpecifications from "../../components/TechnicalSpecifications";
 import useIsMobile from "../../hooks/useIsMobile";
+import { getImageUrl } from "../../utils/supabaseStorageHelper";
 
 const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
   const isMobile = useIsMobile();
@@ -12,7 +13,7 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
-        backgroundImage={productData.heroBackgroundImage}
+        backgroundImage={getImageUrl("ProductHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
@@ -36,7 +37,7 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
       />
 
       <div className="py-10">
-        <h2 className="text-2xl font-bold text-center text-blue-900 mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-900 mb-8">
           {productData.applicationCards.mainHeader}
         </h2>
         <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-3 px-4">
@@ -52,7 +53,7 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
                   className="h-24 w-24"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-blue-700 mb-2">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">
                 {item.heading}
               </h3>
               <p className="text-gray-600">{item.description}</p>
@@ -86,7 +87,7 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
       ) : (
         <div className="flex p-5 self-center">
           <div className="bg-[#135384] bg-opacity-10 p-10 border max-w-[50vw] rounded-bl-[4rem] my-12">
-            <div className="text-3xl font-bold text-blue-900 mb-4">
+            <div className="md:text-3xl text-2xl font-bold text-blue-900 mb-4">
               Why Choose Finsen Ritter Technologies?
             </div>
             <ul className="list-disc pl-5">

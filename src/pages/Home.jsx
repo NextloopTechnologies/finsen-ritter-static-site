@@ -1,6 +1,6 @@
 import React from "react";
 import AboutUs from "../components/AboutUs";
-import { LogoFRSVG, StarIcon } from "../assets/svg";
+import { LogoFRSVG } from "../assets/svg";
 import DemoVideo from "../components/DemoVideo";
 import BackgroundImg from "../assets/HomePage/Background.png";
 import Slider from "../components/Slider";
@@ -16,11 +16,12 @@ import {
 import { TestimonialCard } from "../components/TestimonialCard";
 import { ProductCard } from "../components/ProductCard";
 import { IconCard } from "../components/IconCard";
+import { getImageUrl } from "../utils/supabaseStorageHelper";
 
 const Home = () => {
   return (
     <div className="flex flex-col gap-28">
-      <HeroSection backgroundImage={BackgroundImg}>
+      <HeroSection backgroundImage={getImageUrl("Background.png")}>
         <div className="order-1 md:order-2 mb-8 md:mb-0 w-full md:w-auto md:mr-10">
           <LogoFRSVG className="w-[60vw] md:w-[30vw] h-auto mx-auto md:mx-0" />
         </div>
@@ -56,7 +57,7 @@ const Home = () => {
       <div
         className="relative w-full py-10"
         style={{
-          backgroundImage: `url("${ProductSectionBgImg}")`,
+          backgroundImage: `url("${getImageUrl("ProductSectionBgImg.png")}")`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -68,7 +69,7 @@ const Home = () => {
           swiperParams={{ spaceBetween: 40 }}
           header={
             <div className="p-14 flex flex-col items-center text-center">
-              <div className="text-blue-900 font-extrabold text-3xl">
+              <div className="text-blue-900 font-bold text-2xl md:text-3xl">
                 {productCards?.mainHeader}
               </div>
               <div className="font-semibold text-xl">
@@ -90,7 +91,7 @@ const Home = () => {
         className="py-12 bg-gray-50"
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-extrabold text-3xl">
+            <div className="text-blue-900 font-bold  text-2xl md:text-3xl">
               {cardsClients?.mainHeader}
             </div>
             <div className="font-semibold text-xl">
@@ -110,7 +111,7 @@ const Home = () => {
         swiperParams={{ spaceBetween: 40 }}
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-extrabold text-3xl">
+            <div className="text-blue-900 font-bold text-2xl md:text-3xl">
               {testimonials?.mainHeader}
             </div>
             <div className="font-semibold text-xl">

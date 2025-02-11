@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AboutSectionHeroBg,
   AboutUsMissionSection,
   AboutUsVisionSection,
   OurValuesAboutUs,
@@ -13,12 +12,13 @@ import { cardsClients, testimonials } from "../utils/ExportStaticData";
 import { AboutUsText } from "../utils/ExportText";
 import { TestimonialCard } from "../components/TestimonialCard";
 import { IconCard } from "../components/IconCard";
+import { getImageUrl } from "../utils/supabaseStorageHelper";
 
 const AboutUsPage = () => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
-        backgroundImage={AboutSectionHeroBg}
+        backgroundImage={getImageUrl("AboutSectionHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
@@ -31,7 +31,7 @@ const AboutUsPage = () => {
         </div>
       </HeroSection>
       <div className="mt-4 mx-4 -mb-4 md:m-10 px-4 md:px-32">
-        <h2 className="flex text-xl md:text-2xl font-bold text-[#135384] justify-center">
+        <h2 className="flex text-2xl md:text-3xl font-bold text-blue-900 justify-center">
           ABOUT THE COMPANY
         </h2>
         <p className="mt-4 text-gray-700 text-sm md:text-base">
@@ -69,7 +69,7 @@ const AboutUsPage = () => {
         className="py-12 bg-gray-50"
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-extrabold text-3xl">
+            <div className="text-blue-900 font-bold text-2xl md:text-3xl">
               {cardsClients?.mainHeader}
             </div>
             <div className="font-semibold text-xl">
@@ -89,7 +89,7 @@ const AboutUsPage = () => {
         swiperParams={{ spaceBetween: 40 }}
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-extrabold text-3xl">
+            <div className="text-blue-900 font-bold md:text-3xl text-2xl">
               {testimonials?.mainHeader}
             </div>
             <div className="font-semibold text-xl">
