@@ -6,7 +6,7 @@ import {
   serviceLinks,
 } from "../utils/ExportStaticData";
 import { FooterText } from "../utils/ExportText";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const location = useLocation();
@@ -17,9 +17,9 @@ const Footer = () => {
       <ul className={`${bulletPoints ? "list-disc pl-5" : ""} space-y-2`}>
         {items.map((item, index) => (
           <li key={index}>
-            <a href="#" className="hover:underline font-semibold">
-              {item}
-            </a>
+            <Link to={item.path} className="hover:underline font-semibold">
+              {item.name}
+            </Link>
           </li>
         ))}
       </ul>

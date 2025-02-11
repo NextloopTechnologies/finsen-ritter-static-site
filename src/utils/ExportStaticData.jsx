@@ -148,54 +148,63 @@ export const productCards = {
       heading: "H2S & CO2 Scrubber",
       description:
         "Finsen Ritter's H2S & CO2 Scrubbers ensure efficient gas purification and compliance.",
+      link: "/product/scrubber",
     },
     {
       icon: IndustrialBioCngIcon,
       heading: "Industrial Bio-CNG (Compressed Bio-Gas) Plant",
       description:
         "Finsen Ritter's Bio-CNG plant converts organic waste into renewable, clean energy.",
+      link: "/product/bio-cng",
     },
     {
       icon: IndustrialBiogasPurificationIcon,
       heading: "Industrial Biogas Purification and Refining Plants",
       description:
         "Finsen Ritter's Biogas Purification Plants convert raw biogas into high-purity biomethane.",
+      link: "/product/biogas",
     },
     {
       icon: IndustrialDesiccantIcon,
       heading: "Industrial Desiccant Dryers",
       description:
         "Finsen Ritter's Industrial Desiccant Dryers ensure efficient moisture removal and reliability.",
+      link: "/product/desiccant-dryers",
     },
     {
       icon: IndustrialGasBleedingSkidIcon,
       heading: "Industrial Gas Blending Skid (CH4, H2, and CO2)",
       description:
         "Finsen Ritter's Gas Blending Skids ensure precise, efficient gas-mixing solutions.",
+      link: "/product/gas-blending",
     },
     {
       icon: IndustrialNitrogenIcon,
       heading: "Industrial Nitrogen Plant (PSA & VPSA)",
       description:
         "Finsen Ritter's Industrial Nitrogen Plants produce efficient, on-site high-purity nitrogen.",
+      link: "/product/nitrogen",
     },
     {
       icon: IndustrialScreChillersIcon,
       heading: "Industrial Screw Chillers & Heat Pumps",
       description:
         "Finsen Ritter's Screw Chillers and Heat Pumps offer efficient, reliable performance.",
+      link: "/product/chillers",
     },
     {
       icon: IndustrialSyngasIcon,
       heading: "Industrial Syngas Refining Plants",
       description:
         "Finsen Ritter's Syngas Refining Plants provide high-purity syngas for industries.",
+      link: "/product/syngas",
     },
     {
       icon: MedicalOxygenIcon,
       heading: "Medical Oxygen Plants (PSA & VPSA)",
       description:
         "Finsen Ritter's Medical Oxygen Plants ensure reliable high-purity oxygen supply.",
+      link: "/product/medical-oxygen",
     },
   ],
 };
@@ -271,24 +280,41 @@ export const testimonials = {
 };
 
 export const companyLinks = [
-  "Home",
-  "About Us",
-  "Products",
-  "Services",
-  "Blogs & News",
-  "Connect With Us",
-  "CBG Calculator",
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Products", path: "/product/bio-cng" },
+  { name: "Services", path: "/services" },
+  { name: "Blogs & News", path: "/blogs" },
+  { name: "Connect With Us", path: "/connectus" },
+  // { name: "CBG Calculator", path: "/cbg-calculator" },
 ];
-export const blogLinks = ["FAQ", "Help Center", "Career", "Privacy"];
+export const blogLinks = [
+  { name: "FAQ", path: "/#" },
+  { name: "Help Center", path: "/#" },
+  { name: "Career", path: "/#" },
+  { name: "Privacy", path: "/#" },
+];
 export const serviceLinks = [
-  "Engineering, Procurement, and Construction (EPC)",
-  "Procurement Management",
-  "Industrial Automation 4.0",
-  "Project Feasibility Report",
-  "Detailed Project Report",
-  "Cost Management Analysis to the Project",
-  "Safety Consultancy",
-  "License & Permissions Assistance (PESO, CPCB, Fire & Safety etc.)",
+  {
+    name: "Engineering, Procurement, and Construction (EPC)",
+    path: "/services/epc",
+  },
+  { name: "Procurement Management", path: "/services/procurement-management" },
+  {
+    name: "Industrial Automation 4.0",
+    path: "/services/industrial-automation",
+  },
+  { name: "Project Feasibility Report", path: "/services/project-feasibility" },
+  { name: "Detailed Project Report", path: "/services/detailed-report" },
+  {
+    name: "Cost Management Analysis to the Project",
+    path: "/services/cost-management",
+  },
+  { name: "Safety Consultancy", path: "/services/safety-consultancy" },
+  {
+    name: "License & Permissions Assistance (PESO, CPCB, Fire & Safety etc.)",
+    path: "/services/license-permission",
+  },
 ];
 
 export const technicalSpecifications = [
@@ -396,7 +422,7 @@ export const ServicesCards = [
   {
     title: "Procurement Management",
     image: ServicesProcurementMgmt,
-    link: "services/procurement",
+    link: "services/procurement-management",
   },
   {
     title: "Industrial Automation",
@@ -406,7 +432,7 @@ export const ServicesCards = [
   {
     title: "Project Feasibility Report",
     image: ServicesProjectFeasibility,
-    link: "services/feasibility",
+    link: "services/project-feasibility",
   },
   {
     title: "Detailed Project Report",
@@ -421,12 +447,12 @@ export const ServicesCards = [
   {
     title: "Safety Consultancy",
     image: ServicesSafetyConsultancy,
-    link: "services/safety",
+    link: "services/safety-consultancy",
   },
   {
     title: "Health & Environmental Safety & Risk Assessment",
     image: ServicesLicenseAndPermission,
-    link: "services/license",
+    link: "services/license-permission",
   },
 ];
 

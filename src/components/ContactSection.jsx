@@ -39,28 +39,28 @@ const ContactSection = () => {
             <div className="flex items-center gap-2">
               <MailIcon className="w-6 h-6 md:w-8 md:h-8 text-blue-900 flex-shrink-0" />
               <a
-                href="mailto:info@nextlooptechnologies.com"
+                href="mailto:contact@finsenritter.com"
                 className="text-sm md:text-base text-gray-700 hover:text-blue-900 break-all"
               >
-                info@nextlooptechnologies.com
+                contact@finsenritter.com
               </a>
             </div>
 
             <div className="flex items-start gap-2">
               <LocationIcon className="w-6 h-6 md:w-8 md:h-8 text-blue-900 mt-1 flex-shrink-0" />
               <address className="text-sm md:text-base text-gray-700 not-italic">
-                101, Kanchan Sagar, 18/1, Near Industry House, Old Palasia,
-                Indore, Madhya Pradesh 452001
+                3rd Floor, 8 Kanchan Vihar, Near MR-11, Indore, Madhya
+                Pradesh-452010
               </address>
             </div>
 
             <div className="flex items-center gap-2">
               <PhoneIcon className="w-6 h-6 md:w-8 md:h-8 text-blue-900 flex-shrink-0" />
               <a
-                href="tel:+916351673645"
+                href="tel:1800-8892141"
                 className="text-sm md:text-base text-gray-700 hover:text-blue-900"
               >
-                +91-6351 673 645
+                1800-8892141
               </a>
             </div>
           </div>

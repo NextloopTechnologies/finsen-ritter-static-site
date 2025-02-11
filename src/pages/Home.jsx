@@ -2,10 +2,8 @@ import React from "react";
 import AboutUs from "../components/AboutUs";
 import { LogoFRSVG } from "../assets/svg";
 import DemoVideo from "../components/DemoVideo";
-import BackgroundImg from "../assets/HomePage/Background.png";
 import Slider from "../components/Slider";
 import OurBiogasSection from "../components/OurBiogasSection";
-import { ProductSectionBgImg } from "../assets/images";
 import ContactSection from "../components/ContactSection";
 import HeroSection from "../components/HeroSection";
 import {
@@ -78,7 +76,7 @@ const Home = () => {
             </div>
           }
           slides={productCards?.items?.map((productCards) => (
-            <ProductCard {...productCards} className="custom-testimonial" />
+            <ProductCard {...productCards} />
           ))}
         />
       </div>
