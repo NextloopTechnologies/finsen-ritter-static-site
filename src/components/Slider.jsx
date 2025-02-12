@@ -1,9 +1,14 @@
-// Slider.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import {
+  Autoplay,
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 
 const Slider = ({
   slides,
@@ -21,6 +26,14 @@ const Slider = ({
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
+        // effect="coverflow"
+        // coverflowEffect={{
+        //   rotate: 20,
+        //   stretch: 0,
+        //   depth: 100,
+        //   modifier: 1,
+        //   slideShadows: false,
+        // }}
         spaceBetween={30}
         slidesPerView={visibleItems}
         loop={true}
@@ -36,7 +49,9 @@ const Slider = ({
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="mb-10">
-            {slide}
+            <div className="transition-transform duration-300 ease-in-out scale-100 hover:scale-105">
+              {slide}
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

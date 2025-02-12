@@ -4,7 +4,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import AboutUsPage from "./pages/AboutUsPage";
-import Product from "./pages/Products/Product";
 import GetYourQuote from "./pages/GetYourQuote";
 import Blogs from "./pages/Blogs";
 import ConnectUs from "./pages/ConnectUs";
@@ -26,6 +25,7 @@ import ServicesSafetyConsultancy from "./pages/Services/ServicesSafetyConsultanc
 import ServicesLicensePermission from "./pages/Services/ServicesLicensePermission";
 import ServicesProjectFeasibility from "./pages/Services/ServicesProjectFeasibility";
 import ServicesDetailedProjectReport from "./pages/Services/ServicesDetailedProjectReport";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const AppLayout = () => (
   <>
@@ -106,7 +106,10 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Services /> },
           { path: "epc", element: <ServicesEpc /> },
-          { path: "procurement", element: <ServicesProcurementManagement /> },
+          {
+            path: "procurement-management",
+            element: <ServicesProcurementManagement />,
+          },
           {
             path: "industrial-automation",
             element: <ServicesIndustrialAutomation />,
@@ -116,15 +119,15 @@ const router = createBrowserRouter([
             element: <ServicesCostManagement />,
           },
           {
-            path: "safety",
+            path: "safety-consultancy",
             element: <ServicesSafetyConsultancy />,
           },
           {
-            path: "license",
+            path: "license-permission",
             element: <ServicesLicensePermission />,
           },
           {
-            path: "feasibility",
+            path: "project-feasibility",
             element: <ServicesProjectFeasibility />,
           },
           {
@@ -132,6 +135,10 @@ const router = createBrowserRouter([
             element: <ServicesDetailedProjectReport />,
           },
         ],
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },
