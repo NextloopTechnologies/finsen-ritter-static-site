@@ -1,8 +1,14 @@
 import React from "react";
 import AboutUsLeftImg from "../assets/AboutUs/AboutUsLeftImg.png";
 import { HomeText } from "../utils/ExportText";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
+  const handleLearnMoreClick = () => {
+    navigate("/about");
+  };
   return (
     <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 p-4 md:p-8 mx-4 md:mx-32">
       <div className="w-full md:w-[65vh] relative">
@@ -25,8 +31,11 @@ const AboutUs = () => {
           {HomeText.AboutUsSectionDescription}
         </p>
         <div className="flex justify-center md:justify-start">
-          <button className="bg-blue-900 text-white px-6 md:px-8 py-2 rounded hover:bg-blue-800 transition-colors duration-300">
-            View More
+          <button
+            onClick={handleLearnMoreClick}
+            className="bg-blue-900 text-white px-6 md:px-8 py-2 rounded hover:bg-blue-800 transition-colors duration-300"
+          >
+            Learn More
           </button>
         </div>
       </div>
