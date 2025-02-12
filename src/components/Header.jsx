@@ -5,7 +5,7 @@ import { LogoFR } from "../assets/icons";
 const navItems = [
   { path: "/", label: "Home" },
   {
-    path: "/product",
+    path: "/product/bio-cng",
     label: "Product",
     dropdownItems: [
       {
@@ -44,7 +44,7 @@ const navItems = [
   { path: "/services", label: "Services" },
   { path: "/blogs", label: "Blog & News" },
   { path: "/connectus", label: "Connect With Us" },
-  { path: "/calculator", label: "CBG Calculator" },
+  // { path: "/calculator", label: "CBG Calculator" },
 ];
 
 const Header = () => {
