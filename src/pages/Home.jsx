@@ -62,7 +62,7 @@ const Home = () => {
         }}
       >
         <Slider
-          visibleItems={4}
+          visibleItems={3}
           showArrows={true}
           swiperParams={{ spaceBetween: 40 }}
           header={

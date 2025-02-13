@@ -4,7 +4,7 @@ const HeroSection = ({
   children,
   backgroundImage,
   backgroundOpacity = "opacity-0",
-  fallbackColor = "#00457B",
+  fallbackColor = "",
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef(null);
@@ -63,7 +63,7 @@ const HeroSection = ({
         }}
       />
 
-      <div className={`absolute inset-0 bg-black ${backgroundOpacity}`} />
+      <div className={`absolute inset-0 ${backgroundOpacity}`} />
 
       <div className="relative container mx-auto flex flex-col md:flex-row md:justify-between items-center font-semibold">
         {children}
