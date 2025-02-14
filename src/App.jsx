@@ -26,9 +26,11 @@ import ServicesLicensePermission from "./pages/Services/ServicesLicensePermissio
 import ServicesProjectFeasibility from "./pages/Services/ServicesProjectFeasibility";
 import ServicesDetailedProjectReport from "./pages/Services/ServicesDetailedProjectReport";
 import NotFoundPage from "./pages/NotFoundPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const AppLayout = () => (
   <>
+    <ScrollToTop />
     <Header />
     <Outlet />
     <Footer />
