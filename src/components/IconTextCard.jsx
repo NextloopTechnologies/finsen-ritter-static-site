@@ -26,14 +26,16 @@ const IconTextCard = ({ descp, icon, title }) => {
 const IconTextCards = ({ title, data }) => {
   return (
     <section className="py-16 md:py-24 px-4 sm:px-6 bg-opacity-20 bg-[#135384]">
-      <div className="max-w-7xl mx-auto md:px-40 px-12 ml-2">
+      <div className="max-w-6xl mx-auto">
         {title && (
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 md:mb-16">
-            {title}
-          </h2>
+          <div className="flex justify-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center mb-12 md:mb-16 w-full">
+              {title}
+            </h2>
+          </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-20 ml-14">
           {data?.map((item, index) => (
             <IconTextCard
               key={index}
