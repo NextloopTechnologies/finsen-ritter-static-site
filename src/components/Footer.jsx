@@ -3,7 +3,7 @@ import { LogoWithNameWhite } from "../assets/images";
 import {
   blogLinks,
   companyLinks,
-  serviceLinks,
+  ServicesCards,
 } from "../utils/ExportStaticData";
 import { FooterText } from "../utils/ExportText";
 import { Link, useLocation } from "react-router-dom";
@@ -17,8 +17,8 @@ const Footer = () => {
       <ul className={`${bulletPoints ? "list-disc pl-5" : ""} space-y-2`}>
         {items.map((item, index) => (
           <li key={index}>
-            <Link to={item.path} className="hover:underline font-semibold">
-              {item.name}
+            <Link to={item.link} className="hover:underline font-semibold">
+              {item.title}
             </Link>
           </li>
         ))}
@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="mt-8 md:mt-0">
             <FooterList
               title="Services"
-              items={serviceLinks}
+              items={ServicesCards}
               bulletPoints={true}
             />
           </div>
