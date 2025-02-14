@@ -61,7 +61,7 @@ const ConnectUs = () => {
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
-          <h2 className="text-3xl font-bold">CONNECT WITH US</h2>
+          <h2 className="text-3xl font-bold mb-5">CONNECT WITH US</h2>
           <p className="text-lg">
             Looking for innovative solutions? Connect with us on our website and
             let's make it happen!

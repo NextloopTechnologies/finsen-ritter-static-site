@@ -21,8 +21,8 @@ const AboutUsPage = () => {
         backgroundImage={getImageUrl("AboutSectionHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
-        <div className="flex flex-col text-center w-full">
-          <h2 className="text-3xl font-bold">ABOUT US</h2>
+        <div className="flex flex-col text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-5">ABOUT US</h2>
           <p className="text-lg">
             Finsen Ritter Technologies specializes in industrial turnkey
             solutions, offering expertise in the design, supply, installation,
@@ -38,21 +38,23 @@ const AboutUsPage = () => {
           {AboutUsText.AboutTheCompanyDescription}
         </p>
       </div>
-
-      <FlexContentImageSection
-        image={AboutUsVisionSection}
-        title="OUR VISION"
-        description={AboutUsText.OurVisionDescription}
-        bgColoredCover={"true"}
-      />
-
-      <FlexContentImageSection
-        image={AboutUsMissionSection}
-        title="OUR MISSION"
-        description={AboutUsText.OurMissionDescription}
-        orientation="right"
-        bgColoredCover={"true"}
-      />
+      <div className="-my-10">
+        <FlexContentImageSection
+          image={AboutUsVisionSection}
+          title="OUR VISION"
+          description={AboutUsText.OurVisionDescription}
+          bgColoredCover={"true"}
+        />
+      </div>
+      <div className="-my-10">
+        <FlexContentImageSection
+          image={AboutUsMissionSection}
+          title="OUR MISSION"
+          description={AboutUsText.OurMissionDescription}
+          orientation="right"
+          bgColoredCover={"true"}
+        />
+      </div>
 
       <FlexContentImageSection
         image={OurValuesAboutUs}

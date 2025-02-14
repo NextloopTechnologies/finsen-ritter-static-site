@@ -12,7 +12,7 @@ const Blogs = () => {
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
-          <h2 className="text-3xl font-bold">BLOGS</h2>
+          <h2 className="text-3xl font-bold mb-5">BLOGS</h2>
           <p className="text-lg">
             Eco-friendly biogas solutions for renewable energy and waste
             management needs.

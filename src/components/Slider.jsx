@@ -25,15 +25,15 @@ const Slider = ({
       {header}
 
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        // effect="coverflow"
-        // coverflowEffect={{
-        //   rotate: 20,
-        //   stretch: 0,
-        //   depth: 100,
-        //   modifier: 1,
-        //   slideShadows: false,
-        // }}
+        modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+        effect="coverflow"
+        coverflowEffect={{
+          rotate: 20,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        }}
         spaceBetween={30}
         slidesPerView={visibleItems}
         loop={true}
