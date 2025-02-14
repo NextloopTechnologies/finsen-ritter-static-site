@@ -3,6 +3,7 @@ import HeroSection from "../../components/HeroSection";
 import ContactSection from "../../components/ContactSection";
 import { ServicesCards } from "../../utils/ExportStaticData";
 import { getImageUrl } from "../../utils/supabaseStorageHelper";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -29,9 +30,9 @@ const Services = () => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
           {ServicesCards.map((service, index) => (
-            <a
+            <Link
               key={index}
-              href={service.link}
+              to={service.link}
               className="group relative overflow-hidden mx-10 my-10"
             >
               <div className="aspect-w-4 aspect-h-3">
@@ -47,7 +48,7 @@ const Services = () => {
                 </h3>
                 <div className="text-white text-4xl">&rarr;</div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

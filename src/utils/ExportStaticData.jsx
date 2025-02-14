@@ -280,41 +280,19 @@ export const testimonials = {
 };
 
 export const companyLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Products", path: "/product/bio-cng" },
-  { name: "Services", path: "/services" },
-  { name: "Blogs & News", path: "/blogs" },
-  { name: "Connect With Us", path: "/connectus" },
+  { title: "Home", link: "/" },
+  { title: "About Us", link: "/about" },
+  { title: "Products", link: "/product/bio-cng" },
+  { title: "Services", link: "/services" },
+  { title: "Blogs & News", link: "/blogs" },
+  { title: "Connect With Us", link: "/connectus" },
   // { name: "CBG Calculator", path: "/cbg-calculator" },
 ];
 export const blogLinks = [
-  { name: "FAQ", path: "/#" },
-  { name: "Help Center", path: "/#" },
-  { name: "Career", path: "/#" },
-  { name: "Privacy", path: "/#" },
-];
-export const serviceLinks = [
-  {
-    name: "Engineering, Procurement, and Construction (EPC)",
-    path: "/services/epc",
-  },
-  { name: "Procurement Management", path: "/services/procurement-management" },
-  {
-    name: "Industrial Automation 4.0",
-    path: "/services/industrial-automation",
-  },
-  { name: "Project Feasibility Report", path: "/services/project-feasibility" },
-  { name: "Detailed Project Report", path: "/services/detailed-report" },
-  {
-    name: "Cost Management Analysis to the Project",
-    path: "/services/cost-management",
-  },
-  { name: "Safety Consultancy", path: "/services/safety-consultancy" },
-  {
-    name: "License & Permissions Assistance (PESO, CPCB, Fire & Safety etc.)",
-    path: "/services/license-permission",
-  },
+  { title: "FAQ", link: "/#" },
+  { title: "Help Center", link: "/#" },
+  { title: "Career", link: "/#" },
+  { title: "Privacy", link: "/#" },
 ];
 
 export const technicalSpecifications = [
@@ -417,42 +395,42 @@ export const ServicesCards = [
   {
     title: "Engineering Procurement & Construction (EPC)",
     image: ServicesECP,
-    link: "services/epc",
+    link: "/services/epc",
   },
   {
     title: "Procurement Management",
     image: ServicesProcurementMgmt,
-    link: "services/procurement-management",
+    link: "/services/procurement-management",
   },
   {
     title: "Industrial Automation",
     image: ServicesIndustrialAutomation,
-    link: "services/industrial-automation",
+    link: "/services/industrial-automation",
   },
   {
     title: "Project Feasibility Report",
     image: ServicesProjectFeasibility,
-    link: "services/project-feasibility",
+    link: "/services/project-feasibility",
   },
   {
     title: "Detailed Project Report",
     image: ServicesProjectDetailedReport,
-    link: "services/detailed-report",
+    link: "/services/detailed-report",
   },
   {
     title: "Cost Management Analysis & High Tech",
     image: ServicesCostMgmtAnalysis,
-    link: "services/cost-management",
+    link: "/services/cost-management",
   },
   {
     title: "Safety Consultancy",
     image: ServicesSafetyConsultancy,
-    link: "services/safety-consultancy",
+    link: "/services/safety-consultancy",
   },
   {
     title: "Health & Environmental Safety & Risk Assessment",
     image: ServicesLicenseAndPermission,
-    link: "services/license-permission",
+    link: "/services/license-permission",
   },
 ];
 
