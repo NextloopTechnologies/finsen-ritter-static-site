@@ -63,7 +63,7 @@ const HeroSection = ({
         }}
       />
 
-      <div className={`absolute inset-0 ${backgroundOpacity}`} />
+      <div className={`absolute inset-0 bg-black ${backgroundOpacity}`} />
 
       <div className="relative container mx-auto flex flex-col md:flex-row md:justify-between items-center font-semibold">
         {children}
