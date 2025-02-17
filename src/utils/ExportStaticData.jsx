@@ -1838,7 +1838,7 @@ export const ProductGasBlendingData = {
 
 export const ServicesEpcData = {
   heroBackgroundImage: getImageUrl("ServiceSubPageEcpHeroBg.png"),
-  heroHeading: "PROCUREMENT MANAGEMENT",
+  heroHeading: "ENGINEERING, PROCUREMENT, AND CONSTRUCTION (EPC)",
   heroDescription:
     "Engineering, Procurement, and Construction (EPC) Services At Finsen Ritter Technologies, we provide comprehensive EPC (Engineering, Procurement, and Construction) services tailored to meet the unique requirements of industrial projects across diverse sectors. Our end-to-end solutions ensure seamless project execution, from concept to commissioning, with an unwavering focus on quality, safety, and efficiency.",
   multiImageData: {
