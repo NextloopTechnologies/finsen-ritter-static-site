@@ -86,7 +86,6 @@ const AboutUsPage = () => {
 
       <Slider
         visibleItems={3}
-        showArrows={true}
         showDots={true}
         swiperParams={{ spaceBetween: 40 }}
         header={
