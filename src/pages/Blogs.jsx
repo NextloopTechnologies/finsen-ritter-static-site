@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import HeroSection from "../components/HeroSection";
 import { blogCards } from "../utils/ExportStaticData";
 import ContactSection from "../components/ContactSection";
@@ -7,6 +8,13 @@ import { getImageUrl } from "../utils/supabaseStorageHelper";
 const Blogs = () => {
   return (
     <>
+      <Helmet>
+        <title>Blogs & News | Finsen Ritter</title>
+        <meta
+          name="description"
+          content="Discover a wealth of information on Finsenritter's blog, featuring engaging content that informs and inspires. Stay updated with our latest posts."
+        />
+      </Helmet>
       <HeroSection
         backgroundImage={getImageUrl("BlogsHeroBg.png")}
         backgroundOpacity="opacity-50"

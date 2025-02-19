@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import AboutUs from "../components/AboutUs";
 import { LogoFRSVG } from "../assets/svg";
 import DemoVideo from "../components/DemoVideo";
@@ -19,22 +20,25 @@ import { getImageUrl } from "../utils/supabaseStorageHelper";
 const Home = () => {
   return (
     <div className="flex flex-col gap-28">
+      <Helmet>
+        <title>FINSEN RITTER | Industrial Turnkey Solutions in India</title>
+        <meta
+          name="description"
+          content="At Finsen Ritter, we specialize in delivering exceptional design and technology services. Join us to enhance your projects with our innovative approach."
+        />
+      </Helmet>
       <HeroSection backgroundImage={getImageUrl("Background.png")}>
         <div className="order-1 md:order-2 mb-8 md:mb-0 w-full md:w-auto md:mr-10">
           <LogoFRSVG className="w-[60vw] md:w-[30vw] h-auto mx-auto md:mx-0" />
         </div>
 
-        <div className="order-2 md:order-1 text-center md:text-left w-full md:w-auto">
+        <div className="order-2 md:order-1 text-center md:text-left w-full md:w-auto mt-10">
           <div className="flex flex-col gap-2 md:gap-4">
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-              Empowering Sustainable
-            </h2>
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-              Energy with Advanced
-            </h2>
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-              Biogas Solutions
-            </h2>
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+              <div className="mb-4">Empowering Sustainable</div>
+              <div className="mb-4">Energy with Advanced</div>
+              <div>Biogas Solutions</div>
+            </h1>
             <p className="text-base md:text-lg lg:text-xl font-normal mt-4">
               Transforming organic waste into clean, renewable{" "}
               <br className="hidden md:block" /> energy for a sustainable
@@ -52,6 +56,7 @@ const Home = () => {
       <DemoVideo />
 
       <AboutUs />
+
       <div
         className="relative w-full py-10"
         style={{
@@ -67,9 +72,9 @@ const Home = () => {
           swiperParams={{ spaceBetween: 40 }}
           header={
             <div className="p-14 flex flex-col items-center text-center">
-              <div className="text-blue-900 font-bold text-2xl md:text-3xl">
+              <h2 className="text-blue-900 font-bold text-2xl md:text-3xl">
                 {productCards?.mainHeader}
-              </div>
+              </h2>
               <div className="font-semibold text-xl">
                 {productCards?.mainDescription}
               </div>
@@ -80,6 +85,7 @@ const Home = () => {
           ))}
         />
       </div>
+
       <OurBiogasSection />
 
       <Slider
@@ -89,9 +95,9 @@ const Home = () => {
         className="py-12 bg-gray-50"
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-bold  text-2xl md:text-3xl">
+            <h2 className="text-blue-900 font-bold  text-2xl md:text-3xl">
               {cardsClients?.mainHeader}
-            </div>
+            </h2>
             <div className="font-semibold text-xl">
               {cardsClients?.mainDescription}
             </div>
@@ -108,9 +114,9 @@ const Home = () => {
         swiperParams={{ spaceBetween: 40 }}
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-bold text-2xl md:text-3xl">
+            <h2 className="text-blue-900 font-bold text-2xl md:text-3xl">
               {testimonials?.mainHeader}
-            </div>
+            </h2>
             <div className="font-semibold text-xl">
               {testimonials?.mainDescription}
             </div>

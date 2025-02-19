@@ -17,7 +17,7 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
-          <h2 className="text-3xl font-bold">{productData.heroTitle}</h2>
+          <h1 className="text-3xl font-bold">{productData.heroTitle}</h1>
           <p className="text-lg">{productData.heroSubtitle}</p>
         </div>
       </HeroSection>

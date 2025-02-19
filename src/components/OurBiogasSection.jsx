@@ -10,9 +10,9 @@ const OurBiogasSection = () => {
   return (
     <div className="flex flex-col md:flex-row p-4 md:p-5 justify-center w-full">
       <div className="bg-opacity-10 p-4 md:p-10 w-full md:max-w-[50vw] my-8 md:my-20">
-        <div className="text-2xl md:text-3xl font-bold text-blue-900 mb-4 text-center md:text-left">
+        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4 text-center md:text-left">
           Our Biogas Solutions
-        </div>
+        </h2>
         <div className="text-center md:text-left text-sm md:text-base leading-relaxed">
           {HomeText.OurBiogasSolutionDescription}
         </div>

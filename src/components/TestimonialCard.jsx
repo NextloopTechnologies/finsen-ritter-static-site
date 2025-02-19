@@ -17,7 +17,7 @@ export const TestimonialCard = ({
           className="w-16 h-16 rounded-full object-cover"
         />
         <div>
-          <h4 className="font-bold text-lg">{name}</h4>
+          <p className="font-bold text-lg">{name}</p>
           <p className="text-gray-500 text-sm">{designation}</p>
         </div>
       </div>
