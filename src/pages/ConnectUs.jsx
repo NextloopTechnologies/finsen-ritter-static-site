@@ -4,6 +4,7 @@ import ContactSection from "../components/ContactSection";
 import HeroSection from "../components/HeroSection";
 import { supabase } from "../supabaseClient";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
+import { Helmet } from "react-helmet";
 
 const ConnectUs = () => {
   const [formData, setFormData] = useState({
@@ -56,12 +57,19 @@ const ConnectUs = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us | Finsen Ritter</title>
+        <meta
+          name="description"
+          content="Connect with us at Finsen Ritter for expert assistance and inquiries. Our dedicated team is ready to provide you with the support you need. Reach out today."
+        />
+      </Helmet>
       <HeroSection
         backgroundImage={getImageUrl("ConnectUsHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
-          <h2 className="text-3xl font-bold mb-5">CONNECT WITH US</h2>
+          <h1 className="text-3xl font-bold mb-5">CONNECT WITH US</h1>
           <p className="text-lg">
             Looking for innovative solutions? Connect with us on our website and
             let's make it happen!
@@ -89,9 +97,9 @@ const ConnectUs = () => {
             </div>
 
             <div className="md:w-1/2 p-6">
-              <h2 className="text-xl font-semibold mb-6">
+              <p className="text-xl font-semibold mb-6">
                 Vendor Registration Form
-              </h2>
+              </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">

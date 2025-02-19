@@ -71,9 +71,9 @@ const FlexContentImageSection = ({
   return (
     <div className={containerClassName}>
       {mainHeading && (
-        <div className="text-2xl md:text-3xl font-bold text-blue-900 text-center md:max-w-[50vw] max-w-[85vw] -mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 text-center md:max-w-[50vw] max-w-[85vw] -mb-8">
           {mainHeading}
-        </div>
+        </h2>
       )}
       <div className="flex flex-col md:flex-row items-center">
         {isLeft ? (
@@ -92,9 +92,7 @@ const FlexContentImageSection = ({
                 isLeft && "rounded-bl-md md:rounded-br-[4rem]"
               }`}
             >
-              <div className="text-2xl font-bold text-blue-900 mb-4">
-                {title}
-              </div>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">{title}</h3>
               {renderContent()}
             </div>
           </>
@@ -105,9 +103,7 @@ const FlexContentImageSection = ({
                 !isLeft && "rounded-br-md md:rounded-bl-[4rem]"
               }`}
             >
-              <div className="text-2xl font-bold text-blue-900 mb-4">
-                {title}
-              </div>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">{title}</h3>
               {renderContent()}
             </div>
             <div className="w-full md:w-auto relative">
