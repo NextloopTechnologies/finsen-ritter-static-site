@@ -13,16 +13,24 @@ import { AboutUsText } from "../utils/ExportText";
 import { TestimonialCard } from "../components/TestimonialCard";
 import { IconCard } from "../components/IconCard";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
+import { Helmet } from "react-helmet";
 
 const AboutUsPage = () => {
   return (
     <div className="flex flex-col gap-28">
+      <Helmet>
+        <title>About Us | Finsen Ritter</title>
+        <meta
+          name="description"
+          content="Discover Finsen Ritter Technologies, your partner in industrial turnkey solutions. We excel in the design, supply, installation, and testing of chemical and gas plants."
+        />
+      </Helmet>
       <HeroSection
         backgroundImage={getImageUrl("AboutSectionHeroBg.png")}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-5">ABOUT US</h2>
+          <h1 className="text-3xl font-bold mb-5">ABOUT US</h1>
           <p className="text-lg">
             Finsen Ritter Technologies specializes in industrial turnkey
             solutions, offering expertise in the design, supply, installation,
@@ -71,9 +79,9 @@ const AboutUsPage = () => {
         className="py-12 bg-gray-50"
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-bold text-2xl md:text-3xl">
+            <h2 className="text-blue-900 font-bold text-2xl md:text-3xl">
               {cardsClients?.mainHeader}
-            </div>
+            </h2>
             <div className="font-semibold text-xl">
               {cardsClients?.mainDescription}
             </div>
@@ -86,14 +94,13 @@ const AboutUsPage = () => {
 
       <Slider
         visibleItems={3}
-        showArrows={true}
         showDots={true}
         swiperParams={{ spaceBetween: 40 }}
         header={
           <div className="p-14 flex flex-col items-center text-center">
-            <div className="text-blue-900 font-bold md:text-3xl text-2xl">
+            <h2 className="text-blue-900 font-bold md:text-3xl text-2xl">
               {testimonials?.mainHeader}
-            </div>
+            </h2>
             <div className="font-semibold text-xl">
               {testimonials?.mainDescription}
             </div>
