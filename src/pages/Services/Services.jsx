@@ -20,6 +20,7 @@ const Services = () => {
           </p>
         </div>
       </HeroSection>
+
       <div className="container mx-auto px-4 py-20">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-blue-900">
           OUR SERVICES
@@ -28,21 +29,23 @@ const Services = () => {
           Eco-friendly biogas solutions for renewable energy and waste
           management needs.
         </h3>
+
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
           {ServicesCards.map((service, index) => (
             <Link
               key={index}
               to={service.link}
-              className="group relative overflow-hidden mx-10 my-10"
+              className="group relative overflow-hidden mx-10 my-10 rounded-none"
             >
-              <div className="aspect-w-4 aspect-h-3">
+              {/* Increased height for better visual */}
+              <div className="w-full h-72">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-b-[1rem]"
+                  className="w-full h-full object-cover rounded-none"
                 />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between bg-[#135384] rounded-b-[1rem]">
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between bg-[#135384] rounded-none">
                 <h3 className="text-white font-medium text-sm md:text-base flex-1 pr-2">
                   {service.title}
                 </h3>
@@ -52,9 +55,11 @@ const Services = () => {
           ))}
         </div>
       </div>
+
       <ContactSection />
     </div>
   );
 };
 
 export default Services;
+

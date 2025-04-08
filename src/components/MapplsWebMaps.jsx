@@ -3,8 +3,9 @@ import { useMap } from "../hooks/useMap";
 
 const MapComponent = () => {
   const mapRef = useRef(null);
-  const apiKey = import.meta.env.VITE_MAPPLS_API_KEY;
-  const baseUrl = import.meta.env.VITE_MAPPLS_BASE_URL;
+  const apiKey = import.meta.env.VITE_APP_MAPPLS_API_KEY;
+  const baseUrl = import.meta.env.VITE_APP_MAPPLS_BASE_URL;
+
   const scriptLoaded = useMap(
     `${baseUrl}/${apiKey}/map_sdk?layer=vector&v=3.0`
   );
@@ -24,7 +25,12 @@ const MapComponent = () => {
     }
   }, [scriptLoaded]);
 
-  return <div id="map" className="w-full h-full rounded bg-gray-200"></div>;
+  return (
+    <div className="w-[100%] max-w-[500px] h-[250px] bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+      <div id="map" className="w-full h-full" />
+    </div>
+  );
 };
 
 export default MapComponent;
+
