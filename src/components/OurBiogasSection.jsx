@@ -8,12 +8,13 @@ import { HomeText } from "../utils/ExportText";
 
 const OurBiogasSection = () => {
   return (
-    <div className="flex flex-col md:flex-row p-4 md:p-5 justify-center w-full">
-      <div className="bg-opacity-10 p-4 md:p-10 w-full md:max-w-[50vw] my-8 md:my-20">
-        <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4 text-center md:text-left">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full px-4 py-10">
+      {/* Title and Description centered above the map */}
+      <div className="max-w-xl text-center md:text-start mb-8">
+        <div className="text-2xl md:text-4xl font-bold text-blue-900 mb-4">
           Our Biogas Solutions
-        </h2>
-        <div className="text-center md:text-left text-sm md:text-base leading-relaxed">
+        </div>
+        <div className="text-lg md:text-xl leading-relaxed">
           {HomeText.OurBiogasSolutionDescription}
         </div>
       </div>
@@ -21,8 +22,9 @@ const OurBiogasSection = () => {
       <div className="relative flex justify-center md:justify-start w-auto md:w-auto mt-4 md:mt-0">
         <img
           src={BioCngPlantsMap}
-          alt="Location on map"
-          className="h-auto w-[80vw] md:w-96 object-contain"
+          alt="Biogas map"
+          className="w-full h-auto object-contain brightness-75"
+          style={{ filter: "brightness(100%)" }}
         />
         {/* Uncomment if needed
         <img 
