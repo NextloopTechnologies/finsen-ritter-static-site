@@ -2,19 +2,20 @@ import React from "react";
 import {
   MapLocations,
   IndustrialSiteCircular,
-  BlueandGreenFestiveIndiaIndependenceDayPoster
+  BlueandGreenFestiveIndiaIndependenceDayPoster,
+  BioCngPlantsMap
 } from "../assets/images";
 import { HomeText } from "../utils/ExportText";
 
 const OurBiogasSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full px-4 py-10">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full px-4 py-10">
       {/* Title and Description centered above the map */}
-      <div className="max-w-3xl text-center mb-8">
-        <div className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">
+      <div className="max-w-xl text-center md:text-start mb-8">
+        <div className="text-2xl md:text-4xl font-bold text-blue-900 mb-4">
           Our Biogas Solutions
         </div>
-        <div className="text-sm md:text-base leading-relaxed">
+        <div className="text-lg md:text-xl leading-relaxed">
           {HomeText.OurBiogasSolutionDescription}
         </div>
       </div>
@@ -22,10 +23,10 @@ const OurBiogasSection = () => {
       {/* Centered map image */}
       <div className="relative flex justify-center items-center w-full max-w-2xl">
         <img
-          src={BlueandGreenFestiveIndiaIndependenceDayPoster}
+          src={BioCngPlantsMap}
           alt="Biogas map"
           className="w-full h-auto object-contain brightness-75"
-          style={{ filter: "brightness(64%)" }}
+          style={{ filter: "brightness(100%)" }}
         />
         {/* Optional overlays - uncomment if needed */}
         {/* <img 

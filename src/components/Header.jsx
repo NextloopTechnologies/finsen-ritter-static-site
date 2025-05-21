@@ -7,10 +7,10 @@ import { CompanyLogo } from "../assets/icons";
 const navItems = [
   { path: "/", label: "Home" },
   {
-    path: "/product/bio-cng",
     label: "Product",
     dropdownItems: [
       {
+        index: true,
         label: "Industrial Bio-CNG (Compressed Bio-Gas) Plant",
         path: "/product/bio-cng",
       },
@@ -95,6 +95,15 @@ const Header = () => {
     const hasDropdown = dropdownItems && dropdownItems.length > 0;
     const isDropdownOpen = activeDropdown === label;
 
+    const handleNavClick = (e) => {
+      if (hasDropdown) {
+        e.preventDefault();
+        setActiveDropdown(isDropdownOpen ? null : label);
+      } else {
+        setIsMenuOpen(false);
+      }
+    };
+
     return (
       <div
         className="relative"
@@ -104,6 +113,7 @@ const Header = () => {
       >
         <Link
           to={path}
+          onClick={handleNavClick}
           className={`relative hover:text-secondary font-medium px-4 py-2 transition-colors ${
             isActive(path)
               ? "text-blue-900 after:absolute after:left-2 after:right-2 after:bottom-1 after:h-[2px] after:bg-secondary"
@@ -166,7 +176,10 @@ const Header = () => {
                         ? "bg-[#07355E] text-white"
                         : "text-gray-700 hover:bg-[#07355E] hover:text-white"
                     }`}
-                    onClick={() => setActiveDropdown(null)}
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      setIsMenuOpen(false); // Add this line
+                    }}
                   >
                     {item.label}
                   </Link>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import AboutUs from "../components/AboutUs";
 import { LogoFRSVG } from "../assets/svg";
 import DemoVideo from "../components/DemoVideo";
@@ -15,7 +16,6 @@ import { TestimonialCard } from "../components/TestimonialCard";
 import { ProductCard } from "../components/ProductCard";
 import { IconCard } from "../components/IconCard";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
-import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
