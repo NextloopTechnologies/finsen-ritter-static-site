@@ -31,7 +31,6 @@ import ServiceSubPageEcpHeroBg from "../assets/Services/ServiceSubPageEcpHeroBg.
 import ServicesEcpEnggExcellence from "../assets/Services/ServicesEcpEnggExcellence.png";
 import ServicesEcpStrategicProcurement from "../assets/Services/ServicesEcpStrategicProcurement.png";
 import ServicesEcpSeamlessConstruction from "../assets/Services/ServicesEcpSeamlessConstruction.png";
-import BlueandGreenFestiveIndiaIndependenceDayPoster from "../assets/HomePage/BlueandGreenFestiveIndiaIndependenceDayPoster.jpg";
 export {
   ProductSectionBgImg,
   IndustrialSiteCircular,
@@ -66,5 +65,4 @@ export {
   ServicesEcpSeamlessConstruction,
   ServicesEcpStrategicProcurement,
   ServicesEcpEnggExcellence,
-  BlueandGreenFestiveIndiaIndependenceDayPoster,
 };
