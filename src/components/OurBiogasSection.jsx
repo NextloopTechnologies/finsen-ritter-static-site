@@ -2,7 +2,7 @@ import React from "react";
 import {
   MapLocations,
   IndustrialSiteCircular,
-  BioCngPlantsMap,
+  BioCngPlantsMap
 } from "../assets/images";
 import { HomeText } from "../utils/ExportText";
 
@@ -19,22 +19,23 @@ const OurBiogasSection = () => {
         </div>
       </div>
 
-      <div className="relative flex justify-center md:justify-start w-auto md:w-auto mt-4 md:mt-0">
+      {/* Centered map image */}
+      <div className="relative flex justify-center items-center w-full max-w-2xl">
         <img
           src={BioCngPlantsMap}
           alt="Biogas map"
           className="w-full h-auto object-contain brightness-75"
           style={{ filter: "brightness(100%)" }}
         />
-        {/* Uncomment if needed
-        <img 
+        {/* Optional overlays - uncomment if needed */}
+        {/* <img 
           src={MapLocations} 
           alt="Location on map" 
-          className="h-auto w-[80vw] md:w-96 object-contain" 
+          className="absolute inset-0 w-full h-full object-contain" 
         />
         <img
           src={IndustrialSiteCircular}
-          alt="Industrial site view"
+          alt="Industrial site"
           className="absolute h-40 md:h-52 -left-8 md:-left-20 -bottom-8 md:-bottom-12"
         /> */}
       </div>

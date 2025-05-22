@@ -28,6 +28,7 @@ const Services = () => {
           </p>
         </div>
       </HeroSection>
+
       <div className="container mx-auto px-4 py-20">
         <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center text-blue-900">
           OUR SERVICES
@@ -41,13 +42,14 @@ const Services = () => {
             <Link
               key={index}
               to={service.link}
-              className="group relative overflow-hidden mx-10 my-10"
+              className="group relative overflow-hidden mx-10 my-10 rounded-none"
             >
-              <div className="aspect-w-4 aspect-h-3">
+              {/* Increased height for better visual */}
+              <div className="w-full h-72">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-b-[1rem]"
+                  className="w-full h-full object-cover rounded-none"
                 />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between bg-[#135384] rounded-b-[1rem]">
@@ -60,9 +62,11 @@ const Services = () => {
           ))}
         </div>
       </div>
+
       <ContactSection />
     </div>
   );
 };
 
 export default Services;
+

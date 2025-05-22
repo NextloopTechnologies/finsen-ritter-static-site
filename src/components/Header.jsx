@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LogoFR } from "../assets/icons";
+import { CompanyLogo } from "../assets/icons";
+
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -195,7 +196,8 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <img src={LogoFR} alt="Company Logo" className="h-8 md:h-10" />
+            <img src={CompanyLogo} alt="Company Logo" className="h-10 md:h-12" />
+
           </Link>
 
           <nav className="hidden md:flex gap-2 lg:gap-2 items-center">
