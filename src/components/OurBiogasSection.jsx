@@ -2,7 +2,6 @@ import React from "react";
 import {
   MapLocations,
   IndustrialSiteCircular,
-  BlueandGreenFestiveIndiaIndependenceDayPoster,
   BioCngPlantsMap
 } from "../assets/images";
 import { HomeText } from "../utils/ExportText";

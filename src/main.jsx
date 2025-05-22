@@ -14,6 +14,10 @@ createRoot(document.getElementById("root")).render(
       />
       <meta
         name="keywords"
+        content="biogass solution, Turnkey projects in Indore, Biogas plant in Indore, Biogas solutions in Indore, Bio CNG plants in India, Biogas plant CNG manufacture Indore, Bio CNG plant in Indore"
+      />
+      <meta
+        name="keywords"
         content="industrial turnkey solutions in india, Plant Engineering Services & Solutions, Leading Chemical Intermediates Company, Chemical Plants Installation Services, Top Chemical Plants Maintenance Services in india, Turnkey Solution Companies, Top Gas Plant Installation Services in india"
       />
       <link rel="canonical" href="https://www.finsenritter.com/" />
