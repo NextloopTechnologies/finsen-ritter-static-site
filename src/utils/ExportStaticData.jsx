@@ -2151,10 +2151,28 @@ export const ServicesDetailedProjectReportData = {
 };
 
 export const socialLinks = [
-  { href: "#", icon: FacebookIcon },
-  { href: "#", icon: GoogleIcon },
-  { href: "#", icon: MailRoundedIcon },
-  { href: "#", icon: InstagramIcon },
-  { href: "#", icon: LinkedinIcon },
-  { href: "#", icon: TwitterIcon },
+  {
+    href: "https://facebook.com/finsenritter",
+    icon: FacebookIcon,
+  },
+  {
+    href: "https://google.com/search?q=Finsen+Ritter",
+    icon: GoogleIcon,
+  },
+  {
+    href: "mailto:contact@finsenritter.com",
+    icon: MailRoundedIcon,
+  },
+  {
+    href: "https://instagram.com/finsenritter",
+    icon: InstagramIcon,
+  },
+  {
+    href: "https://linkedin.com/company/finsenritter",
+    icon: LinkedinIcon,
+  },
+  {
+    href: "https://twitter.com/finsenritter",
+    icon: TwitterIcon,
+  },
 ];

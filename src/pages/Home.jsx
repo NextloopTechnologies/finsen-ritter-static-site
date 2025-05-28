@@ -37,11 +37,9 @@ const Home = () => {
             <div className="flex flex-col gap-2 md:gap-4">
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
                 Empowering Sustainable
-              </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+             
                 Energy with Advanced
-              </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+             
                 Biogas Solutions
               </h1>
               <p className="text-base md:text-lg lg:text-xl font-normal mt-4">
@@ -51,7 +49,7 @@ const Home = () => {
               </p>
               <div className="mt-6">
                 <button className="bg-[#135384] hover:bg-[rgb(17,25,60)] text-white py-3 px-8 rounded-lg transition-colors duration-300 text-lg md:text-xl w-full md:w-auto">
-                  <h1>Learn More</h1>
+                 Learn More
                 </button>
               </div>
             </div>
@@ -70,24 +68,24 @@ const Home = () => {
             backgroundSize: "cover",
           }}
         >
-          <Slider
-            visibleItems={3}
-            showArrows={true}
-            swiperParams={{ spaceBetween: 40 }}
-            header={
-              <div className="p-14 flex flex-col items-center text-center">
-                <div className="text-blue-900 font-bold text-2xl md:text-3xl">
-                  {productCards?.mainHeader}
-                </div>
-                <div className="font-semibold text-xl">
-                  {productCards?.mainDescription}
-                </div>
-              </div>
-            }
-            slides={productCards?.items?.map((productCards) => (
-              <ProductCard {...productCards} />
-            ))}
-          />
+    <Slider
+  visibleItems={3}
+  showArrows={true}
+  swiperParams={{ spaceBetween: 40 }}
+  header={
+    <div className="p-14 flex flex-col items-center text-center">
+      <h2 className="text-blue-900 font-bold text-2xl md:text-3xl">
+        {productCards?.mainHeader}
+      </h2>
+      <div className="font-semibold text-xl">
+        {productCards?.mainDescription}
+      </div>
+    </div>
+  }
+  slides={productCards?.items?.map((productCards) => (
+    <ProductCard {...productCards} />
+  ))}
+/>
         </div>
         <OurBiogasSection />
 

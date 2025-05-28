@@ -34,8 +34,8 @@ const AboutUs = () => {
           <button
             onClick={handleLearnMoreClick}
             className="bg-blue-900 text-white px-6 md:px-8 py-2 rounded hover:bg-blue-800 transition-colors duration-300"
-          >
-            Learn More
+          ><h2>Learn More</h2>
+           
           </button>
         </div>
       </div>

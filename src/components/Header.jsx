@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CompanyLogo } from "../assets/icons";
+import { Heading3 } from "lucide-react";
 
 
 const navItems = [

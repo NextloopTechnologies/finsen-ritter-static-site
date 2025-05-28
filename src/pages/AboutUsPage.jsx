@@ -83,8 +83,8 @@ const AboutUsPage = () => {
             viewport={{ once: false, amount: 0.2 }}
             variants={fadeUp}
             className="text-3xl font-bold mb-5"
-          >
-            ABOUT US
+          ><h2> ABOUT US</h2>
+           
           </motion.h2>
           <motion.p
             initial="hidden"
