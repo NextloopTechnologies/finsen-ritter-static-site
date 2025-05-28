@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CompanyLogo } from "../assets/icons";
 
-
 const navItems = [
   { path: "/", label: "Home" },
   {
@@ -45,7 +44,7 @@ const navItems = [
   { path: "/services", label: "Services" },
   { path: "/blogs", label: "Blog & News" },
   { path: "/connectus", label: "Connect With Us" },
-  // { path: "/calculator", label: "CBG Calculator" },
+  { path: "/calculator", label: "Calculator" },
 ];
 
 const Header = () => {
@@ -196,8 +195,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <img src={CompanyLogo} alt="Company Logo" className="h-10 md:h-12" />
-
+            <img
+              src={CompanyLogo}
+              alt="Company Logo"
+              className="h-10 md:h-12"
+            />
           </Link>
 
           <nav className="hidden md:flex gap-2 lg:gap-2 items-center">

@@ -209,12 +209,11 @@ export const productCards = {
   ],
 };
 
-
 export const testimonials = {
   mainHeader: "What Our Clients Say",
   mainDescription: "Customer Feedback",
   items: [
-   {
+    {
       name: "Bobby Chandel",
       designation: "Operations Manager",
       text: "Finsen Ritter’s team handled oxygen plant deliveries on tight deadlines. Mr. Aniket Awasthi’s support was outstanding.",
@@ -301,7 +300,7 @@ export const companyLinks = [
   { title: "Services", link: "/services" },
   { title: "Blogs & News", link: "/blogs" },
   { title: "Connect With Us", link: "/connectus" },
-  // { name: "CBG Calculator", path: "/cbg-calculator" },
+  { name: "Calculator", path: "/cbg-calculator" },
 ];
 export const blogLinks = [
   { title: "FAQ", link: "/#" },
