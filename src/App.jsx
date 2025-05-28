@@ -27,6 +27,7 @@ import ServicesProjectFeasibility from "./pages/Services/ServicesProjectFeasibil
 import ServicesDetailedProjectReport from "./pages/Services/ServicesDetailedProjectReport";
 import NotFoundPage from "./pages/NotFoundPage";
 import ScrollToTop from "./components/ScrollToTop";
+import Calculator from "./pages/calculator";
 
 const AppLayout = () => (
   <>
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "connectus",
         element: <ConnectUs />,
+      },
+      {
+        path: "calculator",
+        element: <Calculator />,
       },
       {
         path: "services",
