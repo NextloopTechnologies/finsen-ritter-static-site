@@ -294,7 +294,7 @@ export const testimonials = {
 };
 
 export const companyLinks = [
-  { title: "Home...", link: "/" },
+  { title: "Home", link: "/" },
   { title: "About Us", link: "/about" },
   { title: "Products", link: "/product/bio-cng" },
   { title: "Services", link: "/services" },
