@@ -6,7 +6,7 @@ const DemoVideo = () => {
       <div className="w-full md:w-[70%]">
         <video controls className="rounded-xl w-full h-auto" playsInline>
           <source
-            src="src\assets\HomePage\Untitled design.mp4"
+            src="src\assets\HomePage\homepagevideo.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.

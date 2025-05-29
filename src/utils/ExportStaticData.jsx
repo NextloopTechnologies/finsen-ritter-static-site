@@ -141,7 +141,7 @@ export const cardsClients = {
 export const productCards = {
   mainHeader: "OUR PRODUCT",
   mainDescription:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   items: [
     {
       icon: H2SCO2ScrubberIcon,
@@ -479,12 +479,22 @@ export const ProductBioCNGData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL BIO-CNG (COMPRESSED BIO-GAS) PLANT: PRODUCT DESCRIPTION",
-  descriptionText:
-    "Finsen Ritter Technologies' Industrial Bio-CNG (Compressed Bio-Gas) Plant is a cutting-edge solution designed to convert organic waste into clean, renewable energy. Our plant utilizes advanced anaerobic digestion using CSTR, ASBR etc. technologies and gas upgrading technologies to produce high-purity methane, commonly referred to as Bio-CNG. This sustainable alternative to fossil fuels offers significant economic and environmental benefits, making it a reliable choice for industries aiming to reduce their carbon footprint while optimizing energy use.",
+  descriptionText: `Make the waste pure fuel with our advanced Bio CNG Plant Manufacturers in Indore. FINSEN RITTER one of the largest manufacturers of agricultural machinery and high -quality plants that meet the energy requirements of farmers and agricultural -based industries. We make BIO -CNG high -quality systems that convert organic waste into environmentally friendly compressed natural gas, which helps companies to reduce the costs of protecting the environment.  The selection of our products includes livestock manure and different types of plants that can produce renewable energy sources. 
+
+  FINSEN RITTER BIO -CNG plants provide a smart solution for permanent energy production. Manufactured with durable materials such as GFS and RC, these systems effectively treat organic waste and convert it into pure combustion of CNG fuel. This process not only reduces your carbon footprint but also cuts operating expenses significantly. 
+  
+  We design Best BIO -CNG plants with processing skills up to 500 TPD to 500 TPD, making them suitable for all sizes of companies. Whether you are a small business or a large industrial facility, we have the right solution for your needs. 
+  
+  Our BIO –CNG plants in Indore is fully in line with the government initiative, which has the government initiative, including continuous, cow dung and Kvic schemes, and gets you from the available accessible and support programs available. 
+  
+  As a reliable BIO -CNG system exporters and suppliers, we serve customers throughout India with complete installation, commissioning and later support. Our expert team ensures easy integration with your current business. 
+  
+  Save money and the environment with Bio CNG Plant Exporters and Suppliers in India. Connect with us Now 
+  `,
   majorFeatures: [
     {
       title: "High-efficiency Anaerobic Digestion (AD) System",
@@ -582,7 +592,7 @@ export const ProductMedicalOxygenData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL BIO-CNG (COMPRESSED BIO-GAS) PLANT: PRODUCT DESCRIPTION",
@@ -728,7 +738,7 @@ export const ProductIndustrialNitrogenData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL NITROGEN PLANT (PSA & VPSA): PRODUCT DESCRIPTION",
@@ -893,7 +903,7 @@ export const ProductDesiccantDryersData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading: "INDUSTRIAL DESICCANT DRYERS: PRODUCT DESCRIPTION",
   descriptionText:
@@ -1050,7 +1060,7 @@ export const ProductBiogasData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL BIOGAS PURIFICATION AND REFINING PLANTS: PRODUCT DESCRIPTION",
@@ -1202,7 +1212,7 @@ export const ProductIndustrialSynGasData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL SYNGAS REFINING PLANTS: PRODUCT DESCRIPTION",
@@ -1360,12 +1370,12 @@ export const ProductChillersData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL SCREW CHILLERS & HEAT PUMPS: PRODUCT DESCRIPTION",
   descriptionText:
-    "Finsen Ritter Technologies' Industrial Screw Chillers and Heat Pumps are engineered to deliver unmatched efficiency and reliability in industrial cooling and heating applications. Designed with advanced screw compressor technology, these systems provide precise temperature control, optimal energy utilization, and robust performance under demanding conditions. Whether for process cooling, HVAC systems, or heat recovery, our chillers and heat pumps ensure consistent operation, reduced energy costs, and minimal environmental impact.",
+    "FINSEN RITTER screw chillers have a wide range of uses and are suitable for water-scarce areas. A nano-coating on the unit's body increases durability. Units can be designed for T3 working conditions, suitable for environments with temperatures exceeding 50°C. Feature renowned brand screw compressors for high efficiency and long service life. With a shell and tube evaporator equipped with high-efficiency DAC corrugated copper tubes. The condenser layout is inverted M-shaped to maximize the condenser area and, heat exchange capacity is improved.",
   majorFeatures: [
     {
       title: "Advanced Screw Compressor Technology:",
@@ -1519,7 +1529,7 @@ export const ProductScrubberData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading: "H2S & CO2 SCRUBBER: PRODUCT DESCRIPTION",
   descriptionText:
@@ -1682,12 +1692,12 @@ export const ProductGasBlendingData = {
   heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "Eco-friendly biogas solutions for renewable energy and waste management needs.",
+    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL GAS BLENDING SKID (CH4, H2, AND O2): PRODUCT DESCRIPTION",
   descriptionText:
-    "Finsen Ritter Technologies' Industrial Gas Blending Skids are precision-engineered systems designed to mix methane (CH₄), hydrogen (H₂), and oxygen (O₂) in controlled ratios for diverse industrial applications. These skids ensure optimal gas blending accuracy, safety, and efficiency while meeting stringent quality and regulatory standards. With a modular design and advanced automation, our gas blending skids are ideal for industries such as energy, petrochemicals, metallurgy, and environmental solutions.",
+    "FINSEN RITTER gas blending skid systems deliver precise, automated mixing of methane (CH4), hydrogen (H2), and oxygen (O2) for industrial applications. Engineered for reliability and accuracy, these custom-built skids feature state-of-the-art flow control technology, safety monitoring systems. our blending skids ensure optimal performance with minimal operational complexity. Each system includes integrated safety features, real-time monitoring capabilities, and complies with international safety standards for seamless integration into your existing infrastructure. ",
   majorFeatures: [
     {
       title: "Precision Gas Mixing Technology:",
