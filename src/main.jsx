@@ -7,10 +7,10 @@ import { Helmet } from "react-helmet";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Helmet>
-      <title>FINSEN RITTER | Industrial Turnkey Solutions in India</title>
+      <title>FINSEN RITTER | Biogas Plant Manufacturers In Indore</title>
       <meta
         name="description"
-        content="FINSEN RITTER provides industrial turnkey solutions in India, specializing in plant engineering services and chemical plants installation."
+        content="At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
       />
       <meta
         name="keywords"
@@ -18,8 +18,10 @@ createRoot(document.getElementById("root")).render(
       />
       <meta
         name="keywords"
-        content="industrial turnkey solutions in india, Plant Engineering Services & Solutions, Leading Chemical Intermediates Company, Chemical Plants Installation Services, Top Chemical Plants Maintenance Services in india, Turnkey Solution Companies, Top Gas Plant Installation Services in india"
+        content="industrial turnkey solutions in india, Plant Engineering Services & Solutions, Leading Chemical Intermediates Company, Chemical Plants Installation Services
+        , Top CheBiogas Plant Manufacturers in Indore , Biogas Plant in Indore.  , Biogas Plant Suppliers in Indore, Best Biogas Plant in Indore, Best Bio CNG Plant in Indore, Biogas Plant Manufacturers"
       />
+
       <link rel="canonical" href="https://www.finsenritter.com/" />
       <meta name="robots" content="index, follow" />
     </Helmet>

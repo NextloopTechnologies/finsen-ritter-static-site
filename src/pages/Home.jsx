@@ -36,14 +36,15 @@ const Home = () => {
           <div className="order-2 md:order-1 text-center md:text-left w-full md:w-auto">
             <div className="flex flex-col gap-2 md:gap-4">
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-                Empowering Sustainable
+                Leading Biogas Plant Manufacturers | Sustainable Energy
+                Solutions for Tomorrow
               </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+              {/* <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
                 Energy with Advanced
               </h1>
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
                 Biogas Solutions
-              </h1>
+              </h1> */}
               <p className="text-base md:text-lg lg:text-xl font-normal mt-4">
                 Transforming organic waste into clean, renewable{" "}
                 <br className="hidden md:block" /> energy for a sustainable
