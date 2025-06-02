@@ -74,7 +74,7 @@ const router = createBrowserRouter([
             element: <ProductBiogas />,
           },
           {
-            path: "syngas",
+            path: "synthesisgas",
             element: <ProductSyngas />,
           },
           {
