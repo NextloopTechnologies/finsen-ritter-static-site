@@ -194,7 +194,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center absolute left-1/2 -translate-x-1/2 w-[calc(80%-2rem)]">
+    <div className="flex justify-between items-center absolute left-1/2 -translate-x-1/2 w-[calc(100%-2rem)]">
       <Link to="/" className="flex items-center">
         <img src={CompanyLogo} alt="Company Logo" className="h-10 md:h-12" />
       </Link>
