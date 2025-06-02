@@ -23,8 +23,10 @@ const Services = () => {
         <div className="flex flex-col text-center w-full">
           <h1 className="text-3xl font-bold mb-5">OUR SERVICES</h1>
           <p className="text-lg">
-            Eco-friendly biogas solutions for renewable energy and waste
-            management needs.
+            {/* Eco-friendly biogas solutions for renewable energy and waste
+            management needs. */}
+            Boost plant efficiency and safety with Finsen Ritter’s customized
+            services.
           </p>
         </div>
       </HeroSection>
@@ -69,4 +71,3 @@ const Services = () => {
 };
 
 export default Services;
-

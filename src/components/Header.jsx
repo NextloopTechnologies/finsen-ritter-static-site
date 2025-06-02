@@ -28,7 +28,10 @@ const navItems = [
         label: "Industrial Biogas Purification and Refining Plants",
         path: "/product/biogas",
       },
-      { label: "Industrial Syngas Refining Plants", path: "/product/syngas" },
+      {
+        label: "Industrial synthesis gas Plants",
+        path: "/product/synthesisgas",
+      },
       {
         label: "Industrial Screw Chillers & Heat Pumps",
         path: "/product/chillers",
@@ -191,72 +194,77 @@ const Header = () => {
   };
 
   return (
-    <header className="absolute left-1/2 -translate-x-1/2 bg-white rounded-3xl md:rounded-full my-5 z-10 w-[calc(100%-2rem)] text-gray-700 font-medium">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center">
+    <div className="flex justify-between items-center absolute left-1/2 -translate-x-1/2 w-[calc(80%-2rem)]">
+      <Link to="/" className="flex items-center">
+        <img src={CompanyLogo} alt="Company Logo" className="h-10 md:h-12" />
+      </Link>
+      <header className=" bg-white rounded-3xl md:rounded-full my-5 z-10  text-gray-700 font-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* <Link to="/" className="flex items-center">
             <img
               src={CompanyLogo}
               alt="Company Logo"
               className="h-10 md:h-12"
             />
-          </Link>
+          </Link> */}
 
-          <nav className="hidden md:flex gap-2 lg:gap-2 items-center">
-            {navItems.map((item) => (
-              <NavLink key={item.path} {...item} />
-            ))}
-            <button
-              onClick={handleQuoteClick}
-              className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm"
-            >
-              Get Your Quote
-            </button>
-          </nav>
-
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={
-                  isMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16M4 18h16"
-                }
-              />
-            </svg>
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <nav className="md:hidden py-4">
-            <div className="flex flex-col gap-2">
+            <nav className="hidden md:flex gap-2 lg:gap-2 items-center">
               {navItems.map((item) => (
                 <NavLink key={item.path} {...item} />
               ))}
               <button
                 onClick={handleQuoteClick}
-                className="bg-[#00477E] px-4 py-2 rounded-md text-white text-sm mt-2"
+                className="bg-[#00477E] px-2 py-1 rounded-md text-white text-sm"
               >
                 Get Your Quote
               </button>
-            </div>
-          </nav>
-        )}
-      </div>
-    </header>
+            </nav>
+
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={
+                    isMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
+                />
+              </svg>
+            </button>
+          </div>
+
+          {isMenuOpen && (
+            <nav className="md:hidden py-4">
+              <div className="flex flex-col gap-2">
+                {navItems.map((item) => (
+                  <NavLink key={item.path} {...item} />
+                ))}
+                <button
+                  onClick={handleQuoteClick}
+                  className="bg-[#00477E] px-4 py-2 rounded-md text-white text-sm mt-2"
+                >
+                  Get Your Quote
+                </button>
+              </div>
+            </nav>
+          )}
+        </div>
+      </header>
+    </div>
   );
 };
 

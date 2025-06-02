@@ -22,8 +22,10 @@ const Blogs = () => {
         <div className="flex flex-col text-center w-full">
           <h2 className="text-3xl font-bold mb-5">BLOGS</h2>
           <p className="text-lg">
-            Eco-friendly biogas solutions for renewable energy and waste
-            management needs.
+            {/* Eco-friendly biogas solutions for renewable energy and waste
+            management needs. */}
+            Stay informed with expert blog from Finsen Ritter — your source for
+            industrial biogas solution.
           </p>
         </div>
       </HeroSection>
