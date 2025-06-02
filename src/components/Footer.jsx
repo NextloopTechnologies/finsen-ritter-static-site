@@ -35,9 +35,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 md:gap-12">
           <div className="space-y-4">
             <img src={LogoWithNameWhite} alt="Finsen Ritter" className="h-12" />
-            <p className="text-sm leading-relaxed font-semibold">
+            {/* <p className="text-sm leading-relaxed font-semibold">
               {FooterText.Description}
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-2 gap-6 md:col-span-2">

@@ -1,22 +1,9 @@
 export const HomeText = {
-  AboutUsSectionDescription: ` Finsen Ritter Technologies specializes in industrial turnkey
-          solutions, offering expertise in the design, supply, installation, and
-          testing of chemical and gas plants. With a presence in Europe, Africa,
-          and India, and a design center in Amsterdam, we focus on diverse
-          sectors including oxygen, nitrogen, hydrogen, UVGI, water treatment,
-          brewing, solar, biogas, and noise monitoring. Committed to innovation
-          and Industry 4.0 standards, we deliver cutting-edge, high-quality
-          solutions. Our vision is to be the leading provider of industrial
-          gases and engineering solutions, offering eco-friendly innovations
-          that add value to our clients.`,
-  OurBiogasSolutionDescription: ` With years of expertise in biogas technology, we specialize in
-          designing, installing, and maintaining biogas systems that reduce
-          waste and generate renewable energy. Our commitment to sustainability
-          and customer success sets us apart in the industry. With years of
-          expertise in biogas technology, we specialize in designing,
-          installing, and maintaining biogas systems that reduce waste and
-          generate renewable energy. Our commitment to sustainability and
-          customer success sets us apart in the industry.`,
+  AboutUsSectionDescription: `Finsen Ritter specializes in industrial Biogas Plant Manufacturers, offering expertise in the design, supply, installation, and testing of chemical and gas plants. We look at energy use in a different way. There are a wide variety of reasons that makes us the most preferable Bio CNG Plant Manufacturers in Indore. We focus on energy savings and zero waste. By reusing energy, we help preserve natural resources while making life 
+  easier for our customers. Our mission is to serve as many people as possible with reliable, eco-friendly energy solutions `,
+  OurBiogasSolutionDescription: `FINSEN RITTER is not just a name of equipment and plants providing company. Our Bio CNG Plant in Indore will help you a lot. Through our sheer will and constant efforts to improve we have made our company the belief of various companies and individual farmers. 
+
+  Experience the most valuable Bio CNG Plant exporters and suppliers in Indore. We understand that to make people go fully sustainable we need more and more people to support us in this cause and hence we never compromise on the quality of our equipment in any case. In case you are wondering to install any sort of a plant for your energy need contact us we will assist you in every way possible. `,
 };
 
 export const FooterText = {
