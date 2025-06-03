@@ -194,11 +194,11 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center absolute left-1/2 -translate-x-1/2 w-[calc(80%-2rem)]">
+    <div className="flex justify-between items-center absolute left-1/2 -translate-x-1/2 z-10 w-[calc(80%-2rem)]">
       <Link to="/" className="flex items-center">
         <img src={CompanyLogo} alt="Company Logo" className="h-10 md:h-12" />
       </Link>
-      <header className=" bg-white rounded-3xl md:rounded-full my-5 z-10  text-gray-700 font-medium">
+      <header className=" bg-white rounded-3xl md:rounded-full my-5   text-gray-700 font-medium">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* <Link to="/" className="flex items-center">
