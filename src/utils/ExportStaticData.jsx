@@ -476,10 +476,9 @@ export const IconTextCardContent = [
 ];
 
 export const ProductBioCNGData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("ProductHeroBg.jpg"),
   heroTitle: "PRODUCT",
-  heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+  heroSubtitle: "Leading Industrial Bio-CNG Plant Manufacturers & Installers ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL BIO-CNG (COMPRESSED BIO-GAS) PLANT: PRODUCT DESCRIPTION",
@@ -589,13 +588,12 @@ export const ProductBioCNGData = {
 };
 
 export const ProductMedicalOxygenData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("medical-oxygen.jpg"),
   heroTitle: "PRODUCT",
-  heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+  heroSubtitle: "Complete Medical Oxygen Plant Solutions - Design to Delivery ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
-    "INDUSTRIAL BIO-CNG (COMPRESSED BIO-GAS) PLANT: PRODUCT DESCRIPTION",
+    "Medical oxygen plant ( PSA & VPSA) : Product description",
   descriptionText:
     "Finsen Ritter Technologies' Medical Oxygen Plants, utilizing PSA (Pressure Swing Adsorption) and VPSA (Vacuum Pressure Swing Adsorption) technologies, are engineered to meet the stringent demands of medical-grade oxygen production. These state-of-the-art systems provide a reliable and on-site supply of oxygen with a purity of > 95.5%, ensuring uninterrupted service to hospitals, clinics, and healthcare facilities. Designed for efficiency, safety, and compliance, our oxygen plants deliver exceptional performance while adhering to international medical standards.",
   majorFeatures: [
@@ -735,13 +733,12 @@ export const ProductMedicalOxygenData = {
 };
 
 export const ProductIndustrialNitrogenData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("nitrogen.jpg"),
   heroTitle: "PRODUCT",
-  heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+  heroSubtitle: "Advanced PSA & VPSA Technology for Industrial Nitrogen ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
-    "INDUSTRIAL NITROGEN PLANT (PSA & VPSA): PRODUCT DESCRIPTION",
+    "Medical oxygen plant ( PSA & VPSA) : Product description",
   descriptionText:
     "Finsen Ritter Technologies' Industrial Nitrogen Plants, employing PSA (Pressure Swing Adsorption) and VPSA (Vacuum Pressure Swing Adsorption) technologies, are designed to meet the varied nitrogen needs of industries across the globe. These plants offer an efficient, cost-effective, and on-site solution for producing high-purity nitrogen, ensuring reliable supply for critical industrial applications. With cutting-edge technology, superior build quality, and adherence to global standards, our nitrogen plants are an ideal choice for industries requiring uninterrupted nitrogen supply.",
   majorFeatures: [
@@ -900,10 +897,10 @@ export const ProductIndustrialNitrogenData = {
   whyChooseCircularImage: IndustrialSiteCircular,
 };
 export const ProductDesiccantDryersData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("desiccant-dryers.jpg"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+    "Reliable Desiccant Dryer Systems - Ensuring Optimal Humidity Control for Industry ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading: "INDUSTRIAL DESICCANT DRYERS: PRODUCT DESCRIPTION",
   descriptionText:
@@ -1057,10 +1054,10 @@ export const ProductDesiccantDryersData = {
 };
 
 export const ProductBiogasData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("biogas.jpg"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+    "From Waste to Pure Energy - Complete Biogas Refining Solutions ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL BIOGAS PURIFICATION AND REFINING PLANTS: PRODUCT DESCRIPTION",
@@ -1209,10 +1206,10 @@ export const ProductBiogasData = {
   },
 };
 export const ProductIndustrialSynGasData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("synthesis-gas.jpg"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+    "Industrial Synthesis Gas Solutions - From Design to Commissioning, We Deliver ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL SYNGAS REFINING PLANTS: PRODUCT DESCRIPTION",
@@ -1367,10 +1364,10 @@ export const ProductIndustrialSynGasData = {
   },
 };
 export const ProductChillersData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("chillers.jpg"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+    "Industrial Temperature Control Specialists - Screw Chillers & Heat Pump Solutions ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL SCREW CHILLERS & HEAT PUMPS: PRODUCT DESCRIPTION",
@@ -1526,10 +1523,10 @@ export const ProductChillersData = {
   },
 };
 export const ProductScrubberData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("scrubber.jpg"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+    "Energy-Efficient Screw Chillers and Heat Pumps for Smart Industries ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading: "H2S & CO2 SCRUBBER: PRODUCT DESCRIPTION",
   descriptionText:
@@ -1689,10 +1686,10 @@ export const ProductScrubberData = {
   },
 };
 export const ProductGasBlendingData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.png"),
+  heroBackgroundImage: getImageUrl("gas-blending.jpg"),
   heroTitle: "PRODUCT",
   heroSubtitle:
-    "We are known Biogas Plant Manufacturers in Indore offering a quality range of Biogas Plant, Bio CNG Plant, Bio purification plant, Bio Fertilizer, EPC, etc. So, what are you waiting for, contact now.",
+    "Custom Gas Blending Skid Solutions for Efficient Industrial Applications ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "INDUSTRIAL GAS BLENDING SKID (CH4, H2, AND O2): PRODUCT DESCRIPTION",
