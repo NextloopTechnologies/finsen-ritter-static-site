@@ -6,7 +6,7 @@ if (!SUPABASE_URL || !STORAGE_BUCKET) {
 }
 
 const BASE_STORAGE_URL = `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}`;
-const LOCAL_STORAGE_URL = `/src/assets/Product`;
+const LOCAL_STORAGE_URL = `/public/assets/Product`;
 
 export const getImageUrl = (fileName) => {
   if (!fileName) return "";
