@@ -21,10 +21,10 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title> FINSEN RITTER | Industrial Turnkey Solutions In India</title>
+        <title>FINSEN RITTER | Biogas Plant Manufacturers In Indore</title>
         <meta
           name="description"
-          content="At Finsen Ritter, we specialize in delivering exceptional design and technology services and Industrial Turnkey Solutions In India. Join us to enhance your projects with our innovative approach."
+          content="At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
         />
       </Helmet>
       <div className="flex flex-col gap-28">
@@ -52,7 +52,7 @@ const Home = () => {
               </p>
               <div className="mt-6">
                 <button className="bg-[#135384] hover:bg-[rgb(17,25,60)] text-white py-3 px-8 rounded-lg transition-colors duration-300 text-lg md:text-xl w-full md:w-auto">
-                  <h1>Learn More</h1>
+                  <a href="/product/bio-cng">Learn More</a>
                 </button>
               </div>
             </div>

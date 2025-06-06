@@ -3,6 +3,7 @@ import { ProductBioCNGData } from "../../utils/ExportStaticData";
 import Product from "./Product";
 
 export const BioCNGPage = () => {
+  console.log("ProductBioCNGData", ProductBioCNGData);
   return (
     <>
       <Helmet>

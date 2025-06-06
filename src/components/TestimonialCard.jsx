@@ -11,11 +11,12 @@ export const TestimonialCard = ({
   <div className={`bg-white p-8 rounded-xl shadow-lg h-60 mb-5 ${className}`}>
     <div className="flex items-center justify-between mb-6">
       <div className="flex items-center gap-4">
-        <img
+        {/* <img
           src={icon}
           alt={name}
           className="w-16 h-16 rounded-full object-cover"
-        />
+        /> */}
+        <span className="w-14 h-14 rounded-full bg-gray-300"></span>
         <div>
           <p className="font-bold text-lg">{name}</p>
           <p className="text-gray-500 text-sm">{designation}</p>

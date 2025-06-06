@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CompanyLogo } from "../assets/icons";
+import { CompanyLogo, CompanyLogoV2 } from "../assets/icons";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -196,7 +196,7 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center absolute left-1/2 -translate-x-1/2 z-10 w-[calc(80%-2rem)]">
       <Link to="/" className="flex items-center">
-        <img src={CompanyLogo} alt="Company Logo" className="h-10 md:h-12" />
+        <img src={CompanyLogoV2} alt="Company Logo" className="h-20 md:h-24" />
       </Link>
       <header className=" bg-white rounded-3xl md:rounded-full my-5   text-gray-700 font-medium">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

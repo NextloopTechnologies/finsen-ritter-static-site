@@ -2160,7 +2160,7 @@ export const socialLinks = [
   { href: "#", icon: FacebookIcon },
   { href: "#", icon: GoogleIcon },
   { href: "#", icon: MailRoundedIcon },
-  { href: "#", icon: InstagramIcon },
-  { href: "#", icon: LinkedinIcon },
+  { href: "https://www.instagram.com/finsenritter/", icon: InstagramIcon },
+  { href: "https://www.linkedin.com/company/finsenritter", icon: LinkedinIcon },
   { href: "#", icon: TwitterIcon },
 ];

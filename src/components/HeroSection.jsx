@@ -55,7 +55,7 @@ const HeroSection = ({
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
         style={{
-          backgroundImage: isLoaded ? `url("${backgroundImage}")` : "none",
+          backgroundImage: `url(${backgroundImage})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
