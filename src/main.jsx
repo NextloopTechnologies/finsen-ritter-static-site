@@ -10,7 +10,8 @@ createRoot(document.getElementById("root")).render(
       <title>FINSEN RITTER | Biogas Plant Manufacturers In Indore</title>
       <meta
         name="description"
-        content="At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
+        content=
+        "At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
       />
       <meta
         name="keywords"

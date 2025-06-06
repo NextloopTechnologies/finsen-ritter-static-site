@@ -3,6 +3,7 @@ import Product from "./Product";
 import { ProductMedicalOxygenData } from "../../utils/ExportStaticData";
 
 export const ProductMedicalOxygen = () => {
+  console.log('ProductMedicalOxygenData', ProductMedicalOxygenData)
   return (
     <Product
       productData={ProductMedicalOxygenData}
