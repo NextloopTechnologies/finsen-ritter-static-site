@@ -11,6 +11,8 @@ import { socialLinks } from "../utils/ExportStaticData";
 const SocialIcon = ({ href, icon: Icon }) => (
   <a
     href={href}
+    target="_blank"
+    rel="noopener noreferrer"
     className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-900 text-white flex items-center justify-center hover:bg-[#135384]/90 transition-colors"
   >
     <Icon className="w-4 h-4 md:w-5 md:h-5" />
