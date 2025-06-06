@@ -28,7 +28,7 @@ const Home = () => {
         />
       </Helmet>
       <div className="flex flex-col gap-28">
-        <HeroSection backgroundImage={getImageUrl("Background.png")}>
+        <HeroSection backgroundImage={"/public/assets/Homepage/Background.png"}>
           <div className="order-1 md:order-2 mb-8 md:mb-0 w-full md:w-auto md:mr-10">
             <LogoFRSVG className="w-[60vw] md:w-[30vw] h-auto mx-auto md:mx-0" />
           </div>
