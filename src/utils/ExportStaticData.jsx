@@ -2157,10 +2157,13 @@ export const ServicesDetailedProjectReportData = {
 };
 
 export const socialLinks = [
-  { href: "#", icon: FacebookIcon },
+  {
+    href: "https://www.facebook.com/profile.php?id=61574775376322",
+    icon: FacebookIcon,
+  },
   { href: "#", icon: GoogleIcon },
   { href: "#", icon: MailRoundedIcon },
   { href: "https://www.instagram.com/finsenritter/", icon: InstagramIcon },
   { href: "https://www.linkedin.com/company/finsenritter", icon: LinkedinIcon },
-  { href: "#", icon: TwitterIcon },
+  { href: "https://x.com/FinsenRitter", icon: TwitterIcon },
 ];
