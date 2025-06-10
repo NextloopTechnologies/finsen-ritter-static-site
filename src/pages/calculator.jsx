@@ -5,102 +5,117 @@ import ContactSection from "../components/ContactSection";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
 import jsPDF from "jspdf";
 
-const Calculator = () => {
-  const [unit, setUnit] = useState("kg");
-  const [inputs, setInputs] = useState({
-    napier: "",
-    agrowaste: "",
-    dung: "",
-    pressmud: "",
-    poultry: "",
-    municipal: "",
-  });
-  const [results, setResults] = useState({
-    totalKgGas: 0,
-    totalNm3: 0,
-    totalKWh: 0,
-    totalMJ: 0,
-    dieselLitres: 0,
-    petrolLitres: 0,
-  });
+const initialMaterials = [
+  {
+    name: "Cattle Dung",
+    rate: 1000,
+    transport: 250,
+    dryMatter: 22,
+    cng: 2.5,
+    availability: 0,
+  },
+  {
+    name: "Poultry Waste",
+    rate: 2000,
+    transport: 250,
+    dryMatter: 38,
+    cng: 6.0,
+    availability: 0,
+  },
+  {
+    name: "Paddy Straw",
+    rate: 2500,
+    transport: 500,
+    dryMatter: 86,
+    cng: 12.0,
+    availability: 0,
+  },
+  {
+    name: "Napier Grass",
+    rate: 1000,
+    transport: 250,
+    dryMatter: 35,
+    cng: 7.0,
+    availability: 0,
+  },
+];
 
-  const getInputValue = (value) => (unit === "ton" ? value * 1000 : value);
+const Calculator = () => {
+  const [materials, setMaterials] = useState(initialMaterials);
+  const [results, setResults] = useState({
+    totalRM: 0,
+    totalDryProduct: 0,
+    totalMethane: 0,
+    avgRate: 0,
+    avgTransport: 0,
+  });
 
   useEffect(() => {
-    calculateCNG();
-  }, [inputs, unit]);
-  const calculateCNG = () => {
-    const { napier, agrowaste, dung, pressmud, poultry, municipal } = inputs;
+    calculate();
+  }, [materials]);
 
-    const yieldFactors = {
-      napier: 0.07,
-      agrowaste: 0.12,
-      dung: 0.025,
-      pressmud: 0.05,
-      poultry: 0.05,
-      municipal: 0.045,
-    };
+  const handleChange = (index, field, value) => {
+    const updated = [...materials];
+    updated[index][field] = parseFloat(value) || 0;
+    setMaterials(updated);
+  };
 
-    const totalKgGas =
-      getInputValue(napier) * yieldFactors.napier +
-      getInputValue(agrowaste) * yieldFactors.agrowaste +
-      getInputValue(dung) * yieldFactors.dung +
-      getInputValue(pressmud) * yieldFactors.pressmud +
-      getInputValue(poultry) * yieldFactors.poultry +
-      getInputValue(municipal) * yieldFactors.municipal;
+  const calculate = () => {
+    let totalAvailability = 0;
+    let totalDryProduct = 0;
+    let totalMethane = 0;
+    let weightedRate = 0;
+    let weightedTransport = 0;
 
-    const totalNm3 = totalKgGas / 0.744;
-    const totalKWh = totalKgGas * 13.1;
-    const totalMJ = totalKgGas * 47.2;
-    const dieselLitres = totalKWh / 9.8;
-    const petrolLitres = totalKWh / 9.5;
+    materials.forEach((mat) => {
+      totalAvailability += mat.availability;
+      totalDryProduct += (mat.availability * mat.dryMatter) / 100;
+      totalMethane += (mat.availability * mat.cng) / 100;
+      weightedRate += mat.availability * mat.rate;
+      weightedTransport += mat.availability * mat.transport;
+    });
+
+    const avgRate =
+      totalAvailability > 0 ? weightedRate / totalAvailability : 0;
+    const avgTransport =
+      totalAvailability > 0 ? weightedTransport / totalAvailability : 0;
 
     setResults({
-      totalKgGas,
-      totalNm3,
-      totalKWh,
-      totalMJ,
-      dieselLitres,
-      petrolLitres,
+      totalRM: totalAvailability,
+      totalDryProduct,
+      totalMethane,
+      avgRate,
+      avgTransport,
     });
   };
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setInputs((prev) => ({ ...prev, [id]: parseFloat(value) || 0 }));
-  };
+  //   const downloadPDF = () => {
+  //     html2canvas(document.querySelector("#capture"), { scale: 2 }).then(
+  //       (canvas) => {
+  //         const imgData = canvas.toDataURL("image/png");
+  //         const pdf = new jsPDF("landscape", "mm", "a4");
+  //         const pdfWidth = pdf.internal.pageSize.getWidth();
+  //         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  //         pdf.addImage(imgData, "PNG", 10, 10, pdfWidth - 20, pdfHeight - 20);
+  //         pdf.save("CBG_Capacity_Calculation.pdf");
+  //       }
+  //     );
+  //   };
 
   const downloadPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(14);
-    doc.text("Bio-CNG Output Report", 20, 20);
-    doc.setFontSize(11);
+    const captureElement = document.getElementById("capture");
+    if (!captureElement) return alert("Capture area not found!");
 
-    const lines = [
-      `Feedstock Inputs (per day in ${unit}):`,
-      `Napier Grass: ${inputs.napier} ${unit}`,
-      `Agrowaste: ${inputs.agrowaste} ${unit}`,
-      `Cattle Dung: ${inputs.dung} ${unit}`,
-      `Pressmud: ${inputs.pressmud} ${unit}`,
-      `Poultry Waste: ${inputs.poultry} ${unit}`,
-      `Municipal Waste: ${inputs.municipal} ${unit}`,
-      "",
-      "Calculated Outputs:",
-      `Bio-CNG Output: ${results.totalKgGas.toFixed(
-        2
-      )} kg/day = ${results.totalNm3.toFixed(2)} Nm³/day`,
-      `Energy Output: ${results.totalKWh.toFixed(
-        2
-      )} kWh/day (${results.totalMJ.toFixed(2)} MJ/day)`,
-      `Diesel Equivalent: ${results.dieselLitres.toFixed(2)} litres/day`,
-      `Petrol Equivalent: ${results.petrolLitres.toFixed(2)} litres/day`,
-    ];
+    html2canvas(captureElement, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("landscape", "mm", "a4");
 
-    lines.forEach((line, i) => {
-      doc.text(line, 20, 30 + i * 8);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      pdf.addImage(imgData, "PNG", 10, 10, pdfWidth - 20, pdfHeight - 20);
+      pdf.save("CBG_Capacity_Calculation.pdf");
     });
-
-    doc.save("Bio-CNG_Output_Report.pdf");
   };
 
   return (
@@ -124,114 +139,120 @@ const Calculator = () => {
           </p>
         </div>
       </HeroSection> */}
-      <div className="w-full bg-white py-12 px-4 mb-20">
-        <div
-          className="min-h-screen bg-cover bg-center text-white"
-          style={{ backgroundImage: `url('/cbgPIC.jpg')` }}
-        >
-          <div className="bg-black bg-opacity-70 min-h-screen p-5 md:p-10">
-            <div className="max-w-3xl mx-auto bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-md">
-              <h2 className="text-center text-teal-400 text-2xl font-bold mb-6">
-                Bio-CNG Output Calculator (Mass-Based)
-              </h2>
 
-              <div className="mb-4">
-                <label className="block font-semibold mb-1">Unit:</label>
-                <label className="mr-4">
-                  <input
-                    type="radio"
-                    name="unit"
-                    value="kg"
-                    checked={unit === "kg"}
-                    onChange={() => setUnit("kg")}
-                  />{" "}
-                  Kilograms (kg)
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="unit"
-                    value="ton"
-                    checked={unit === "ton"}
-                    onChange={() => setUnit("ton")}
-                  />{" "}
-                  Metric Tons (t)
-                </label>
-              </div>
+      <div className="bg-gray-100 min-h-screen p-14">
+        <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
+          CBG Plant – {results.totalMethane.toFixed(2)} TPD Capacity Calculation
+        </h2>
 
-              {[
-                { id: "napier", label: "Napier Grass (Yield:7%)" },
-                { id: "agrowaste", label: "Agrowaste (Yield:12%)" },
-                { id: "dung", label: "Cattle Dung (Yield:2.5%)" },
-                { id: "pressmud", label: "Pressmud (Yield:5%)" },
-                { id: "poultry", label: "Poultry Waste (Yield:5%)" },
-                {
-                  id: "municipal",
-                  label: "Segregated Municipal Waste (Yield:4.5%)",
-                },
-              ].map(({ id, label }) => (
-                <div key={id} className="mb-4">
-                  <label htmlFor={id} className="block font-semibold">
-                    {label}:
-                  </label>
-                  <input
-                    type="number"
-                    id={id}
-                    value={inputs[id]}
-                    onChange={handleInputChange}
-                    className="w-full p-2 mt-1 rounded text-black"
-                  />
-                </div>
-              ))}
+        <div id="capture" className="overflow-x-auto">
+          <table className="w-full min-w-[1000px] bg-white rounded shadow">
+            <thead>
+              <tr className="bg-blue-600 text-white text-sm">
+                <th className="p-2">Raw Material</th>
+                <th className="p-2">Rate (Rs/Ton)</th>
+                <th className="p-2">Transport (Rs/Ton)</th>
+                <th className="p-2">Total Cost</th>
+                <th className="p-2">Dry Matter %</th>
+                <th className="p-2">CNG Output %</th>
+                <th className="p-2">Availability (TPD)</th>
+                <th className="p-2">Mix %</th>
+                <th className="p-2">Dry Output (TPD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {materials.map((mat, index) => {
+                const totalCost = mat.rate + mat.transport;
+                const dryOutput = (
+                  (mat.availability * mat.dryMatter) /
+                  100
+                ).toFixed(2);
+                const totalAvailability = materials.reduce(
+                  (sum, item) => sum + item.availability,
+                  0
+                );
+                const mixPercent =
+                  totalAvailability > 0
+                    ? ((mat.availability / totalAvailability) * 100).toFixed(2)
+                    : "0.00";
 
-              <button
-                onClick={downloadPDF}
-                className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded mt-4"
-              >
-                Download PDF Report
-              </button>
+                return (
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"}
+                  >
+                    <td className="p-2 text-center">{mat.name}</td>
+                    <td className="p-2 text-center">
+                      <input
+                        type="number"
+                        className="w-20 p-1 border rounded text-right bg-yellow-50"
+                        value={mat.rate}
+                        onChange={(e) =>
+                          handleChange(index, "rate", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td className="p-2 text-center">
+                      <input
+                        type="number"
+                        className="w-20 p-1 border rounded text-right bg-yellow-50"
+                        value={mat.transport}
+                        onChange={(e) =>
+                          handleChange(index, "transport", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td className="p-2 text-center">{totalCost}</td>
+                    <td className="p-2 text-center">{mat.dryMatter}</td>
+                    <td className="p-2 text-center">{mat.cng}</td>
+                    <td className="p-2 text-center">
+                      <input
+                        type="number"
+                        className="w-20 p-1 border rounded text-right bg-yellow-50"
+                        value={mat.availability}
+                        onChange={(e) =>
+                          handleChange(index, "availability", e.target.value)
+                        }
+                      />
+                    </td>
+                    <td className="p-2 text-center">{mixPercent}%</td>
+                    <td className="p-2 text-center">{dryOutput}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
 
-              <div className="mt-6 p-4 bg-gray-900 bg-opacity-70 rounded-lg">
-                <p>
-                  Total Bio-CNG Output:{" "}
-                  {unit === "ton"
-                    ? (results.totalKgGas / 1000).toFixed(2) + " tons/day"
-                    : results.totalKgGas.toFixed(2) + " kg/day"}{" "}
-                  = {results.totalNm3.toFixed(2)} Nm³/day
-                </p>
-                <p>
-                  Energy Output: {results.totalKWh.toFixed(2)} kWh/day (
-                  {results.totalMJ.toFixed(2)} MJ/day)
-                </p>
-                <p>
-                  Diesel Equivalent: {results.dieselLitres.toFixed(2)}{" "}
-                  litres/day
-                </p>
-                <p>
-                  Petrol Equivalent: {results.petrolLitres.toFixed(2)}{" "}
-                  litres/day
-                </p>
-              </div>
-
-              <hr className="border-teal-500 my-6" />
-
-              <h4 className="text-lg font-semibold mb-2">
-                Engineering Assumptions:
-              </h4>
-              <ul className="list-disc pl-6 text-sm space-y-1">
-                <li>Yield: kg of Bio-CNG per kg of feedstock</li>
-                <li>Bio-CNG density = 0.744 kg/Nm³</li>
-                <li>Bio-CNG energy = 13.1 kWh/kg = 47.2 MJ/kg</li>
-                <li>Diesel equivalent = 1 litre = 9.8 kWh</li>
-                <li>Petrol equivalent = 1 litre = 9.5 kWh</li>
-                <li>
-                  Note: The yield is calculated on the basis of thermophillic
-                  digesters with the minimum purification losses of less than 3%
-                </li>
-              </ul>
+          <div className="bg-white p-4 mt-4 rounded shadow border-l-4 border-blue-600">
+            <div className="text-gray-800">
+              <strong>Total Raw Material:</strong> {results.totalRM.toFixed(2)}{" "}
+              TPD
+            </div>
+            <div className="text-gray-800">
+              <strong>Methane Potential:</strong>{" "}
+              {results.totalMethane.toFixed(2)} TPD
+            </div>
+            <div className="text-gray-800">
+              <strong>Total Dry Product:</strong>{" "}
+              {results.totalDryProduct.toFixed(2)} TPD
+            </div>
+            <div className="text-gray-800">
+              <strong>Avg Raw Material Cost:</strong>{" "}
+              {results.avgRate.toFixed(2)} INR/Ton
+            </div>
+            <div className="text-gray-800">
+              <strong>Avg Transport Cost:</strong>{" "}
+              {results.avgTransport.toFixed(2)} INR/Ton
             </div>
           </div>
         </div>
+
+        <button
+          onClick={downloadPDF}
+          className="block mx-auto mt-6 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Download PDF
+        </button>
       </div>
       <ContactSection />
     </>
