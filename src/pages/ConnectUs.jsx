@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ConnectUsHandshake } from "../assets/images";
+import { ConnectUsHandshake, ConnectUsHeroBg } from "../assets/images";
 import ContactSection from "../components/ContactSection";
 import HeroSection from "../components/HeroSection";
 import { supabase } from "../supabaseClient";
@@ -65,7 +65,7 @@ const ConnectUs = () => {
         />
       </Helmet>
       <HeroSection
-        backgroundImage={getImageUrl("ConnectUsHeroBg.png")}
+        backgroundImage={ConnectUsHeroBg}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">

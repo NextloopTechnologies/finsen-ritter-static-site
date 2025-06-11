@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  AboutSectionHeroBg,
   AboutUsMissionSection,
   AboutUsVisionSection,
   OurValuesAboutUs,
@@ -73,7 +74,7 @@ const AboutUsPage = () => {
         />
       </Helmet>
       <HeroSection
-        backgroundImage={getImageUrl("AboutSectionHeroBg.png")}
+        backgroundImage={AboutSectionHeroBg}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center max-w-4xl mx-auto">

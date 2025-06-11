@@ -5,6 +5,7 @@ import ContactSection from "../../components/ContactSection";
 import { ServicesCards } from "../../utils/ExportStaticData";
 import { getImageUrl } from "../../utils/supabaseStorageHelper";
 import { Link } from "react-router-dom";
+import { ServicesHeroBg } from "../../assets/images";
 
 const Services = () => {
   return (
@@ -17,7 +18,7 @@ const Services = () => {
         />
       </Helmet>
       <HeroSection
-        backgroundImage={getImageUrl("ServicesHeroBg.png")}
+        backgroundImage={ServicesHeroBg}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">

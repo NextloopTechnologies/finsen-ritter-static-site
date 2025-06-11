@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection";
 import { blogCards } from "../utils/ExportStaticData";
 import ContactSection from "../components/ContactSection";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
+import { BlogsHeroBg } from "../assets/images";
 
 const Blogs = () => {
   return (
@@ -16,7 +17,7 @@ const Blogs = () => {
         />
       </Helmet>
       <HeroSection
-        backgroundImage={getImageUrl("BlogsHeroBg.png")}
+        backgroundImage={BlogsHeroBg}
         backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
