@@ -1,3 +1,4 @@
+import { productAssets } from "../assets";
 import {
   AAIIcon,
   AdityaBirlaIcon,
@@ -476,7 +477,7 @@ export const IconTextCardContent = [
 ];
 
 export const ProductBioCNGData = {
-  heroBackgroundImage: getImageUrl("ProductHeroBg.jpg"),
+  heroBackgroundImage: productAssets.bioCng,
   heroTitle: "PRODUCT",
   heroSubtitle: "Leading Industrial Bio-CNG Plant Manufacturers & Installers ",
   descriptionImage: ProductDescriptionLeft,
@@ -588,7 +589,7 @@ export const ProductBioCNGData = {
 };
 
 export const ProductMedicalOxygenData = {
-  heroBackgroundImage: getImageUrl("medical-oxygen.jpg"),
+  heroBackgroundImage: productAssets.medicalOxygen,
   heroTitle: "PRODUCT",
   heroSubtitle: "Complete Medical Oxygen Plant Solutions - Design to Delivery ",
   descriptionImage: ProductDescriptionLeft,
@@ -733,7 +734,7 @@ export const ProductMedicalOxygenData = {
 };
 
 export const ProductIndustrialNitrogenData = {
-  heroBackgroundImage: getImageUrl("nitrogen.jpg"),
+  heroBackgroundImage: productAssets.nitrogen,
   heroTitle: "PRODUCT",
   heroSubtitle: "Advanced PSA & VPSA Technology for Industrial Nitrogen ",
   descriptionImage: ProductDescriptionLeft,
@@ -897,7 +898,7 @@ export const ProductIndustrialNitrogenData = {
   whyChooseCircularImage: IndustrialSiteCircular,
 };
 export const ProductDesiccantDryersData = {
-  heroBackgroundImage: getImageUrl("desiccant-dryers.jpg"),
+  heroBackgroundImage: productAssets.desiccantDryers,
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Reliable Desiccant Dryer Systems - Ensuring Optimal Humidity Control for Industry ",
@@ -1054,7 +1055,7 @@ export const ProductDesiccantDryersData = {
 };
 
 export const ProductBiogasData = {
-  heroBackgroundImage: getImageUrl("biogas.jpg"),
+  heroBackgroundImage: productAssets.bioGas,
   heroTitle: "PRODUCT",
   heroSubtitle:
     "From Waste to Pure Energy - Complete Biogas Refining Solutions ",
@@ -1206,7 +1207,7 @@ export const ProductBiogasData = {
   },
 };
 export const ProductIndustrialSynGasData = {
-  heroBackgroundImage: getImageUrl("synthesis-gas.jpg"),
+  heroBackgroundImage: productAssets.synthesisGas,
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Industrial Synthesis Gas Solutions - From Design to Commissioning, We Deliver ",
@@ -1364,7 +1365,7 @@ export const ProductIndustrialSynGasData = {
   },
 };
 export const ProductChillersData = {
-  heroBackgroundImage: getImageUrl("chillers.jpg"),
+  heroBackgroundImage: productAssets.chillers,
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Industrial Temperature Control Specialists - Screw Chillers & Heat Pump Solutions ",
@@ -1523,7 +1524,7 @@ export const ProductChillersData = {
   },
 };
 export const ProductScrubberData = {
-  heroBackgroundImage: getImageUrl("scrubber.jpg"),
+  heroBackgroundImage: productAssets.scrubber,
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Energy-Efficient Screw Chillers and Heat Pumps for Smart Industries ",
@@ -1686,7 +1687,7 @@ export const ProductScrubberData = {
   },
 };
 export const ProductGasBlendingData = {
-  heroBackgroundImage: getImageUrl("gas-blending.jpg"),
+  heroBackgroundImage: productAssets.gasBlending,
   heroTitle: "PRODUCT",
   heroSubtitle:
     "Custom Gas Blending Skid Solutions for Efficient Industrial Applications ",
