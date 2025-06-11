@@ -13,8 +13,8 @@ const Product = ({ productData, bgColorDiff = "bg-blue-900" }) => {
   return (
     <div className="flex flex-col gap-28">
       <HeroSection
-        backgroundImage={getImageUrl("ProductHeroBg.png")}
-        backgroundOpacity="opacity-50"
+        backgroundImage={productData.heroBackgroundImage}
+        // backgroundOpacity="opacity-50"
       >
         <div className="flex flex-col text-center w-full">
           <h1 className="text-3xl font-bold">{productData.heroTitle}</h1>

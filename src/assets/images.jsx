@@ -7,16 +7,6 @@ import AboutSectionHeroBg from "../assets/AboutUs/AboutSectionHeroBg.png";
 import AboutUsVisionSection from "../assets/AboutUs/AboutUsVisionSection.png";
 import AboutUsMissionSection from "../assets/AboutUs/AboutUsMissionSection.png";
 import OurValuesAboutUs from "../assets/AboutUs/OurValuesAboutUs.png";
-import ProductHeroBg from "../assets/Product/ProductHeroBg.jpg";
-
-import BiogasBg from "../assets/Product/biogas.jpg";
-import ChillersBg from "../assets/Product/chillers.jpg";
-import DesiccantDryersBg from "../assets/Product/desiccant-dryers.jpg";
-import GasBlendingBg from "../assets/Product/gas-blending.jpg";
-import MedicalOxygenBg from "../assets/Product/medical-oxygen.jpg";
-import NitrogenBg from "../assets/Product/nitrogen.jpg";
-import ScrubberBg from "../assets/Product/scrubber.jpg";
-import SynthesisGasBg from "../assets/Product/synthesis-gas.jpg";
 
 import ProductDescriptionLeft from "../assets/Product/ProductDescriptionLeft.png";
 import ProductAdvantagesRight from "../assets/Product/ProductAdvantagesRight.png";
@@ -51,15 +41,6 @@ export {
   AboutUsVisionSection,
   AboutUsMissionSection,
   OurValuesAboutUs,
-  ProductHeroBg,
-  BiogasBg,
-  ChillersBg,
-  DesiccantDryersBg,
-  GasBlendingBg,
-  MedicalOxygenBg,
-  NitrogenBg,
-  ScrubberBg,
-  SynthesisGasBg,
   ProductDescriptionLeft,
   ProductAdvantagesRight,
   ProductWhyChooseRight,

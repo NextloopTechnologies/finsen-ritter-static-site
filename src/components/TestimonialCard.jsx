@@ -14,7 +14,7 @@ export const TestimonialCard = ({
         <img
           src={icon}
           alt={name}
-          className="w-16 h-16 rounded-full object-cover"
+          className="w-16 h-16 rounded-full object-cover bg-gray-300"
         />
         <div>
           <p className="font-bold text-lg">{name}</p>

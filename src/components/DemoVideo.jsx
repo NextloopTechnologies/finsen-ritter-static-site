@@ -1,4 +1,5 @@
 import React from "react";
+import { homeAssets } from "../assets";
 
 const DemoVideo = () => {
   return (
@@ -6,7 +7,7 @@ const DemoVideo = () => {
       <div className="w-full md:w-[70%]">
         <video controls className="rounded-xl w-full h-auto" playsInline>
           <source
-            src="src\assets\HomePage\homepagevideo.mp4"
+            src={homeAssets.homeVideo}
             type="video/mp4"
           />
           Your browser does not support the video tag.
