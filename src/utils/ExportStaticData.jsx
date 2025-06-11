@@ -477,7 +477,6 @@ export const IconTextCardContent = [
 ];
 
 export const ProductBioCNGData = {
-  // heroBackgroundImage: getImageUrl("ProductHeroBg.jpg"),
   heroBackgroundImage: productAssets.bioCng,
   heroTitle: "PRODUCT",
   heroSubtitle: "Leading Industrial Bio-CNG Plant Manufacturers & Installers ",
