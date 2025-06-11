@@ -70,37 +70,87 @@ const Calculator = () => {
     setInputs((prev) => ({ ...prev, [id]: parseFloat(value) || 0 }));
   };
 
-  const downloadPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(14);
-    doc.text("Bio-CNG Output Report", 20, 20);
-    doc.setFontSize(11);
+  //   const downloadPDF = () => {
+  //     const doc = new jsPDF();
+  //     doc.setFontSize(14);
+  //     doc.text("Bio-CNG Output Report", 20, 20);
+  //     doc.setFontSize(11);
 
-    const lines = [
-      `Feedstock Inputs (per day in ${unit}):`,
-      `Napier Grass: ${inputs.napier} ${unit}`,
-      `Agrowaste: ${inputs.agrowaste} ${unit}`,
-      `Cattle Dung: ${inputs.dung} ${unit}`,
-      `Pressmud: ${inputs.pressmud} ${unit}`,
-      `Poultry Waste: ${inputs.poultry} ${unit}`,
-      `Municipal Waste: ${inputs.municipal} ${unit}`,
-      "",
-      "Calculated Outputs:",
-      `Bio-CNG Output: ${results.totalKgGas.toFixed(
-        2
-      )} kg/day = ${results.totalNm3.toFixed(2)} Nm³/day`,
-      `Energy Output: ${results.totalKWh.toFixed(
-        2
-      )} kWh/day (${results.totalMJ.toFixed(2)} MJ/day)`,
-      `Diesel Equivalent: ${results.dieselLitres.toFixed(2)} litres/day`,
-      `Petrol Equivalent: ${results.petrolLitres.toFixed(2)} litres/day`,
+  //     const lines = [
+  //       `Feedstock Inputs (per day in ${unit}):`,
+  //       `Napier Grass: ${inputs.napier} ${unit}`,
+  //       `Agrowaste: ${inputs.agrowaste} ${unit}`,
+  //       `Cattle Dung: ${inputs.dung} ${unit}`,
+  //       `Pressmud: ${inputs.pressmud} ${unit}`,
+  //       `Poultry Waste: ${inputs.poultry} ${unit}`,
+  //       `Municipal Waste: ${inputs.municipal} ${unit}`,
+  //       "",
+  //       "Calculated Outputs:",
+  //       `Bio-CNG Output: ${results.totalKgGas.toFixed(
+  //         2
+  //       )} kg/day = ${results.totalNm3.toFixed(2)} Nm³/day`,
+  //       `Energy Output: ${results.totalKWh.toFixed(
+  //         2
+  //       )} kWh/day (${results.totalMJ.toFixed(2)} MJ/day)`,
+  //       `Diesel Equivalent: ${results.dieselLitres.toFixed(2)} litres/day`,
+  //       `Petrol Equivalent: ${results.petrolLitres.toFixed(2)} litres/day`,
+  //     ];
+
+  //     lines.forEach((line, i) => {
+  //       doc.text(line, 20, 30 + i * 8);
+  //     });
+
+  //     doc.save("Bio-CNG_Output_Report.pdf");
+  //   };
+
+  const handleDownloadCSV = () => {
+    const csvHeaders = [
+      "Tonnage of Raw Material",
+      "Average Cost of Transport of Raw Material",
+      "Highest Rated Capacity",
+      "Total Working Capacity",
+      "Electricity Rate",
+      "Price of CNG",
+      "Total Fertilizer Production/Pallets",
+      "No. of Working Days",
+      "Profit Type",
+      "Project Profits",
+      "Total Earning",
+      "Total Expenditure",
     ];
 
-    lines.forEach((line, i) => {
-      doc.text(line, 20, 30 + i * 8);
-    });
+    const csvRows = [
+      [
+        formData.rawMaterial,
+        formData.transportCost,
+        formData.highestRatedCapacity,
+        formData.totalWorkingCapacity,
+        formData.electricityRate,
+        formData.priceOfCNG,
+        formData.fertilizerProduction,
+        formData.workingDays,
+        formData.profitType,
+        results.projectProfits,
+        results.totalEarning,
+        results.totalExpenditure,
+      ],
+    ];
 
-    doc.save("Bio-CNG_Output_Report.pdf");
+    const csvContent =
+      csvHeaders.join(",") +
+      "\n" +
+      csvRows.map((row) => row.join(",")).join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "CBG_Capacity_Calculation.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -421,7 +471,10 @@ const Calculator = () => {
           <button className="min-w-32 px-6 py-1 border border-[#00457B] text-[#00457B] rounded-md hover:bg-blue-50 transition">
             View
           </button>
-          <button className="min-w-32 px-6 py-1 bg-[#00457B] text-white rounded-md hover:bg-blue-900 transition">
+          <button
+            onClick={handleDownloadCSV}
+            className="min-w-32 px-6 py-1 bg-[#00457B] text-white rounded-md hover:bg-blue-900 transition"
+          >
             Download
           </button>
         </div>
