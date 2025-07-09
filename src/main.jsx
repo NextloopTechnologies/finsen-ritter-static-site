@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Helmet } from "react-helmet";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -10,8 +12,7 @@ createRoot(document.getElementById("root")).render(
       <title>FINSEN RITTER | Biogas Plant Manufacturers In Indore</title>
       <meta
         name="description"
-        content=
-        "At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
+        content="At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
       />
       <meta
         name="keywords"
