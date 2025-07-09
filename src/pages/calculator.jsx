@@ -1,12 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet";
 import HeroSection from "../components/HeroSection";
 import ContactSection from "../components/ContactSection";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
 import jsPDF from "jspdf";
+import RawMaterialDetails from "../components/RawMaterialDetails";
+import PL from "../components/PL";
+import IRR from "../components/IRR";
+import { calculatorTableData } from "../utils/ExportCalculatorData";
 
 const Calculator = () => {
+  const [tableTab, setTableTab] = useState(0);
   const [unit, setUnit] = useState("kg");
+  const [allTableData, setAllTableData] = useState(
+    calculatorTableData.rawMaterials.rows
+  );
+  const [PLTableData, setPLTableData] = useState(
+    calculatorTableData.cngFetilizerProfits.rows
+  );
+  const [PLIncomeData, setPLIncomeData] = useState(
+    calculatorTableData.incomePerDay.rows
+  );
   const [inputs, setInputs] = useState({
     napier: "",
     agrowaste: "",
@@ -70,39 +84,6 @@ const Calculator = () => {
     setInputs((prev) => ({ ...prev, [id]: parseFloat(value) || 0 }));
   };
 
-  //   const downloadPDF = () => {
-  //     const doc = new jsPDF();
-  //     doc.setFontSize(14);
-  //     doc.text("Bio-CNG Output Report", 20, 20);
-  //     doc.setFontSize(11);
-
-  //     const lines = [
-  //       `Feedstock Inputs (per day in ${unit}):`,
-  //       `Napier Grass: ${inputs.napier} ${unit}`,
-  //       `Agrowaste: ${inputs.agrowaste} ${unit}`,
-  //       `Cattle Dung: ${inputs.dung} ${unit}`,
-  //       `Pressmud: ${inputs.pressmud} ${unit}`,
-  //       `Poultry Waste: ${inputs.poultry} ${unit}`,
-  //       `Municipal Waste: ${inputs.municipal} ${unit}`,
-  //       "",
-  //       "Calculated Outputs:",
-  //       `Bio-CNG Output: ${results.totalKgGas.toFixed(
-  //         2
-  //       )} kg/day = ${results.totalNm3.toFixed(2)} Nm³/day`,
-  //       `Energy Output: ${results.totalKWh.toFixed(
-  //         2
-  //       )} kWh/day (${results.totalMJ.toFixed(2)} MJ/day)`,
-  //       `Diesel Equivalent: ${results.dieselLitres.toFixed(2)} litres/day`,
-  //       `Petrol Equivalent: ${results.petrolLitres.toFixed(2)} litres/day`,
-  //     ];
-
-  //     lines.forEach((line, i) => {
-  //       doc.text(line, 20, 30 + i * 8);
-  //     });
-
-  //     doc.save("Bio-CNG_Output_Report.pdf");
-  //   };
-
   const handleDownloadCSV = () => {
     const csvHeaders = [
       "Tonnage of Raw Material",
@@ -153,6 +134,45 @@ const Calculator = () => {
     document.body.removeChild(link);
   };
 
+  // const handleTableNextChange = (number) => {
+  //   setTableTab((prev) => prev + 1);
+  // };
+  // const handleTablePrevChange = (number) => {
+  //   setTableTab((prev) => prev - 1);
+  // };
+  console.log("allTableData", allTableData);
+  const renderTable = useMemo(() => {
+    if (tableTab == 0) {
+      return (
+        <RawMaterialDetails
+          tableTab={tableTab}
+          setTableTab={setTableTab}
+          rows={allTableData}
+          setRowData={setAllTableData}
+        />
+      );
+    } else if (tableTab == 1) {
+      return (
+        <PL
+          tableTab={tableTab}
+          setTableTab={setTableTab}
+          rows={PLTableData}
+          setRows={setPLTableData}
+          PLIncomeData={PLIncomeData} setPLIncomeData={setPLIncomeData}
+          // setAllTableData={setAllTableData}
+        />
+      );
+    } else if (tableTab == 2) {
+      return (
+        <IRR
+          tableTab={tableTab}
+          setTableTab={setTableTab}
+          // allTableData={allTableData}
+        />
+      );
+    }
+  }, [tableTab]);
+
   return (
     <>
       <Helmet>
@@ -183,15 +203,13 @@ const Calculator = () => {
           </p>
         </div>
       </div>
-      <div className="w-full bg-white py-12 px-4 mb-10">
-        {/* Form Card */}
+      {/* <div className="w-full bg-white py-12 px-4 mb-10">
         <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200">
           <h2 className="text-xl font-semibold text-blue-800 mb-4">
             Raw Material
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Left Side */}
             <div className="space-y-3">
               <div className="text-[#585858]">
                 <label className="block text-sm font-medium mb-1">
@@ -254,7 +272,6 @@ const Calculator = () => {
               </div>
             </div>
 
-            {/* Right Side */}
             <div className="space-y-3">
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#585858]">
@@ -316,21 +333,38 @@ const Calculator = () => {
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="flex justify-end mt-6 space-x-2">
             <button className="border border-[#00457B] text-[#00457B] px-4 py-2 rounded">
               Process to P&L
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
+      {renderTable}
+      {/* <div className="flex justify-end">
+        <button
+          type="button"
+          disabled={tableTab < 1}
+          onClick={handleTablePrevChange}
+          className="text-white w-10 h-10 p-4 bg-[#00457B] disabled:bg-gray-400 flex items-center justify-center m-2"
+        >
+          {"<"}
+        </button>
 
-      <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200 mb-10">
+        <button
+          disabled={tableTab > 1}
+          onClick={handleTableNextChange}
+          className="text-white w-10 h-10 p-4 bg-[#00457B] disabled:bg-gray-400 flex items-center justify-center m-2"
+        >
+          {">"}
+        </button>
+      </div> */}
+
+      {/* <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200 mb-10">
         <h2 className="text-lg font-semibold text-blue-800 mb-4">
           Profit & Loss
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Side Inputs */}
           <div className="space-y-4">
             <div>
               <label className="text-sm font-medium text-[#585858]">
@@ -421,7 +455,6 @@ const Calculator = () => {
             </div>
           </div>
 
-          {/* Right Side Inputs */}
           <div className="space-y-4">
             <div className="relative">
               <div className="absolute bottom-12 right-0">
@@ -466,18 +499,18 @@ const Calculator = () => {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex justify-center mt-6 gap-4">
-          <button className="min-w-32 px-6 py-1 border border-[#00457B] text-[#00457B] rounded-md hover:bg-blue-50 transition">
-            View
-          </button>
-          <button
-            onClick={handleDownloadCSV}
-            className="min-w-32 px-6 py-1 bg-[#00457B] text-white rounded-md hover:bg-blue-900 transition"
-          >
-            Download
-          </button>
-        </div>
+      
+      </div> */}
+      <div className="flex justify-center mt-6 gap-4">
+        {/* <button className="min-w-32 px-6 py-1 border border-[#00457B] text-[#00457B] rounded-md hover:bg-blue-50 transition">
+          View
+        </button>
+        <button
+          onClick={handleDownloadCSV}
+          className="min-w-32 px-6 py-1 bg-[#00457B] text-white rounded-md hover:bg-blue-900 transition"
+        >
+          Download
+        </button> */}
       </div>
       <ContactSection />
     </>

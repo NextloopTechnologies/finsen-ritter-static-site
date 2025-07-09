@@ -28,6 +28,8 @@ import ServicesDetailedProjectReport from "./pages/Services/ServicesDetailedProj
 import NotFoundPage from "./pages/NotFoundPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Calculator from "./pages/calculator";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
 const AppLayout = () => (
   <>

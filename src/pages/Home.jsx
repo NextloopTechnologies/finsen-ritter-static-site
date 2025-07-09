@@ -16,8 +16,45 @@ import { TestimonialCard } from "../components/TestimonialCard";
 import { ProductCard } from "../components/ProductCard";
 import { IconCard } from "../components/IconCard";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
 const Home = () => {
+  const gridRef = useRef();
+
+  const [rowData, setRowData] = useState([
+    {
+      type: "Cattle Dung",
+      rate: 1000,
+      transport: 250,
+      dryMatter: 22,
+      cngOutput: 2.5,
+      availability: 0,
+    },
+    {
+      type: "Napier Grass",
+      rate: 1000,
+      transport: 250,
+      dryMatter: 35,
+      cngOutput: 7,
+      availability: 0,
+    },
+  ]);
+
+  const columnDefs = [
+    { headerName: "Type of Raw Material", field: "type", editable: true },
+    { headerName: "Rate (₹/Ton)", field: "rate", editable: true },
+    { headerName: "Transport (₹/Ton)", field: "transport", editable: true },
+    {
+      headerName: "Total Cost (₹/Ton)",
+      valueGetter: (params) => +params.data.rate + +params.data.transport,
+    },
+    { headerName: "Dry Matter %", field: "dryMatter", editable: true },
+    { headerName: "CNG Output %", field: "cngOutput", editable: true },
+    { headerName: "Availability (TPD)", field: "availability", editable: true },
+  ];
+
   return (
     <>
       <Helmet>
@@ -56,6 +93,26 @@ const Home = () => {
                 </button>
               </div>
             </div>
+          </div>
+          <div className="p-4">
+            <div
+              className="ag-theme-alpine bg-red-400"
+              style={{ height: 400, width: 400 }}
+            >
+              <AgGridReact
+                ref={gridRef}
+                rowData={rowData}
+                columnDefs={columnDefs}
+                defaultColDef={{ flex: 1, resizable: true }}
+              />
+            </div>
+
+            <button
+              onClick={() => gridRef.current.api.exportDataAsCsv()}
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+            >
+              Download CSV
+            </button>
           </div>
         </HeroSection>
 
