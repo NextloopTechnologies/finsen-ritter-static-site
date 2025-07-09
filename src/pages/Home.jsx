@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Helmet } from "react-helmet";
 import AboutUs from "../components/AboutUs";
 import { LogoFRSVG } from "../assets/svg";
