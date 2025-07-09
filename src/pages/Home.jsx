@@ -94,26 +94,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="p-4">
-            <div
-              className="ag-theme-alpine bg-red-400"
-              style={{ height: 400, width: 400 }}
-            >
-              <AgGridReact
-                ref={gridRef}
-                rowData={rowData}
-                columnDefs={columnDefs}
-                defaultColDef={{ flex: 1, resizable: true }}
-              />
-            </div>
-
-            <button
-              onClick={() => gridRef.current.api.exportDataAsCsv()}
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
-            >
-              Download CSV
-            </button>
-          </div>
         </HeroSection>
 
         <DemoVideo />
