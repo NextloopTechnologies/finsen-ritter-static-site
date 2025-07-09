@@ -1,122 +1,177 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet";
 import HeroSection from "../components/HeroSection";
 import ContactSection from "../components/ContactSection";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
 import jsPDF from "jspdf";
-
-const initialMaterials = [
-  {
-    name: "Cattle Dung",
-    rate: 1000,
-    transport: 250,
-    dryMatter: 22,
-    cng: 2.5,
-    availability: 0,
-  },
-  {
-    name: "Poultry Waste",
-    rate: 2000,
-    transport: 250,
-    dryMatter: 38,
-    cng: 6.0,
-    availability: 0,
-  },
-  {
-    name: "Paddy Straw",
-    rate: 2500,
-    transport: 500,
-    dryMatter: 86,
-    cng: 12.0,
-    availability: 0,
-  },
-  {
-    name: "Napier Grass",
-    rate: 1000,
-    transport: 250,
-    dryMatter: 35,
-    cng: 7.0,
-    availability: 0,
-  },
-];
+import RawMaterialDetails from "../components/RawMaterialDetails";
+import PL from "../components/PL";
+import IRR from "../components/IRR";
+import { calculatorTableData } from "../utils/ExportCalculatorData";
 
 const Calculator = () => {
-  const [materials, setMaterials] = useState(initialMaterials);
+  const [tableTab, setTableTab] = useState(0);
+  const [unit, setUnit] = useState("kg");
+  const [allTableData, setAllTableData] = useState(
+    calculatorTableData.rawMaterials.rows
+  );
+  const [PLTableData, setPLTableData] = useState(
+    calculatorTableData.cngFetilizerProfits.rows
+  );
+  const [PLIncomeData, setPLIncomeData] = useState(
+    calculatorTableData.incomePerDay.rows
+  );
+  const [inputs, setInputs] = useState({
+    napier: "",
+    agrowaste: "",
+    dung: "",
+    pressmud: "",
+    poultry: "",
+    municipal: "",
+  });
   const [results, setResults] = useState({
-    totalRM: 0,
-    totalDryProduct: 0,
-    totalMethane: 0,
-    avgRate: 0,
-    avgTransport: 0,
+    totalKgGas: 0,
+    totalNm3: 0,
+    totalKWh: 0,
+    totalMJ: 0,
+    dieselLitres: 0,
+    petrolLitres: 0,
   });
 
+  const getInputValue = (value) => (unit === "ton" ? value * 1000 : value);
+
   useEffect(() => {
-    calculate();
-  }, [materials]);
+    calculateCNG();
+  }, [inputs, unit]);
+  const calculateCNG = () => {
+    const { napier, agrowaste, dung, pressmud, poultry, municipal } = inputs;
 
-  const handleChange = (index, field, value) => {
-    const updated = [...materials];
-    updated[index][field] = parseFloat(value) || 0;
-    setMaterials(updated);
-  };
+    const yieldFactors = {
+      napier: 0.07,
+      agrowaste: 0.12,
+      dung: 0.025,
+      pressmud: 0.05,
+      poultry: 0.05,
+      municipal: 0.045,
+    };
 
-  const calculate = () => {
-    let totalAvailability = 0;
-    let totalDryProduct = 0;
-    let totalMethane = 0;
-    let weightedRate = 0;
-    let weightedTransport = 0;
+    const totalKgGas =
+      getInputValue(napier) * yieldFactors.napier +
+      getInputValue(agrowaste) * yieldFactors.agrowaste +
+      getInputValue(dung) * yieldFactors.dung +
+      getInputValue(pressmud) * yieldFactors.pressmud +
+      getInputValue(poultry) * yieldFactors.poultry +
+      getInputValue(municipal) * yieldFactors.municipal;
 
-    materials.forEach((mat) => {
-      totalAvailability += mat.availability;
-      totalDryProduct += (mat.availability * mat.dryMatter) / 100;
-      totalMethane += (mat.availability * mat.cng) / 100;
-      weightedRate += mat.availability * mat.rate;
-      weightedTransport += mat.availability * mat.transport;
-    });
-
-    const avgRate =
-      totalAvailability > 0 ? weightedRate / totalAvailability : 0;
-    const avgTransport =
-      totalAvailability > 0 ? weightedTransport / totalAvailability : 0;
+    const totalNm3 = totalKgGas / 0.744;
+    const totalKWh = totalKgGas * 13.1;
+    const totalMJ = totalKgGas * 47.2;
+    const dieselLitres = totalKWh / 9.8;
+    const petrolLitres = totalKWh / 9.5;
 
     setResults({
-      totalRM: totalAvailability,
-      totalDryProduct,
-      totalMethane,
-      avgRate,
-      avgTransport,
+      totalKgGas,
+      totalNm3,
+      totalKWh,
+      totalMJ,
+      dieselLitres,
+      petrolLitres,
     });
   };
 
-  //   const downloadPDF = () => {
-  //     html2canvas(document.querySelector("#capture"), { scale: 2 }).then(
-  //       (canvas) => {
-  //         const imgData = canvas.toDataURL("image/png");
-  //         const pdf = new jsPDF("landscape", "mm", "a4");
-  //         const pdfWidth = pdf.internal.pageSize.getWidth();
-  //         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-  //         pdf.addImage(imgData, "PNG", 10, 10, pdfWidth - 20, pdfHeight - 20);
-  //         pdf.save("CBG_Capacity_Calculation.pdf");
-  //       }
-  //     );
-  //   };
-
-  const downloadPDF = () => {
-    const captureElement = document.getElementById("capture");
-    if (!captureElement) return alert("Capture area not found!");
-
-    html2canvas(captureElement, { scale: 2 }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("landscape", "mm", "a4");
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, "PNG", 10, 10, pdfWidth - 20, pdfHeight - 20);
-      pdf.save("CBG_Capacity_Calculation.pdf");
-    });
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setInputs((prev) => ({ ...prev, [id]: parseFloat(value) || 0 }));
   };
+
+  const handleDownloadCSV = () => {
+    const csvHeaders = [
+      "Tonnage of Raw Material",
+      "Average Cost of Transport of Raw Material",
+      "Highest Rated Capacity",
+      "Total Working Capacity",
+      "Electricity Rate",
+      "Price of CNG",
+      "Total Fertilizer Production/Pallets",
+      "No. of Working Days",
+      "Profit Type",
+      "Project Profits",
+      "Total Earning",
+      "Total Expenditure",
+    ];
+
+    const csvRows = [
+      [
+        formData.rawMaterial,
+        formData.transportCost,
+        formData.highestRatedCapacity,
+        formData.totalWorkingCapacity,
+        formData.electricityRate,
+        formData.priceOfCNG,
+        formData.fertilizerProduction,
+        formData.workingDays,
+        formData.profitType,
+        results.projectProfits,
+        results.totalEarning,
+        results.totalExpenditure,
+      ],
+    ];
+
+    const csvContent =
+      csvHeaders.join(",") +
+      "\n" +
+      csvRows.map((row) => row.join(",")).join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "CBG_Capacity_Calculation.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // const handleTableNextChange = (number) => {
+  //   setTableTab((prev) => prev + 1);
+  // };
+  // const handleTablePrevChange = (number) => {
+  //   setTableTab((prev) => prev - 1);
+  // };
+  console.log("allTableData", allTableData);
+  const renderTable = useMemo(() => {
+    if (tableTab == 0) {
+      return (
+        <RawMaterialDetails
+          tableTab={tableTab}
+          setTableTab={setTableTab}
+          rows={allTableData}
+          setRowData={setAllTableData}
+        />
+      );
+    } else if (tableTab == 1) {
+      return (
+        <PL
+          tableTab={tableTab}
+          setTableTab={setTableTab}
+          rows={PLTableData}
+          setRows={setPLTableData}
+          PLIncomeData={PLIncomeData} setPLIncomeData={setPLIncomeData}
+          // setAllTableData={setAllTableData}
+        />
+      );
+    } else if (tableTab == 2) {
+      return (
+        <IRR
+          tableTab={tableTab}
+          setTableTab={setTableTab}
+          // allTableData={allTableData}
+        />
+      );
+    }
+  }, [tableTab]);
 
   return (
     <>
@@ -139,120 +194,323 @@ const Calculator = () => {
           </p>
         </div>
       </HeroSection> */}
+      <div className="bg-gradient-to-r from-[#0f2637] to-[#00457B] text-white py-10 px-6 min-h-80 flex justify-end items-end">
+        <div className="max-w-7xl mx-auto ">
+          <h1 className="text-4xl font-bold">BIOGAS CALCULATOR</h1>
+          <p className="text-lg mt-2">
+            Eco-friendly biogas solutions for renewable energy and waste
+            management needs.
+          </p>
+        </div>
+      </div>
+      {/* <div className="w-full bg-white py-12 px-4 mb-10">
+        <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200">
+          <h2 className="text-xl font-semibold text-blue-800 mb-4">
+            Raw Material
+          </h2>
 
-      <div className="bg-gray-100 min-h-screen p-14">
-        <h2 className="text-center text-2xl font-bold text-gray-800 mb-4">
-          CBG Plant – {results.totalMethane.toFixed(2)} TPD Capacity Calculation
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <div className="text-[#585858]">
+                <label className="block text-sm font-medium mb-1">
+                  Type of Raw Material
+                </label>
+                <select className="w-full border rounded p-2 focus:outline-none">
+                  <option>Napier Grass</option>
+                  <option>Cow Dung</option>
+                  <option>Food Waste</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  CNG Output{" "}
+                  <span className="font-normal">
+                    (Percentage; Reference IOCL)
+                  </span>
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter %"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Total Cost
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter cost"
+                  defaultValue={25}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Total Raw Material
+                </label>
+                <input
+                  type="text"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="22.05 TBD"
+                  readOnly
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Quantity
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter quantity"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  No. of Cascades Required Per Day{" "}
+                  <span className="font-normal">
+                    (Including 1 day Cascades)
+                  </span>
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter number"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Land Required for Plant Installation
+                </label>
+                <select className="w-full border rounded p-2 focus:outline-none">
+                  <option>Napier Grass</option>
+                  <option>Cow Dung</option>
+                  <option>Food Waste</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Average Raw Material Cost
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter cost"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Grass required per day
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter amount"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1 text-[#585858]">
+                  Total Cost
+                </label>
+                <input
+                  type="number"
+                  className="w-full border rounded p-2 focus:outline-none"
+                  placeholder="Enter total cost"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-end mt-6 space-x-2">
+            <button className="border border-[#00457B] text-[#00457B] px-4 py-2 rounded">
+              Process to P&L
+            </button>
+          </div>
+        </div>
+      </div> */}
+      {renderTable}
+      {/* <div className="flex justify-end">
+        <button
+          type="button"
+          disabled={tableTab < 1}
+          onClick={handleTablePrevChange}
+          className="text-white w-10 h-10 p-4 bg-[#00457B] disabled:bg-gray-400 flex items-center justify-center m-2"
+        >
+          {"<"}
+        </button>
+
+        <button
+          disabled={tableTab > 1}
+          onClick={handleTableNextChange}
+          className="text-white w-10 h-10 p-4 bg-[#00457B] disabled:bg-gray-400 flex items-center justify-center m-2"
+        >
+          {">"}
+        </button>
+      </div> */}
+
+      {/* <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200 mb-10">
+        <h2 className="text-lg font-semibold text-blue-800 mb-4">
+          Profit & Loss
         </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <label className="text-sm font-medium text-[#585858]">
+                Tonnage of Raw Material
+              </label>
+              <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring focus:ring-blue-100">
+                <option>Napier Grass</option>
+              </select>
+            </div>
 
-        <div id="capture" className="overflow-x-auto">
-          <table className="w-full min-w-[1000px] bg-white rounded shadow">
-            <thead>
-              <tr className="bg-blue-600 text-white text-sm">
-                <th className="p-2">Raw Material</th>
-                <th className="p-2">Rate (Rs/Ton)</th>
-                <th className="p-2">Transport (Rs/Ton)</th>
-                <th className="p-2">Total Cost</th>
-                <th className="p-2">Dry Matter %</th>
-                <th className="p-2">CNG Output %</th>
-                <th className="p-2">Availability (TPD)</th>
-                <th className="p-2">Mix %</th>
-                <th className="p-2">Dry Output (TPD)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {materials.map((mat, index) => {
-                const totalCost = mat.rate + mat.transport;
-                const dryOutput = (
-                  (mat.availability * mat.dryMatter) /
-                  100
-                ).toFixed(2);
-                const totalAvailability = materials.reduce(
-                  (sum, item) => sum + item.availability,
-                  0
-                );
-                const mixPercent =
-                  totalAvailability > 0
-                    ? ((mat.availability / totalAvailability) * 100).toFixed(2)
-                    : "0.00";
+            <div>
+              <label className="text-sm font-medium text-[#585858]">
+                Average Cost of Transport of Raw Material
+              </label>
+              <input
+                type="text"
+                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                placeholder="......"
+              />
+            </div>
 
-                return (
-                  <tr
-                    key={index}
-                    className={index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"}
-                  >
-                    <td className="p-2 text-center">{mat.name}</td>
-                    <td className="p-2 text-center">
-                      <input
-                        type="number"
-                        className="w-20 p-1 border rounded text-right bg-yellow-50"
-                        value={mat.rate}
-                        onChange={(e) =>
-                          handleChange(index, "rate", e.target.value)
-                        }
-                      />
-                    </td>
-                    <td className="p-2 text-center">
-                      <input
-                        type="number"
-                        className="w-20 p-1 border rounded text-right bg-yellow-50"
-                        value={mat.transport}
-                        onChange={(e) =>
-                          handleChange(index, "transport", e.target.value)
-                        }
-                      />
-                    </td>
-                    <td className="p-2 text-center">{totalCost}</td>
-                    <td className="p-2 text-center">{mat.dryMatter}</td>
-                    <td className="p-2 text-center">{mat.cng}</td>
-                    <td className="p-2 text-center">
-                      <input
-                        type="number"
-                        className="w-20 p-1 border rounded text-right bg-yellow-50"
-                        value={mat.availability}
-                        onChange={(e) =>
-                          handleChange(index, "availability", e.target.value)
-                        }
-                      />
-                    </td>
-                    <td className="p-2 text-center">{mixPercent}%</td>
-                    <td className="p-2 text-center">{dryOutput}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-[#585858]">
+                  Highest Rated Capacity
+                </label>
+                <input
+                  type="text"
+                  className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                  placeholder="25"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-[#585858]">
+                  Total Working Capacity
+                </label>
+                <input
+                  type="text"
+                  className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                  placeholder="......"
+                />
+              </div>
+            </div>
 
-          <div className="bg-white p-4 mt-4 rounded shadow border-l-4 border-blue-600">
-            <div className="text-gray-800">
-              <strong>Total Raw Material:</strong> {results.totalRM.toFixed(2)}{" "}
-              TPD
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-[#585858]">
+                  Electricity Rate
+                </label>
+                <input
+                  type="text"
+                  className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                  placeholder="25"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-[#585858]">
+                  Price of CNG
+                </label>
+                <input
+                  type="text"
+                  className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                  placeholder="......"
+                />
+              </div>
             </div>
-            <div className="text-gray-800">
-              <strong>Methane Potential:</strong>{" "}
-              {results.totalMethane.toFixed(2)} TPD
+
+            <div>
+              <label className="text-sm font-medium text-[#585858]">
+                Total Fertilizer Production/Pallets
+              </label>
+              <input
+                type="text"
+                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                placeholder="22.05 TBD"
+              />
             </div>
-            <div className="text-gray-800">
-              <strong>Total Dry Product:</strong>{" "}
-              {results.totalDryProduct.toFixed(2)} TPD
+
+            <div>
+              <label className="text-sm font-medium text-[#585858]">
+                No. of Working Days
+              </label>
+              <input
+                type="text"
+                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                placeholder="......"
+              />
             </div>
-            <div className="text-gray-800">
-              <strong>Avg Raw Material Cost:</strong>{" "}
-              {results.avgRate.toFixed(2)} INR/Ton
+          </div>
+
+          <div className="space-y-4">
+            <div className="relative">
+              <div className="absolute bottom-12 right-0">
+                <select className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm">
+                  <option>Daily</option>
+                </select>
+              </div>
+              <label className="text-sm font-medium text-[#585858]">
+                Project Profits
+              </label>
+              <input
+                type="text"
+                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                value="₹76,600.00"
+                readOnly
+              />
             </div>
-            <div className="text-gray-800">
-              <strong>Avg Transport Cost:</strong>{" "}
-              {results.avgTransport.toFixed(2)} INR/Ton
+
+            <div>
+              <label className="text-sm font-medium text-[#585858]">
+                Total Earning
+              </label>
+              <input
+                type="text"
+                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                value="₹189,000.00"
+                readOnly
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-[#585858]">
+                Total Expenditure
+              </label>
+              <input
+                type="text"
+                className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-sm"
+                value="₹189,000.00"
+                readOnly
+              />
             </div>
           </div>
         </div>
 
-        <button
-          onClick={downloadPDF}
-          className="block mx-auto mt-6 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Download PDF
+      
+      </div> */}
+      <div className="flex justify-center mt-6 gap-4">
+        {/* <button className="min-w-32 px-6 py-1 border border-[#00457B] text-[#00457B] rounded-md hover:bg-blue-50 transition">
+          View
         </button>
+        <button
+          onClick={handleDownloadCSV}
+          className="min-w-32 px-6 py-1 bg-[#00457B] text-white rounded-md hover:bg-blue-900 transition"
+        >
+          Download
+        </button> */}
       </div>
       <ContactSection />
     </>
