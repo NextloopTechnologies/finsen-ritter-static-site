@@ -21,6 +21,9 @@ const Calculator = () => {
   const [PLIncomeData, setPLIncomeData] = useState(
     calculatorTableData.incomePerDay.rows
   );
+   const [PLExpData, setPLExpData] = useState(
+    calculatorTableData.expenditurePerDay.rows
+  );
   const [inputs, setInputs] = useState({
     napier: "",
     agrowaste: "",
@@ -159,6 +162,8 @@ const Calculator = () => {
           rows={PLTableData}
           setRows={setPLTableData}
           PLIncomeData={PLIncomeData} setPLIncomeData={setPLIncomeData}
+
+          PLExpData={PLExpData} setPLExpData={setPLExpData}
           // setAllTableData={setAllTableData}
         />
       );
