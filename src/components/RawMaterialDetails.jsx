@@ -6,67 +6,7 @@ import { saveAs } from "file-saver";
 // import { calculatorTableData } from "../utils/ExportCalculatorData";
 
 const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
-  // const initialData = [
-  //   {
-  //     id: 1,
-  //     type: "Cattle Dung",
-  //     rate: 1000,
-  //     transport: 250,
-  //     availability: 0,
-  //     dryMatter: 22,
-  //     cng: 2,
-  //     mix: 5,
-  //     dryOutput: 0,
-  //   },
-  //   {
-  //     id: 2,
-  //     type: "Poultry Waste",
-  //     rate: 1000,
-  //     transport: 250,
-  //     availability: 0,
-  //     dryMatter: 38,
-  //     cng: 6,
-  //     mix: 0,
-  //     dryOutput: 0,
-  //   },
-  //   {
-  //     id: 3,
-  //     type: "Paddy Straw",
-  //     rate: 1000,
-  //     transport: 250,
-  //     availability: 0,
-  //     dryMatter: 86,
-  //     cng: 12,
-  //     mix: 0,
-  //     dryOutput: 0,
-  //   },
-  //   {
-  //     id: 4,
-  //     type: "Napier Grass",
-  //     rate: 1000,
-  //     transport: 250,
-  //     availability: 0,
-  //     dryMatter: 35,
-  //     cng: 7,
-  //     mix: 0,
-  //     dryOutput: 0,
-  //   },
-  //   {
-  //     id: 5,
-  //     type: "Presmud",
-  //     rate: 1000,
-  //     transport: 250,
-  //     availability: 0,
-  //     dryMatter: 40,
-  //     cng: 9,
-  //     mix: 0,
-  //     dryOutput: 0,
-  //   },
-  // ];
-
-  // const [data, setData] = useState(calculatorTableData.rawMaterials.rows);
   const [error, setError] = useState("");
-  // const [isValid, setIsValid] = useState(false);
   const [data, setData] = useState([...rows]);
   const [results, setResults] = useState({
     totalRM: 0,
@@ -75,7 +15,7 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
     avgRate: 0,
     avgTransport: 0,
   });
-
+  console.log("data", data);
   const handleInputChange = (e, row, field) => {
     const newData = data.map((item) =>
       item.id === row.id ? { ...item, [field]: e.target.value } : item
