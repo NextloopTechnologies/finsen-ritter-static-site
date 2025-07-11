@@ -13,6 +13,7 @@ export const calculatorTableData = {
         cng: 2,
         mix: 5,
         dryOutput: 0,
+        totalCost: 0,
       },
       {
         id: 2,
@@ -24,6 +25,7 @@ export const calculatorTableData = {
         cng: 6,
         mix: 0,
         dryOutput: 0,
+        totalCost: 0,
       },
       {
         id: 3,
@@ -35,6 +37,7 @@ export const calculatorTableData = {
         cng: 12,
         mix: 0,
         dryOutput: 0,
+        totalCost: 0,
       },
       {
         id: 4,
@@ -46,6 +49,7 @@ export const calculatorTableData = {
         cng: 7,
         mix: 0,
         dryOutput: 0,
+        totalCost: 0,
       },
       {
         id: 5,
@@ -57,6 +61,7 @@ export const calculatorTableData = {
         cng: 9,
         mix: 0,
         dryOutput: 0,
+        totalCost: 0,
       },
     ],
   },
@@ -143,15 +148,15 @@ export const calculatorTableData = {
     rows: [
       {
         id: 1,
-        specification: "CNG (₹)",
-        rate: "₹ 66.00/Kg",
+        specification: "CNG (₹ /Kg)",
+        rate: 0,
         subtotal: "9,10,800.00",
         isEditable: true,
       },
       {
         id: 2,
-        specification: "Fertilizer/Pallets (/Ton)",
-        rate: "₹ 0.00/Ton",
+        specification: "Fertilizer/Pallets (₹/Ton)",
+        rate: 0,
         subtotal: "₹ 0.00",
         isInput: true,
         key: "fertilizer",
@@ -159,7 +164,7 @@ export const calculatorTableData = {
       {
         id: 3,
         specification: "Carbon Credits (₹)",
-        rate: "₹0.00",
+        rate: 0,
         subtotal: "₹ 0.00",
         isInput: true,
         isEditable: true,
@@ -183,7 +188,7 @@ export const calculatorTableData = {
         rate: "₹ 7,000.00/Ton",
         subtotal: "5,600.00",
         isInput: true,
-        key:"boilerFuel"
+        key: "boilerFuel",
       },
       {
         id: 3,

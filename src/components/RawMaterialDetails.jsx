@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { CSVLink } from "react-csv";
 import DataTable from "react-data-table-component";
 import * as XLSX from "xlsx";
@@ -15,7 +15,6 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
     avgRate: 0,
     avgTransport: 0,
   });
-  console.log("data", data);
   const handleInputChange = (e, row, field) => {
     const newData = data.map((item) =>
       item.id === row.id ? { ...item, [field]: e.target.value } : item
@@ -28,15 +27,38 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
     setRowData(data);
   }, [data]);
 
+  const processedData = useMemo(() => {
+    const totalAvailability = data.reduce(
+      (sum, item) => sum + Number(item.availability),
+      0
+    );
+
+    return data.map((row) => {
+      const mix =
+        row.availability > 0
+          ? ((row.availability / totalAvailability) * 100).toFixed(2)
+          : "0.00";
+
+      const dryOutput = ((row.availability * row.dryMatter) / 100).toFixed(2);
+
+      return {
+        ...row,
+        mix,
+        dryOutput,
+      };
+    });
+  }, [data]);
+
   const columns = [
     {
       name: "Raw Material",
       selector: (row) => row.type,
       sortable: true,
-      key: "",
+      key: "type",
     },
     {
       name: "Rate (₹/Ton)",
+      key: "rate",
       cell: (row) => (
         <input
           type="number"
@@ -48,6 +70,7 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
     },
     {
       name: "Transport (₹/Ton)",
+      key: "transport",
       cell: (row) => (
         <input
           type="number"
@@ -59,22 +82,26 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
     },
     {
       name: "Total Cost (₹)",
+      key: "totalCost",
       selector: (row) => +row.rate + +row.transport,
     },
 
     {
       name: "Dry Matter %",
+      key: "dryMatter",
       selector: (row) => row.dryMatter,
       sortable: true,
     },
     {
       name: "CNG Output %",
+      key: "cng",
       selector: (row) => row.cng,
       sortable: true,
     },
 
     {
       name: "Availability (TPD)",
+      key: "availability",
       cell: (row) => (
         <input
           type="number"
@@ -86,44 +113,38 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
     },
     {
       name: "Mix %",
-      selector: (row) => {
-        const totalAvailability = data?.reduce(
-          (sum, item) => sum + Number(item.availability),
-          0
-        );
-        const mixPercent =
-          row.availability > 0
-            ? ((row.availability / totalAvailability) * 100).toFixed(2)
-            : "0.00";
+      key: "mix",
+      selector: (row) => row.mix,
 
-        return mixPercent;
-      },
+      // selector: (row) => {
+      //   const totalAvailability = data?.reduce(
+      //     (sum, item) => sum + Number(item.availability),
+      //     0
+      //   );
+      //   const mixPercent =
+      //     row.availability > 0
+      //       ? ((row.availability / totalAvailability) * 100).toFixed(2)
+      //       : "0.00";
+
+      //   return mixPercent;
+      // },
       sortable: true,
     },
     {
       name: "Dry Output (TDP)",
-      selector: (row) => {
-        const dryOutput = ((row.availability * row.dryMatter) / 100).toFixed(2);
-        return dryOutput;
-      },
+      key: "dryOutput",
+      selector: (row) => row.dryOutput,
+
+      // selector: (row) => {
+      //   const dryOutput = ((row.availability * row.dryMatter) / 100).toFixed(2);
+      //   return dryOutput;
+      // },
       sortable: true,
     },
   ];
 
   useEffect(() => {
     calculate();
-    // setAllTableData({
-    //   data: data,
-    //   summaryRows: [
-    //     [],
-    //     ["Summary"],
-    //     ["Total Raw Material", results?.totalRM.toFixed(2) + " TPD"],
-    //     ["Methane Potential", results.totalMethane.toFixed(2) + " TPD"],
-    //     ["Total Dry Product", results.totalDryProduct.toFixed(2) + " TPD"],
-    //     ["Avg Raw Material Cost", results.avgRate.toFixed(2) + " INR/Ton"],
-    //     ["Avg Transport Cost", results.avgTransport.toFixed(2) + " INR/Ton"],
-    //   ],
-    // });
   }, [data]);
 
   const calculate = () => {
@@ -172,18 +193,44 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
   };
   const generateExcelFile = () => {
     const headers = columns.map((col) => col.name);
-    const dataKeys = columns.map((col) => {
-      if (col.selector && typeof col.selector === "function") {
-        const temp = col.selector(data[0]);
-        for (const key in data[0]) {
-          if (data[0][key] === temp) return key;
-        }
-      }
-      return Object.keys(data[0]);
+    // const dataKeys = columns.map((col) => {
+    //   if (col.selector && typeof col.selector === "function") {
+    //     const temp = col.selector(data[0]);
+    //     for (const key in data[0]) {
+    //       if (data[0][key] === temp) return key;
+    //     }
+    //   }
+    //   return Object.keys(data[0]);
+    // });
+    let tempData = processedData.map((item) => {
+      return {
+        id: item.id,
+        type: item.type,
+        rate: item.rate,
+        transport: item.transport,
+        totalCost: item.totalCost,
+        dryMatter: item.dryMatter,
+        cng: item.cng,
+        availability: item.availability,
+        mix: item.mix,
+        dryOutput: item.dryOutput,
+      };
     });
-    const rows = data.map((item) =>
-      dataKeys[1].map((key) => (item[key] !== undefined ? item[key] : ""))
-    );
+    // const rows = tempData.map((item) =>
+    //   dataKeys[1].map((key) => (item[key] !== undefined ? item[key] : ""))
+    // );
+
+    const rows = tempData.map((row) => [
+      row.type,
+      row.rate,
+      row.transport,
+      row.totalCost,
+      row.dryMatter,
+      row.cng,
+      row.availability,
+      row.mix,
+      row.dryOutput,
+    ]);
 
     const summaryRows = [
       [],
@@ -194,9 +241,7 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
       ["Avg Raw Material Cost", results.avgRate.toFixed(2) + " INR/Ton"],
       ["Avg Transport Cost", results.avgTransport.toFixed(2) + " INR/Ton"],
     ];
-
     const worksheetData = [headers, ...rows, ...summaryRows];
-
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Raw Materials");
@@ -205,7 +250,10 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
       bookType: "xlsx",
       type: "array",
     });
-    const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+
+    const blob = new Blob([excelBuffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+    });
     saveAs(blob, "raw-materials.xlsx");
   };
 
@@ -216,7 +264,7 @@ const RawMaterialDetails = ({ tableTab, setTableTab, rows, setRowData }) => {
           <h1 className="text-white font-bold text-start p-3">Raw Materials</h1>
           <DataTable
             columns={columns}
-            data={data}
+            data={processedData}
             // pagination
             highlightOnHover
             striped
