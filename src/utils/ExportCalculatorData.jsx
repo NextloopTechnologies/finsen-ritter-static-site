@@ -185,7 +185,7 @@ export const calculatorTableData = {
       {
         id: 2,
         specification: "Boiler Fuel Cost",
-        rate: "₹ 7,000.00/Ton",
+        rate: 0,
         subtotal: "5,600.00",
         isInput: true,
         key: "boilerFuel",
@@ -205,14 +205,14 @@ export const calculatorTableData = {
       {
         id: 5,
         specification: "Human Resource",
-        rate: "₹ 13,000.00/Day",
+        rate: 0,
         subtotal: "13,000.00",
         isInput: true,
       },
       {
         id: 6,
         specification: "Maintenance",
-        rate: "₹ 5,000.00/Day",
+        rate: 0,
         subtotal: "5,000.00",
         isInput: true,
       },
@@ -226,7 +226,7 @@ export const calculatorTableData = {
       {
         id: 8,
         specification: "Misc Expenses",
-        rate: "₹ 3,000.00/Day",
+        rate: 0,
         subtotal: "3,000.00",
         isInput: true,
       },

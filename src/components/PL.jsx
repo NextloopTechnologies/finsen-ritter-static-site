@@ -201,11 +201,11 @@ const PL = ({
           <input
             type="text"
             className="text-white border-2 border-white rounded-md px-2 py-1 w-28 focus:ring-2 focus:ring-white bg-[#336f9c]"
-            value={row.value}
+            value={row.rate}
             onChange={(e) => handleIncomeInputChange(e, row, "rate")}
           />
         ) : (
-          <strong>{row?.isEditable ? matched?.value : row?.rate}</strong>
+          <strong>{row?.isEditable ? matched?.value : row?.rate | 0}</strong>
         );
       },
       // selector: (row) => row.rate
@@ -269,7 +269,7 @@ const PL = ({
           <input
             type="text"
             className="text-white border-2 border-white rounded-md px-2 py-1 w-28 focus:ring-2 focus:ring-white bg-[#336f9c]"
-            value={row.value}
+            value={row.value | 0}
             onChange={(e) => handleExpInputChange(e, row, "value")}
           />
         ) : (
@@ -293,7 +293,6 @@ const PL = ({
       // },
     },
   ];
-
 
   // Table columns
   const columnsCNG = [
@@ -350,7 +349,10 @@ const PL = ({
     (sum, item) => sum + Number(item.subtotal),
     0
   );
+  let dailyProfit = totalEarnings - totalExpenditure;
+  let monthlyProfit = dailyProfit * 30;
 
+  let YearlyProfit = dailyProfit * 330;
   const generateExcelFile = () => {
     const Rawheaders = columns.map((col) => col.name);
     const rawMateriaRows = data.map((row) => [row.label, row.value]);
@@ -389,6 +391,9 @@ const PL = ({
       ...expeditureRows,
       [],
       ["Total Expenditure :-", totalExpenditure],
+      [],
+      ["Daily Profit:", "Monthly Profit:", "Yearly Profit:"],
+      [dailyProfit, monthlyProfit, YearlyProfit],
     ];
 
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
@@ -401,32 +406,6 @@ const PL = ({
     });
     const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
     saveAs(blob, "PL.xlsx");
-  };
-
-  const exportMultipleTablesToExcel = () => {
-    const sheet = [];
-
-    // Push each table with blank rows in between
-    const pushTable = (table) => {
-      const aoa = XLSX.utils.json_to_sheet(table, { skipHeader: false });
-      const rows = XLSX.utils.sheet_to_json(aoa, { header: 1 });
-      sheet.push(...rows, []); // add blank row after table
-    };
-
-    pushTable(data);
-    pushTable(rightData);
-    // pushTable(incomeData);
-    pushTable(incomePDData);
-    pushTable(expenditurePData);
-
-    const ws = XLSX.utils.aoa_to_sheet(sheet);
-
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "PL Data");
-
-    const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-    const file = new Blob([excelBuffer], { type: "application/octet-stream" });
-    saveAs(file, "PL_Data.xlsx");
   };
 
   return (
@@ -574,32 +553,35 @@ const PL = ({
         <h2 className="text-lg font-semibold mt-6">Project Profits</h2>
         <div className="grid grid-cols-3 gap-4 text-sm border p-4 rounded bg-gray-50">
           <div>
-            <div className="font-medium">Daily Profit:</div>₹ 4,40,645.45
+            <div className="font-medium">Daily Profit:</div>{" "}
+            <span>₹ {dailyProfit?.toFixed(2)}</span>
           </div>
           <div>
-            <div className="font-medium">Monthly Profit:</div>₹ 1,32,19,363.64
+            <div className="font-medium">Monthly Profit:</div>
+            <span>₹ {monthlyProfit?.toFixed(2)}</span>
           </div>
           <div>
-            <div className="font-medium">Yearly Profit:</div>₹ 14,54,13,000.00
+            <div className="font-medium">Yearly Profit:</div>{" "}
+            <span>₹ {YearlyProfit?.toFixed(2)}</span>
           </div>
         </div>
       </div>
       <div className="flex justify-between items-center w-full gap-x-4">
         <div className="flex w-full gap-x-4 ">
-          <div>
+          {/* <div>
             <CSVLink data={data} filename={"cbg-data.csv"}>
               <button className="mt-4 px-4 py-2 bg-[#00457B] text-white rounded w-fit">
                 Download CSV
               </button>
             </CSVLink>
-          </div>
+          </div> */}
           <div>
             <button
               onClick={generateExcelFile}
               // onClick={exportMultipleTablesToExcel}
               className="mt-4 px-4 py-2 bg-[#00457B] text-white rounded"
             >
-              Download All Excel sheet
+              Download All Table sheet
             </button>
           </div>
         </div>
