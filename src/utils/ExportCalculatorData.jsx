@@ -91,7 +91,7 @@ export const calculatorTableData = {
         value: 10.0,
         isInput: true,
         isEditable: true,
-        key:"electricityRate"
+        key: "electricityRate",
       },
       {
         id: 3,
@@ -105,6 +105,7 @@ export const calculatorTableData = {
         detail: "Total Boiler Fuel Required (Ton per day)",
         value: "0.80",
         isInput: true,
+        key: "totalBoilerFuel",
       },
       {
         id: 6,
@@ -153,6 +154,7 @@ export const calculatorTableData = {
         rate: "₹ 0.00/Ton",
         subtotal: "₹ 0.00",
         isInput: true,
+        key: "fertilizer",
       },
       {
         id: 3,
@@ -160,6 +162,8 @@ export const calculatorTableData = {
         rate: "₹0.00",
         subtotal: "₹ 0.00",
         isInput: true,
+        isEditable: true,
+        key: "carbonCredit",
       },
     ],
   },
@@ -170,7 +174,56 @@ export const calculatorTableData = {
         id: 1,
         specification: "Electricity Cost",
         rate: "₹ 10.00/KWh",
-        subTotal: "₹ 1,25,454.55",
+        subtotal: "₹ 1,25,454.55",
+        // isInput: true,
+      },
+      {
+        id: 2,
+        specification: "Boiler Fuel Cost",
+        rate: "₹ 7,000.00/Ton",
+        subtotal: "5,600.00",
+        isInput: true,
+        key:"boilerFuel"
+      },
+      {
+        id: 3,
+        specification: "Average Raw Material",
+        rate: "₹ 1,000.00/Ton",
+        subtotal: "₹  2,50,000.00",
+      },
+      {
+        id: 4,
+        specification: "Average Transportation of Raw Material",
+        rate: "₹ 250.00/Ton",
+        subtotal: "₹ 62,500.00",
+      },
+      {
+        id: 5,
+        specification: "Human Resource",
+        rate: "₹ 13,000.00/Day",
+        subtotal: "13,000.00",
+        isInput: true,
+      },
+      {
+        id: 6,
+        specification: "Maintenance",
+        rate: "₹ 5,000.00/Day",
+        subtotal: "5,000.00",
+        isInput: true,
+      },
+      {
+        id: 7,
+        specification:
+          "Transportation cost of CNG (Final Product) Estimated for Average of 70 km Round Trip from Plant.",
+        rate: "₹ 700.00/trip",
+        subtotal: "₹ 5,600.00",
+      },
+      {
+        id: 8,
+        specification: "Misc Expenses",
+        rate: "₹ 3,000.00/Day",
+        subtotal: "3,000.00",
+        isInput: true,
       },
     ],
   },

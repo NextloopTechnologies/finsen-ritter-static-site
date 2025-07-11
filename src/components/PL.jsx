@@ -10,6 +10,8 @@ const PL = ({
   setRows,
   PLIncomeData,
   setPLIncomeData,
+  PLExpData,
+  setPLExpData,
 }) => {
   const initialData = [
     {
@@ -59,26 +61,36 @@ const PL = ({
   const [data, setData] = useState(initialData);
   const [PLdata, setPLData] = useState([...rows]);
   const [incomePData, setIncomePData] = useState([...PLIncomeData]);
-
+  const [expenditurePData, setExpenditurePData] = useState([...PLExpData]);
   const handleCNGInputChange = (e, row, field) => {
     const newData = PLdata.map((item) =>
       item.id === row.id ? { ...item, [field]: e.target.value } : item
     );
-
     setPLData(newData);
   };
-
+  console.log("expenditurePData", expenditurePData);
   const handleIncomeInputChange = (e, row, field) => {
     const newData = incomePData.map((item) =>
       item.id === row.id ? { ...item, [field]: e.target.value } : item
     );
-
     setIncomePData(newData);
+  };
+
+  const handleExpInputChange = (e, row, field) => {
+    const newData = expenditurePData.map((item) =>
+      item.id === row.id ? { ...item, [field]: e.target.value } : item
+    );
+
+    setExpenditurePData(newData);
   };
 
   useEffect(() => {
     setPLIncomeData(incomePData);
   }, [incomePData]);
+
+  useEffect(() => {
+    setPLExpData(expenditurePData);
+  }, [expenditurePData]);
 
   useEffect(() => {
     setRows(PLdata);
@@ -100,6 +112,7 @@ const PL = ({
       id: 3,
       label: "Total Solid Manure Production per day (ton)",
       value: 50,
+      key: "solidManure",
     },
     {
       id: 4,
@@ -236,7 +249,7 @@ const PL = ({
             type="text"
             className="text-white border-2 border-white rounded-md px-2 py-1 w-28 focus:ring-2 focus:ring-white bg-[#336f9c]"
             value={row.value}
-            onChange={(e) => handleIncomeInputChange(e, row, "value")}
+            onChange={(e) => handleIncomeInputChange(e, row, "rate")}
           />
         ) : (
           <strong>{row?.isEditable ? matched?.value : row?.rate}</strong>
@@ -253,9 +266,72 @@ const PL = ({
       // let cng=rightData.
 
       selector: (row) => {
+        const matchedRate = PLdata.find(
+          (item) => item.key === "electricityRate"
+        );
+
         const matched = rightData.find((item) => item.key === "totalWorking");
+        const matchedSolidManure = rightData.find(
+          (item) => item.key === "solidManure"
+        );
         // return matched ? matched.unit : 'N/A';
-        return row.isInput ? row.value : row.subtotal;
+        console.log("matched", { matched, row: row });
+        let subtotal = row.isInput
+          ? row.key === "fertilizer"
+            ? Number(row.rate) * Number(matchedSolidManure.value)
+            : (Number(matched.value) / 1000) * 20 * Number(row.rate)
+          : Number(matched.value) * Number(matchedRate.value);
+        return subtotal;
+      },
+      sortable: true,
+    },
+  ];
+  console.log("columnsIPD", columnsIPD);
+  const columnsExPD = [
+    { name: "S.No", selector: (row) => row.id, width: "70px" },
+    { name: "Specification", selector: (row) => row.specification, grow: 2 },
+    {
+      name: "Rate",
+      cell: (row) => {
+        const matched = PLdata.find((item) => item.key === "electricityRate");
+
+        return row.isInput ? (
+          <input
+            type="text"
+            className="text-white border-2 border-white rounded-md px-2 py-1 w-28 focus:ring-2 focus:ring-white bg-[#336f9c]"
+            value={row.value}
+            onChange={(e) => handleExpInputChange(e, row, "value")}
+          />
+        ) : (
+          <strong>{row?.isEditable ? matched?.value : row?.rate}</strong>
+        );
+      },
+      // selector: (row) => row.rate
+    },
+    {
+      name: "Sub Total",
+      // selector: (row) => {
+      //   const dryOutput = ((row.value * row.dryMatter) / 100).toFixed(2);
+      //   return dryOutput;
+      // },
+      // let cng=rightData.
+
+      selector: (row) => {
+        const matchedRate = PLdata.find(
+          (item) => item.key === "totalBoilerFuel"
+        );
+
+        const matched = rightData.find((item) => item.key === "totalWorking");
+        // const matchedSolidManure = rightData.find(
+        //   (item) => item.key === "solidManure"
+        // );
+        // return matched ? matched.unit : 'N/A';
+        console.log("matched", { matched, row: row });
+        return row.isInput
+          ? row.key === "boilerFuel"
+            ? Number(matchedRate.value) * Number(row.value)
+            : Number(row.value)
+          : Number(matched.value);
       },
     },
   ];
@@ -435,7 +511,7 @@ const PL = ({
     pushTable(rightData);
     pushTable(incomeData);
     pushTable(incomePDData);
-    pushTable(expenditureData);
+    pushTable(expenditurePData);
 
     const ws = XLSX.utils.aoa_to_sheet(sheet);
 
@@ -446,6 +522,12 @@ const PL = ({
     const file = new Blob([excelBuffer], { type: "application/octet-stream" });
     saveAs(file, "PL_Data.xlsx");
   };
+  const totalincomePData = incomePData?.reduce(
+    (sum, item) => sum + Number(item.subtotal),
+    0
+  );
+
+  console.log("totalincomePData", totalincomePData);
 
   return (
     <div className="bg-gray-100 min-h-[calc(50vh-100px)]  flex  flex-col justify-evenly items-center gap-y-6 p-6">
@@ -555,7 +637,8 @@ const PL = ({
         </div>
 
         <div className="flex  justify-between font-bold text-right text-green-600 mt-6">
-          <span>Total Earnings:</span> <span>₹ 9,10,800.00</span>
+          <span>Total Earnings:</span>{" "}
+          <span>₹ {totalincomePData?.toFixed(2)}</span>
         </div>
 
         <div className="w-full overflow-x-auto">
@@ -564,8 +647,8 @@ const PL = ({
               Expenditure (Per Day)
             </h1>
             <DataTable
-              columns={columnsIPD}
-              data={expenditureData}
+              columns={columnsExPD}
+              data={expenditurePData}
               striped
               highlightOnHover
               customStyles={{
