@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { CSVLink } from "react-csv";
 import DataTable from "react-data-table-component";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
@@ -12,52 +11,34 @@ const PL = ({
   setPLIncomeData,
   PLExpData,
   setPLExpData,
+  rawMaterialData,
 }) => {
   const initialData = [
     {
       id: 1,
       label: "Tonnage of Raw Material",
       value: "250 Ton",
+      key: "tonnage",
     },
     {
       id: 2,
       label: "Average Rate of Raw Material per ton",
       value: "Rs. 1,000.00 per ton",
+      key: "avgRate",
     },
     {
       id: 3,
       label: "Average Cost of Transport of Raw Material",
       value: "Rs. 250.00 per ton",
+      key: "avgCost",
     },
     {
       id: 4,
       label: "Average Cost of Raw Material with Transportation",
       value: "Rs. 1,250.00 per ton",
+      key: "avgTotal",
     },
   ];
-  const incomePDData = [
-    {
-      id: 1,
-      specification: "CNG (₹)",
-      rate: "₹ 66.00/Kg",
-      subtotal: "₹ 9,10,800.00",
-    },
-    {
-      id: 2,
-      specification: "Fertilizer/Pallets (/Ton)",
-      rate: "₹ 0.00/Ton",
-      subtotal: "₹ 0.00",
-      isInput: true,
-    },
-    {
-      id: 3,
-      specification: "Carbon Credits (₹)",
-      rate: "₹0.00",
-      subtotal: "₹ 0.00",
-      isInput: true,
-    },
-  ];
-
   const [data, setData] = useState(initialData);
   const [PLdata, setPLData] = useState([...rows]);
   const [incomePData, setIncomePData] = useState([...PLIncomeData]);
@@ -131,14 +112,6 @@ const PL = ({
         fontWeight: 500,
       },
     },
-    // {
-    //   name: "Value",
-    //   selector: (row) => row.value,
-    //   wrap: true,
-    //   style: {
-    //     fontWeight: "bold",
-    //   },
-    // },
     {
       name: "Value",
       cell: (row) =>
@@ -155,8 +128,44 @@ const PL = ({
     },
   ];
 
+  const processedRawMaterialData = useMemo(() => {
+    return data.map((row) => {
+      let Value = 0;
+      const matchedTonnage = rawMaterialData.find(
+        (item) => item.type == "Cattle Dung"
+      ).transport;
+
+      let avgRate = rawMaterialData.reduce(
+        (sum, item) => sum + Number(item.rate),
+        0
+      );
+      avgRate = avgRate / rawMaterialData.map((item) => item.rate).length;
+
+      let avgCost = rawMaterialData.reduce(
+        (sum, item) => sum + Number(item.transport),
+        0
+      );
+      avgCost = avgCost / rawMaterialData.map((item) => item.transport).length;
+
+      if (row.key === "tonnage") {
+        Value = Number(matchedTonnage || 0);
+      } else if (row.key === "avgRate") {
+        Value = Number(avgRate);
+      } else if (row.key === "avgCost") {
+        Value = Number(avgCost);
+      } else if (row.key === "avgTotal") {
+        Value = Number(avgRate + avgCost);
+      }
+
+      return {
+        ...row,
+        value: Value.toFixed(2), // store for table + export
+      };
+    });
+  }, [rawMaterialData, data]);
+
   const processedIncomeData = useMemo(() => {
-    const matchedRate = PLdata.find((item) => item.key === "electricityRate");
+    const matchedCNG = PLdata.find((item) => item.key === "cng");
     const matchedTotalWorking = rightData.find(
       (item) => item.key === "totalWorking"
     );
@@ -179,7 +188,7 @@ const PL = ({
       } else {
         subTotal =
           Number(matchedTotalWorking?.value || 0) *
-          Number(matchedRate?.value || 0);
+          Number(matchedCNG?.value || 0);
       }
 
       return {
@@ -195,17 +204,17 @@ const PL = ({
     {
       name: "Rate",
       cell: (row) => {
-        const matched = PLdata.find((item) => item.key === "electricityRate");
+        const matched = PLdata.find((item) => item.key === "cng");
 
         return row.isInput ? (
           <input
             type="text"
             className="text-white border-2 border-white rounded-md px-2 py-1 w-28 focus:ring-2 focus:ring-white bg-[#336f9c]"
-            value={row.value}
+            value={row.rate}
             onChange={(e) => handleIncomeInputChange(e, row, "rate")}
           />
         ) : (
-          <strong>{row?.isEditable ? matched?.value : row?.rate}</strong>
+          <strong>{row?.isEditable ? matched?.value : row?.rate | 0}</strong>
         );
       },
       // selector: (row) => row.rate
@@ -269,11 +278,13 @@ const PL = ({
           <input
             type="text"
             className="text-white border-2 border-white rounded-md px-2 py-1 w-28 focus:ring-2 focus:ring-white bg-[#336f9c]"
-            value={row.value}
+            value={row.value | 0}
             onChange={(e) => handleExpInputChange(e, row, "value")}
           />
         ) : (
-          <strong>{row?.isEditable ? matched?.value : row?.rate}</strong>
+          <strong>
+            {row?.isEditable ? matched?.value + "/KWh" : row?.rate}
+          </strong>
         );
       },
     },
@@ -293,7 +304,6 @@ const PL = ({
       // },
     },
   ];
-
 
   // Table columns
   const columnsCNG = [
@@ -320,23 +330,23 @@ const PL = ({
   ];
 
   const handleTableNextChange = (number) => {
-    const isValid = data.every(
-      (item) =>
-        item.rate &&
-        +item.rate > 0 &&
-        item.transport &&
-        +item.transport >= 0 &&
-        item.availability &&
-        +item.availability >= 0
-      // Add more field checks if needed
-    );
+    // const isValid = data.every(
+    //   (item) =>
+    //     item.rate &&
+    //     +item.rate > 0 &&
+    //     item.transport &&
+    //     +item.transport >= 0 &&
+    //     item.availability &&
+    //     +item.availability >= 0
+    //   // Add more field checks if needed
+    // );
 
     // if (!isValid) {
     //   alert("Please fill all required fields with valid (non-zero) values.");
     //   return;
     // }
 
-    setTableTab((prev) => prev + 1);
+    // setTableTab((prev) => prev + 1);
   };
   const handleTablePrevChange = (number) => {
     setTableTab((prev) => prev - 1);
@@ -350,7 +360,10 @@ const PL = ({
     (sum, item) => sum + Number(item.subtotal),
     0
   );
+  let dailyProfit = totalEarnings - totalExpenditure;
+  let monthlyProfit = dailyProfit * 30;
 
+  let YearlyProfit = dailyProfit * 330;
   const generateExcelFile = () => {
     const Rawheaders = columns.map((col) => col.name);
     const rawMateriaRows = data.map((row) => [row.label, row.value]);
@@ -389,6 +402,9 @@ const PL = ({
       ...expeditureRows,
       [],
       ["Total Expenditure :-", totalExpenditure],
+      [],
+      ["Daily Profit:", "Monthly Profit:", "Yearly Profit:"],
+      [dailyProfit, monthlyProfit, YearlyProfit],
     ];
 
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
@@ -403,32 +419,6 @@ const PL = ({
     saveAs(blob, "PL.xlsx");
   };
 
-  const exportMultipleTablesToExcel = () => {
-    const sheet = [];
-
-    // Push each table with blank rows in between
-    const pushTable = (table) => {
-      const aoa = XLSX.utils.json_to_sheet(table, { skipHeader: false });
-      const rows = XLSX.utils.sheet_to_json(aoa, { header: 1 });
-      sheet.push(...rows, []); // add blank row after table
-    };
-
-    pushTable(data);
-    pushTable(rightData);
-    // pushTable(incomeData);
-    pushTable(incomePDData);
-    pushTable(expenditurePData);
-
-    const ws = XLSX.utils.aoa_to_sheet(sheet);
-
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "PL Data");
-
-    const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-    const file = new Blob([excelBuffer], { type: "application/octet-stream" });
-    saveAs(file, "PL_Data.xlsx");
-  };
-
   return (
     <div className="bg-gray-100 min-h-[calc(50vh-100px)]  flex  flex-col justify-evenly items-center gap-y-6 p-6">
       {/* <h1 className="text-[#135384] font-bold">Profit and Loss</h1> */}
@@ -440,7 +430,7 @@ const PL = ({
             </h1>
             <DataTable
               columns={columns}
-              data={data}
+              data={processedRawMaterialData}
               // pagination
               highlightOnHover
               customStyles={{
@@ -574,32 +564,35 @@ const PL = ({
         <h2 className="text-lg font-semibold mt-6">Project Profits</h2>
         <div className="grid grid-cols-3 gap-4 text-sm border p-4 rounded bg-gray-50">
           <div>
-            <div className="font-medium">Daily Profit:</div>₹ 4,40,645.45
+            <div className="font-medium">Daily Profit:</div>{" "}
+            <span>₹ {dailyProfit?.toFixed(2)}</span>
           </div>
           <div>
-            <div className="font-medium">Monthly Profit:</div>₹ 1,32,19,363.64
+            <div className="font-medium">Monthly Profit:</div>
+            <span>₹ {monthlyProfit?.toFixed(2)}</span>
           </div>
           <div>
-            <div className="font-medium">Yearly Profit:</div>₹ 14,54,13,000.00
+            <div className="font-medium">Yearly Profit:</div>{" "}
+            <span>₹ {YearlyProfit?.toFixed(2)}</span>
           </div>
         </div>
       </div>
       <div className="flex justify-between items-center w-full gap-x-4">
         <div className="flex w-full gap-x-4 ">
-          <div>
+          {/* <div>
             <CSVLink data={data} filename={"cbg-data.csv"}>
               <button className="mt-4 px-4 py-2 bg-[#00457B] text-white rounded w-fit">
                 Download CSV
               </button>
             </CSVLink>
-          </div>
+          </div> */}
           <div>
             <button
               onClick={generateExcelFile}
               // onClick={exportMultipleTablesToExcel}
               className="mt-4 px-4 py-2 bg-[#00457B] text-white rounded"
             >
-              Download All Excel sheet
+              Download All Table sheet
             </button>
           </div>
         </div>
