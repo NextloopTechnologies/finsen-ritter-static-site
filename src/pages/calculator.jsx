@@ -12,7 +12,7 @@ import { calculatorTableData } from "../utils/ExportCalculatorData";
 const Calculator = () => {
   const [tableTab, setTableTab] = useState(0);
   const [unit, setUnit] = useState("kg");
-  const [allTableData, setAllTableData] = useState(
+  const [rawMaterialData, setRawMaterialData] = useState(
     calculatorTableData.rawMaterials.rows
   );
   const [PLTableData, setPLTableData] = useState(
@@ -21,7 +21,7 @@ const Calculator = () => {
   const [PLIncomeData, setPLIncomeData] = useState(
     calculatorTableData.incomePerDay.rows
   );
-   const [PLExpData, setPLExpData] = useState(
+  const [PLExpData, setPLExpData] = useState(
     calculatorTableData.expenditurePerDay.rows
   );
   const [inputs, setInputs] = useState({
@@ -143,15 +143,14 @@ const Calculator = () => {
   // const handleTablePrevChange = (number) => {
   //   setTableTab((prev) => prev - 1);
   // };
-  console.log("allTableData", allTableData);
   const renderTable = useMemo(() => {
     if (tableTab == 0) {
       return (
         <RawMaterialDetails
           tableTab={tableTab}
           setTableTab={setTableTab}
-          rows={allTableData}
-          setRowData={setAllTableData}
+          rows={rawMaterialData}
+          setRowData={setRawMaterialData}
         />
       );
     } else if (tableTab == 1) {
@@ -161,21 +160,17 @@ const Calculator = () => {
           setTableTab={setTableTab}
           rows={PLTableData}
           setRows={setPLTableData}
-          PLIncomeData={PLIncomeData} setPLIncomeData={setPLIncomeData}
-
-          PLExpData={PLExpData} setPLExpData={setPLExpData}
-          // setAllTableData={setAllTableData}
-        />
-      );
-    } else if (tableTab == 2) {
-      return (
-        <IRR
-          tableTab={tableTab}
-          setTableTab={setTableTab}
-          // allTableData={allTableData}
+          PLIncomeData={PLIncomeData}
+          setPLIncomeData={setPLIncomeData}
+          rawMaterialData={rawMaterialData}
+          PLExpData={PLExpData}
+          setPLExpData={setPLExpData}
         />
       );
     }
+    //  else if (tableTab == 2) {
+    //   return <IRR tableTab={tableTab} setTableTab={setTableTab} />;
+    // }
   }, [tableTab]);
 
   return (

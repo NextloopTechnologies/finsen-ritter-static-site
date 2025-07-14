@@ -63,6 +63,8 @@ const ContactSection = () => {
                 className="text-sm md:text-base text-gray-700 hover:text-blue-900"
               >
                 1800-8892141
+                <br />
+                9201959506 (Sales executive)
               </a>
             </div>
           </div>

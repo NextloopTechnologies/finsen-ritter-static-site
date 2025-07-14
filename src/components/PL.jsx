@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { CSVLink } from "react-csv";
 import DataTable from "react-data-table-component";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
@@ -12,52 +11,34 @@ const PL = ({
   setPLIncomeData,
   PLExpData,
   setPLExpData,
+  rawMaterialData,
 }) => {
   const initialData = [
     {
       id: 1,
       label: "Tonnage of Raw Material",
       value: "250 Ton",
+      key: "tonnage",
     },
     {
       id: 2,
       label: "Average Rate of Raw Material per ton",
       value: "Rs. 1,000.00 per ton",
+      key: "avgRate",
     },
     {
       id: 3,
       label: "Average Cost of Transport of Raw Material",
       value: "Rs. 250.00 per ton",
+      key: "avgCost",
     },
     {
       id: 4,
       label: "Average Cost of Raw Material with Transportation",
       value: "Rs. 1,250.00 per ton",
+      key: "avgTotal",
     },
   ];
-  const incomePDData = [
-    {
-      id: 1,
-      specification: "CNG (₹)",
-      rate: "₹ 66.00/Kg",
-      subtotal: "₹ 9,10,800.00",
-    },
-    {
-      id: 2,
-      specification: "Fertilizer/Pallets (/Ton)",
-      rate: "₹ 0.00/Ton",
-      subtotal: "₹ 0.00",
-      isInput: true,
-    },
-    {
-      id: 3,
-      specification: "Carbon Credits (₹)",
-      rate: "₹0.00",
-      subtotal: "₹ 0.00",
-      isInput: true,
-    },
-  ];
-
   const [data, setData] = useState(initialData);
   const [PLdata, setPLData] = useState([...rows]);
   const [incomePData, setIncomePData] = useState([...PLIncomeData]);
@@ -131,14 +112,6 @@ const PL = ({
         fontWeight: 500,
       },
     },
-    // {
-    //   name: "Value",
-    //   selector: (row) => row.value,
-    //   wrap: true,
-    //   style: {
-    //     fontWeight: "bold",
-    //   },
-    // },
     {
       name: "Value",
       cell: (row) =>
@@ -155,8 +128,44 @@ const PL = ({
     },
   ];
 
+  const processedRawMaterialData = useMemo(() => {
+    return data.map((row) => {
+      let Value = 0;
+      const matchedTonnage = rawMaterialData.find(
+        (item) => item.type == "Cattle Dung"
+      ).transport;
+
+      let avgRate = rawMaterialData.reduce(
+        (sum, item) => sum + Number(item.rate),
+        0
+      );
+      avgRate = avgRate / rawMaterialData.map((item) => item.rate).length;
+
+      let avgCost = rawMaterialData.reduce(
+        (sum, item) => sum + Number(item.transport),
+        0
+      );
+      avgCost = avgCost / rawMaterialData.map((item) => item.transport).length;
+
+      if (row.key === "tonnage") {
+        Value = Number(matchedTonnage || 0);
+      } else if (row.key === "avgRate") {
+        Value = Number(avgRate);
+      } else if (row.key === "avgCost") {
+        Value = Number(avgCost);
+      } else if (row.key === "avgTotal") {
+        Value = Number(avgRate + avgCost);
+      }
+
+      return {
+        ...row,
+        value: Value.toFixed(2), // store for table + export
+      };
+    });
+  }, [rawMaterialData, data]);
+
   const processedIncomeData = useMemo(() => {
-    const matchedRate = PLdata.find((item) => item.key === "electricityRate");
+    const matchedCNG = PLdata.find((item) => item.key === "cng");
     const matchedTotalWorking = rightData.find(
       (item) => item.key === "totalWorking"
     );
@@ -179,7 +188,7 @@ const PL = ({
       } else {
         subTotal =
           Number(matchedTotalWorking?.value || 0) *
-          Number(matchedRate?.value || 0);
+          Number(matchedCNG?.value || 0);
       }
 
       return {
@@ -195,7 +204,7 @@ const PL = ({
     {
       name: "Rate",
       cell: (row) => {
-        const matched = PLdata.find((item) => item.key === "electricityRate");
+        const matched = PLdata.find((item) => item.key === "cng");
 
         return row.isInput ? (
           <input
@@ -273,7 +282,9 @@ const PL = ({
             onChange={(e) => handleExpInputChange(e, row, "value")}
           />
         ) : (
-          <strong>{row?.isEditable ? matched?.value : row?.rate}</strong>
+          <strong>
+            {row?.isEditable ? matched?.value + "/KWh" : row?.rate}
+          </strong>
         );
       },
     },
@@ -319,23 +330,23 @@ const PL = ({
   ];
 
   const handleTableNextChange = (number) => {
-    const isValid = data.every(
-      (item) =>
-        item.rate &&
-        +item.rate > 0 &&
-        item.transport &&
-        +item.transport >= 0 &&
-        item.availability &&
-        +item.availability >= 0
-      // Add more field checks if needed
-    );
+    // const isValid = data.every(
+    //   (item) =>
+    //     item.rate &&
+    //     +item.rate > 0 &&
+    //     item.transport &&
+    //     +item.transport >= 0 &&
+    //     item.availability &&
+    //     +item.availability >= 0
+    //   // Add more field checks if needed
+    // );
 
     // if (!isValid) {
     //   alert("Please fill all required fields with valid (non-zero) values.");
     //   return;
     // }
 
-    setTableTab((prev) => prev + 1);
+    // setTableTab((prev) => prev + 1);
   };
   const handleTablePrevChange = (number) => {
     setTableTab((prev) => prev - 1);
@@ -419,7 +430,7 @@ const PL = ({
             </h1>
             <DataTable
               columns={columns}
-              data={data}
+              data={processedRawMaterialData}
               // pagination
               highlightOnHover
               customStyles={{

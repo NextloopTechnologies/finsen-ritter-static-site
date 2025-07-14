@@ -22,7 +22,7 @@ export const calculatorTableData = {
         transport: 250,
         availability: 0,
         dryMatter: 38,
-        cng: 6,
+        cng: 5,
         mix: 0,
         dryOutput: 0,
         totalCost: 0,
@@ -58,7 +58,7 @@ export const calculatorTableData = {
         transport: 250,
         availability: 0,
         dryMatter: 40,
-        cng: 9,
+        cng: 6,
         mix: 0,
         dryOutput: 0,
         totalCost: 0,
@@ -87,8 +87,9 @@ export const calculatorTableData = {
         id: 1,
         detail:
           "Price of CNG (Including GST) As per IOCL Document (Slab-04) (₹ /Kg)",
-        value: "66.00",
+        value: 66.00,
         isInput: true,
+        key: "cng",
       },
       {
         id: 2,
@@ -180,6 +181,7 @@ export const calculatorTableData = {
         specification: "Electricity Cost",
         rate: "₹ 10.00/KWh",
         subtotal: "₹ 1,25,454.55",
+        isEditable:true
         // isInput: true,
       },
       {
