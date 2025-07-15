@@ -28,16 +28,16 @@ createRoot(document.getElementById("root")).render(
       <meta name="robots" content="index, follow" />
     </Helmet>
     <App />
-    <script
+    {/* <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-1LDWFSPQN2"
-    ></script>
-    <script>
+    ></script> */}
+    {/* <script>
       {`window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-1LDWFSPQN2');`}
-    </script>
+    </script> */}
     <script type="application/ld+json">
       {JSON.stringify({
         "@context": "https://schema.org",
