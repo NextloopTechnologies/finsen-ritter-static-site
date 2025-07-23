@@ -67,10 +67,10 @@ const AboutUsPage = () => {
   return (
     <div className="flex flex-col gap-28">
       <Helmet>
-        <title>About Us | Finsen Ritter</title>
+        <title>About Finsen Ritter | Biogas & Renewable Energy Solutions</title>
         <meta
           name="description"
-          content="Discover Finsen Ritter Technologies, your partner in industrial turnkey solutions. We excel in the design, supply, installation, and testing of chemical and gas plants."
+          content="Discover Finsen Ritter’s expertise in biogas plants, industrial gas solutions and renewable energy, delivering sustainable and innovative projects in India"
         />
       </Helmet>
       <HeroSection

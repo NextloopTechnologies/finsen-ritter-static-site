@@ -156,7 +156,7 @@ export const productCards = {
       heading: "Industrial Bio-CNG (Compressed Bio-Gas) Plant",
       description:
         "Finsen Ritter's Bio-CNG plant converts organic waste into renewable, clean energy.",
-      link: "/product/bio-cng",
+      link: "/product/industrial-bio-cng-compressed-bio-gas-plant",
     },
     {
       icon: IndustrialBiogasPurificationIcon,
@@ -184,7 +184,7 @@ export const productCards = {
       heading: "Industrial Nitrogen Plant (PSA & VPSA)",
       description:
         "Finsen Ritter's Industrial Nitrogen Plants produce efficient, on-site high-purity nitrogen.",
-      link: "/product/nitrogen",
+      link: "/product/industrial-nitrogen-plant-psa-vpsa",
     },
     {
       icon: IndustrialScreChillersIcon,
@@ -205,7 +205,7 @@ export const productCards = {
       heading: "Medical Oxygen Plants (PSA & VPSA)",
       description:
         "Finsen Ritter's Medical Oxygen Plants ensure reliable high-purity oxygen supply.",
-      link: "/product/medical-oxygen",
+      link: "/product/product/medical-oxygen-plant-psa-vpsa",
     },
   ],
 };
@@ -296,12 +296,15 @@ export const testimonials = {
 
 export const companyLinks = [
   { title: "Home", link: "/" },
-  { title: "About Us", link: "/about" },
-  { title: "Products", link: "/product/bio-cng" },
+  { title: "About Us", link: "/about-us" },
+  {
+    title: "Products",
+    link: "/product/industrial-bio-cng-compressed-bio-gas-plant",
+  },
   { title: "Services", link: "/services" },
-  { title: "Blogs & News", link: "/blogs" },
-  { title: "Connect With Us", link: "/connectus" },
-  { name: "Calculator", path: "/cbg-calculator" },
+  { title: "Blogs & News", link: "/blogs-and-news" },
+  { title: "Connect With Us", link: "/connect-with-us" },
+  { name: "Calculator", path: "/cbg-biogas-calculator" },
 ];
 export const blogLinks = [
   { title: "FAQ", link: "/#" },
@@ -736,7 +739,7 @@ export const ProductMedicalOxygenData = {
 export const ProductIndustrialNitrogenData = {
   heroBackgroundImage: productAssets.nitrogen,
   heroTitle: "PRODUCT",
-  heroSubtitle: "Advanced PSA & VPSA Technology for Industrial Nitrogen ",
+  heroSubtitle: " Industrial Nitrogen Plant (PSA & VPSA): Product Description ",
   descriptionImage: ProductDescriptionLeft,
   descriptionMainHeading:
     "Medical oxygen plant ( PSA & VPSA) : Product description",

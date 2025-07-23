@@ -51,20 +51,24 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "about",
+        path: "about-us",
         element: <AboutUsPage />,
       },
       {
         path: "product",
         element: <Outlet />,
         children: [
-          { index: true, path: "bio-cng", element: <BioCNGPage /> },
           {
-            path: "medical-oxygen",
+            index: true,
+            path: "/product/industrial-bio-cng-compressed-bio-gas-plant",
+            element: <BioCNGPage />,
+          },
+          {
+            path: "/product/medical-oxygen-plant-psa-vpsa",
             element: <ProductMedicalOxygen />,
           },
           {
-            path: "nitrogen",
+            path: "/product/industrial-nitrogen-plant-psa-vpsa",
             element: <ProductIndustrialNirtogen />,
           },
           {
@@ -94,19 +98,19 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "getyourquote",
+        path: "get-your-quote",
         element: <GetYourQuote />,
       },
       {
-        path: "blogs",
+        path: "blogs-and-news",
         element: <Blogs />,
       },
       {
-        path: "connectus",
+        path: "connect-with-us",
         element: <ConnectUs />,
       },
       {
-        path: "calculator",
+        path: "biogas-calculator",
         element: <Calculator />,
       },
       {

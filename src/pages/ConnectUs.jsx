@@ -58,10 +58,12 @@ const ConnectUs = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Finsen Ritter</title>
+        <title>
+          Connect with Finsen Ritter | Bio-CNG & Turnkey Plant Solutions
+        </title>
         <meta
           name="description"
-          content="Connect with us at Finsen Ritter for expert assistance and inquiries. Our dedicated team is ready to provide you with the support you need. Reach out today."
+          content="Connect with Finsen Ritter for turnkey Bio CNG plants, SATAT biogas solutions, EPC services, purification systems & expert consulting for industrial clients"
         />
       </Helmet>
       <HeroSection

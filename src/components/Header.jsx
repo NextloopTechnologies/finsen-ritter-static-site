@@ -10,15 +10,15 @@ const navItems = [
       {
         index: true,
         label: "Industrial Bio-CNG (Compressed Bio-Gas) Plant",
-        path: "/product/bio-cng",
+        path: "/product/industrial-bio-cng-compressed-bio-gas-plant",
       },
       {
         label: "Medical Oxygen Plants (PSA & VPSA)",
-        path: "/product/medical-oxygen",
+        path: "/product/medical-oxygen-plant-psa-vpsa",
       },
       {
         label: "Industrial Nitrogen Plant (PSA & VPSA)",
-        path: "/product/nitrogen",
+        path: "/product/industrial-nitrogen-plant-psa-vpsa",
       },
       {
         label: "Industrial Desiccant Dryers",
@@ -43,11 +43,11 @@ const navItems = [
       },
     ],
   },
-  { path: "/about", label: "About us" },
+  { path: "/about-us", label: "About us" },
   { path: "/services", label: "Services" },
-  { path: "/blogs", label: "Blog & News" },
-  { path: "/connectus", label: "Connect With Us" },
-  { path: "/calculator", label: "Calculator" },
+  { path: "/blogs-and-news", label: "Blog & News" },
+  { path: "/connect-with-us", label: "Connect With Us" },
+  { path: "/biogas-calculator", label: "Calculator" },
 ];
 
 const Header = () => {
@@ -67,7 +67,7 @@ const Header = () => {
   };
 
   const handleQuoteClick = () => {
-    navigate("getyourquote");
+    navigate("get-your-quote");
     setIsMenuOpen(false);
   };
 

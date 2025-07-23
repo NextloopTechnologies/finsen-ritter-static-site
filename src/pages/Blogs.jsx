@@ -10,16 +10,15 @@ const Blogs = () => {
   return (
     <>
       <Helmet>
-        <title>Blogs & News | Finsen Ritter</title>
+        <title>
+          Biogas Plant & Renewable Energy Industry Blogs | Finsen Ritter
+        </title>
         <meta
           name="description"
-          content="Discover a wealth of information on Finsenritter's blog, featuring engaging content that informs and inspires. Stay updated with our latest posts."
+          content="Explore expert blog on biogas plants, renewable energy, EPC solutions and sustainable technologies by Finsen Ritter to stay updated on industry innovations"
         />
       </Helmet>
-      <HeroSection
-        backgroundImage={BlogsHeroBg}
-        backgroundOpacity="opacity-50"
-      >
+      <HeroSection backgroundImage={BlogsHeroBg} backgroundOpacity="opacity-50">
         <div className="flex flex-col text-center w-full">
           <h2 className="text-3xl font-bold mb-5">BLOGS</h2>
           <p className="text-lg">

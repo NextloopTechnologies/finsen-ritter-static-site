@@ -7,7 +7,7 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   const handleLearnMoreClick = () => {
-    navigate("/about");
+    navigate("/about-us");
   };
   return (
     <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 p-4 md:p-8 mx-4 md:mx-32">

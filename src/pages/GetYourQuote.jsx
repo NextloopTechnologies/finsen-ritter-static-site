@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection";
 import ContactSection from "../components/ContactSection";
 import { supabase } from "../supabaseClient";
 import { getImageUrl } from "../utils/supabaseStorageHelper";
+import { Helmet } from "react-helmet";
 
 const GetYourQuote = () => {
   const [formData, setFormData] = useState({
@@ -61,6 +62,13 @@ const GetYourQuote = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Get a Quote for Custom Bio CNG Solutions | Finsen Ritter </title>
+        <meta
+          name="description"
+          content="Request a personalized quote for Bio CNG plants and renewable gas solutions Connect with Finsen Ritter’s expert team to discuss your project needs today"
+        />
+      </Helmet>
       <HeroSection
         backgroundImage={getImageUrl("GetYourQuoteHeroBg.png")}
         backgroundOpacity="opacity-50"
