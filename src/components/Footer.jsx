@@ -10,7 +10,9 @@ import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const location = useLocation();
-  const isBioCNGPage = location.pathname === "/product/bio-cng";
+  const isBioCNGPage =
+    location.pathname ===
+    "/product/industrial-bio-cng-compressed-bio-gas-plant";
   const FooterList = ({ title, items, bulletPoints }) => (
     <div>
       <h3 className="text-lg font-semibold mb-4">{title}</h3>
