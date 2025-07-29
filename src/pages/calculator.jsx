@@ -176,10 +176,12 @@ const Calculator = () => {
   return (
     <>
       <Helmet>
-        <title>Calculator | Finsen Ritter</title>
+        <title>
+          Finsen Ritter Biogas Calculator | Bio CNG Production & Analysis
+        </title>
         <meta
           name="description"
-          content="Discover a wealth of information on Finsenritter's blog, featuring engaging content that informs and inspires. Stay updated with our latest posts."
+          content="Estimate biogas and methane output, raw material needs, and project feasibility for Bio CNG systems with Finsen Ritter’s precise renewable energy calculato"
         />
       </Helmet>
       {/* <HeroSection

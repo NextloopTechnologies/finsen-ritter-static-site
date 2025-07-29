@@ -11,10 +11,10 @@ const Services = () => {
   return (
     <div>
       <Helmet>
-        <title>Our Services | Finsen Ritter</title>
+        <title>Biogas, EPC, Automation & Safety Services | Finsen Ritter</title>
         <meta
           name="description"
-          content="Finsen Ritter offers a range of professional services tailored to enhance your operations. Visit us to learn how we can support your success."
+          content="Finsen Ritter offers eco-friendly biogas solutions, EPC, procurement, industrial automation, project feasibility, cost management & safety consulting services"
         />
       </Helmet>
       <HeroSection
