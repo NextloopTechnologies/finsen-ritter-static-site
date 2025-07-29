@@ -58,10 +58,10 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>FINSEN RITTER | Biogas Plant Manufacturers In Indore</title>
+        <title>Top Biogas Plant Manufacturers in India | Finsen Ritter</title>
         <meta
           name="description"
-          content="At Finsen Ritter, we specialize in delivering exceptional design and technology services and Biogas plant manufacturers in indore. Join us to enhance your projects with our innovative"
+          content="Finsen Ritter is the best biogas plant manufacturer in India, offering Bio-CNG plants, biogas purification systems and turnkey waste-to-energy solutions"
         />
       </Helmet>
       <div className="flex flex-col gap-28">
@@ -89,7 +89,9 @@ const Home = () => {
               </p>
               <div className="mt-6">
                 <button className="bg-[#135384] hover:bg-[rgb(17,25,60)] text-white py-3 px-8 rounded-lg transition-colors duration-300 text-lg md:text-xl w-full md:w-auto">
-                  <a href="/product/bio-cng">Learn More</a>
+                  <a href="/product/industrial-bio-cng-compressed-bio-gas-plant">
+                    Learn More
+                  </a>
                 </button>
               </div>
             </div>
