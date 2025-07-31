@@ -94,13 +94,10 @@ const AboutUsPage = () => {
             variants={fadeUp}
             className="text-lg"
           >
-            {/* Finsen Ritter Technologies specializes in industrial turnkey
-            solutions, offering expertise in the design, supply, installation,
-            and testing of chemical and gas plants. */}
-            Finsen Ritter specializes in industrial Biogas Plant Manufacturers,
-            we are known offering a quality range of Biogas Plant, Bio CNG
-            Plant, Bio purification plant, Bio Fertilizer, Nitrogen plant, EPC,
-            etc.
+            Finsen Ritter specializes as industrial biogas plant manufacturers,
+            offering a quality range of biogas plants, bio-CNG plants, biogas
+            purification systems, bio-fertilizers, nitrogen plants, and EPC
+            services.
           </motion.p>
         </div>
       </HeroSection>
