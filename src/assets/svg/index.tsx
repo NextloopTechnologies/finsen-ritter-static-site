@@ -12,7 +12,7 @@ export const LogoFRSVG = ({ className }) => {
         cx="100"
         cy="100"
         r="80"
-        stroke="#003d66"
+        stroke="#FFFFFF"
         strokeWidth="6"
         fill="none"
       />
@@ -26,10 +26,14 @@ export const LogoFRSVG = ({ className }) => {
           fontFamily="Arial, sans-serif"
           fontSize="85"
           fontWeight="100"
-          fill="#003d66"
+          fill="#FFFFFF"
         >
-          <tspan dx="" dy="-13">F</tspan>
-          <tspan dx="-15" dy="26.25">R</tspan>
+          <tspan dx="" dy="-13">
+            F
+          </tspan>
+          <tspan dx="-15" dy="26.25">
+            R
+          </tspan>
         </text>
       </g>
     </svg>
