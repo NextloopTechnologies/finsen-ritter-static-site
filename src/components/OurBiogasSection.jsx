@@ -12,7 +12,7 @@ const OurBiogasSection = () => {
       {/* Title and Description centered above the map */}
       <div className="max-w-xl text-center md:text-start mb-8">
         <div className="text-2xl md:text-4xl font-bold text-blue-900 mb-4">
-          Bio CNG plant In Indore
+          Driving Sustainable Energy Across India with Advanced Bio CNG Plants 
         </div>
         <div className="text-lg md:text-xl leading-relaxed">
           {HomeText.OurBiogasSolutionDescription}

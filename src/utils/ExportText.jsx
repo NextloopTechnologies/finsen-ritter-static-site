@@ -1,9 +1,13 @@
 export const HomeText = {
-  AboutUsSectionDescription: `Finsen Ritter specializes in industrial Biogas Plant Manufacturers, offering expertise in the design, supply, installation, and testing of chemical and gas plants. We look at energy use in a different way. There are a wide variety of reasons that makes us the most preferable Bio CNG Plant Manufacturers in Indore. We focus on energy savings and zero waste. By reusing energy, we help preserve natural resources while making life 
-  easier for our customers. Our mission is to serve as many people as possible with reliable, eco-friendly energy solutions `,
-  OurBiogasSolutionDescription: `FINSEN RITTER is not just a name of equipment and plants providing company. Our Bio CNG Plant in Indore will help you a lot. Through our sheer will and constant efforts to improve we have made our company the belief of various companies and individual farmers. 
-
-  Experience the most valuable Bio CNG Plant exporters and suppliers in Indore. We understand that to make people go fully sustainable we need more and more people to support us in this cause and hence we never compromise on the quality of our equipment in any case. In case you are wondering to install any sort of a plant for your energy need contact us we will assist you in every way possible. `,
+  AboutUsSectionDescription: `Finsen Ritter stands among the top biogas plant manufacturers in India, operating from Indore, Madhya Pradesh. We excel in the design, supply, installation, and testing of advanced Bio CNG plants and industrial gas solutions.
+  
+  Our group has a wealth of experience creating industrial nitrogen plant technology, PSA oxygen plants, and biogas purification systems. By emphasising sustainability and eco-friendly energy solutions, we assist Indian industries in achieving notable waste reduction and energy savings. We make it possible for companies to use green fuel solutions for a cleaner, more effective future by fostering continuous innovation. 
+  `,
+  OurBiogasSolutionDescription: `FINSEN RITTER is a recognized leader in delivering turnkey biogas plants and compressed biogas plants throughout India. With consistent innovation and quality assurance, we have gained the trust of numerous companies and individual farmers nationwide. 
+  
+  
+  Our experience includes offering renewable gas solutions and biogas upgradation plants that are suited to the changing energy requirements of Indian companies. To maximise energy recovery and minimise waste, we give sustainability and efficiency top priority in every project. For thorough assistance and specialised plant installations, get in touch with us if you intend to implement renewable energy solutions. 
+  `,
 };
 
 export const FooterText = {
@@ -13,20 +17,7 @@ export const FooterText = {
 };
 
 export const AboutUsText = {
-  AboutTheCompanyDescription: ` Finsen Ritter Technologies specializes in industrial turnkey
-          solutions. We have developed in-house expertise in the design, supply,
-          installation, and testing of chemical and gas plants. Our presence
-          spans Europe, Africa, and India, with a state-of-the-art design center
-          located in Amsterdam. We bring expertise in a diverse range of fields,
-          including oxygen, nitrogen, hydrogen, ANA, UVGI equipment, water
-          treatment, brewing equipment, solar power plants, milk chiller plants,
-          chlorination plants, biogas plants, Bio CNG plants, and noise
-          monitoring devices. Our commitment to innovation is rooted in Industry
-          4.0 standards, ensuring cutting-edge technology and exceptional
-          quality in every solution we deliver. At Finsen Ritter Technologies,
-          we are driven by a simple yet ambitious vision: to become the world’s
-          leading industrial gases and engineering firm, offering innovative and
-          eco-friendly solutions that add value to our partners and clients.`,
+  AboutTheCompanyDescription: `Finsen Ritter Technologies Pvt. Ltd. is a leading provider of industrial turnkey solutions, specializing in the design, supply, installation, and testing of advanced chemical and gas plants. With our state-of-the-art design centre in Amsterdam and a global presence in Europe, Africa, and India, we provide expertise in a wide range of fields, including hydrogen generation, oxygen, nitrogen, ANA systems, UVGI sterilisation equipment, water treatment, brewing and milk chiller plants, solar power systems, chlorination plants, and our flagship biogas and bio-CNG plants. In line with Industry 4.0 guidelines, our dedication to innovation propels the use of cutting-edge technology and guarantees exceptional quality in each turnkey project. As we want to become leading industrial gases and engineering organisation in the world, we have a clear vision: to provide our clients and partners with sustainable, eco-friendly, and innovative solutions that truly add value. `,
   OurVisionDescription: ` To be the top-performing engineering and industrial gases firm globally, enabling our employees to deliver advanced and sustainable solutions in a dynamic and interconnected world.`,
   OurMissionDescription: `To empower positive change worldwide through innovation and collaboration.`,
   OurValuesDescription: `Safety: Safety is our foremost priority. We are committed to preventing harm to individuals, communities, and the environment, firmly believing that all incidents are preventable. Across the globe, we continually strive to enhance our safety culture and performance.
